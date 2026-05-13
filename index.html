@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool House | 日本質感選品 ｜ 關注敏感肌</title>
+    <title>Cool House | 日本質感選品 ｜ 專注純淨成份</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,10 +13,27 @@
         
         .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 8px; font-size: 14px; letter-spacing: 2px; }
         
-        .banner-container { position: relative; overflow: hidden; width: 100%; height: 460px; }
-        @media (max-width: 768px) { .banner-container { height: 550px; } }
+        /* 比例修正版 Banner Container */
+        .banner-container { 
+            position: relative; 
+            overflow: hidden; 
+            width: 100%; 
+            aspect-ratio: 1080 / 500; /* 電腦版 1080x500 比例 */
+        }
+        @media (max-width: 768px) {
+            .banner-container { 
+                aspect-ratio: 1080 / 1350; /* 手機版 1080x1350 比例 */
+            }
+        }
 
-        .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
+        .banner-slide { 
+            position: absolute; 
+            inset: 0; 
+            opacity: 0; 
+            transition: opacity 1s ease-in-out; 
+            background-size: cover; 
+            background-position: center; 
+        }
         .banner-slide.active { opacity: 1; }
 
         .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
@@ -28,23 +45,28 @@
 </head>
 <body>
 
-    <!-- 新店免運費標語 -->
     <div class="promo-bar">新店期內！免運費大優惠！</div>
 
-    <!-- 1. Rotating Banner (已填入你的 Imgur 連結) -->
+    <!-- 1. Rotating Banner (已更新第四張相及比例) -->
     <section class="banner-container" id="hero-banner">
-        <div class="banner-slide active" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png"></div>
+        <div class="banner-slide active" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h2 class="text-white text-2xl md:text-5xl font-serif tracking-widest drop-shadow-lg px-4 text-center">Where Japanese Nature Meets Beauty</h2>
+            </div>
+        </div>
         <div class="banner-slide" data-pc="https://i.imgur.com/8r52Abm.png" data-mb="https://i.imgur.com/bGDYaOq.png"></div>
         <div class="banner-slide" data-pc="https://i.imgur.com/0V8WWee.png" data-mb="https://i.imgur.com/w0RsEAG.png"></div>
-        <div class="banner-slide" data-pc="https://i.imgur.com/Eyah5gg.png" data-mb="https://i.imgur.com/ypKPYhI.png"></div>
+        <!-- 更新後的第四張電腦相連結 -->
+        <div class="banner-slide" data-pc="https://i.imgur.com/1yqN7tx.png" data-mb="https://i.imgur.com/ypKPYhI.png"></div>
     </section>
 
-    <!-- 2. Our Story -->
-    <section class="container mx-auto px-6 py-16 text-center">
-        <h2 class="text-2xl md:text-3xl mb-8 font-bold border-b-2 border-[#b3c1a1] inline-block pb-2">COOK HOUSE : 日本質感選品 ｜ 關注敏感肌</h2>
-        <div class="max-w-3xl mx-auto leading-relaxed text-lg space-y-4">
-            <p>持有日本化妝品檢定特級 Cosme Concierge 資格的選品人，曾深受敏感肌、玫瑰痤瘡及蕁麻疹的困擾。</p>
-            <p>從走訪日本各地，嚴選注重 「品質」與「效能」 的純淨產品。讓妳在日本職人控制品質及成份中，找回肌膚最健康的狀態。</p>
+    <!-- 2. Our Story (更新版文案) -->
+    <section class="container mx-auto px-6 py-20 text-center">
+        <h2 class="text-3xl mb-4 font-serif" style="color: var(--headline);">Our Story</h2>
+        <p class="text-xl mb-8 font-bold" style="color: var(--btn);">日本質感選品 ｜ 專注純淨成份</p>
+        <div class="max-w-3xl mx-auto leading-relaxed text-lg space-y-6" style="color: var(--text);">
+            <p>主理人持有日本化妝品檢定<strong>「特級資格」</strong>，曾深受敏感肌、玫瑰痤瘡及蕁麻疹的困擾。</p>
+            <p>因為這份感同身受，我們親身走訪日本各地，嚴選注重 <strong>「品質」與「效能」</strong> 的純淨產品。讓妳在日本職人對品質與成份的執着中，找回肌膚最健康的狀態。</p>
         </div>
     </section>
 
@@ -57,83 +79,47 @@
             <button onclick="filter('supmile')" class="product-tab pb-2">Supmile</button>
             <button onclick="filter('beige')" class="product-tab pb-2">Beige+</button>
         </div>
-        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 產品卡片範本 -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- 產品範例 -->
             <div class="product-card bg-white p-4 rounded shadow-sm" data-cat="soel top">
                 <img src="https://i.imgur.com/VY45igg.png" class="w-full h-64 object-cover mb-4">
-                <h3 class="text-lg font-bold">Soel 有機芝麻護膚油</h3>
+                <h3 class="text-lg font-bold">Soel 有機修護芝麻油</h3>
                 <p class="text-sm opacity-75 mb-4">低溫冷壓萃取，高效滲透滋養</p>
                 <div class="flex justify-between items-center">
                     <span class="font-bold">HK$ (待填)</span>
-                    <a href="https://wa.me/852你的電話?text=我想訂購Soel有機芝麻護膚油" class="bg-[#b3c1a1] text-white px-4 py-2 rounded text-xs">WhatsApp 訂購</a>
+                    <a href="https://wa.me/852你的電話?text=我想訂購Soel有機修護芝麻油" class="bg-[#b3c1a1] text-white px-4 py-2 rounded text-xs">WhatsApp 訂購</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. 用家評價 -->
+    <!-- 4. 用家評價 (更新標題) -->
     <section class="bg-white py-16">
         <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-2xl text-center mb-12">用家真實評價</h2>
+            <h2 class="text-2xl text-center mb-12">Soel 有機修護芝麻油 真實用家感受</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed">
-                <div class="bg-[#f3efe8] p-6 rounded">
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
                     <p class="mb-4">⭐⭐⭐⭐⭐ Mrs. Lee：「味道好天然舒緩，幾滴就足夠塗抹全臉。精華油超好吸收、完全不黏膩。最神奇的是放工時冒出的細小濕疹，晚上按摩完，第二天起床竟然消失了！」</p>
                 </div>
-                <div class="bg-[#f3efe8] p-6 rounded">
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
                     <p class="mb-4">⭐⭐⭐⭐⭐ Ah Wing：「我是濕疹肌，轉季皮膚容易紅癢。相比之前用的韓國大品牌，Soel 的性價比高出很多。好推、不厚重，天然的味道非常舒服！」</p>
                 </div>
-                <div class="bg-[#f3efe8] p-6 rounded">
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
                     <p class="mb-4">⭐⭐⭐⭐⭐ Ms Chan：「朋友都見到我皮膚變好，個個都想試。持續使用後皮膚滋潤很多，開始有光澤水光感。」</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. 購物與入數流程 -->
-    <section class="container mx-auto px-6 py-16">
-        <h2 class="text-2xl text-center mb-12">訂購流程</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">1</div><p>WhatsApp 下單</p></div>
-            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">2</div><p>PayMe / FPS 付款</p></div>
-            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">3</div><p>下單後48小時內出貨<br><span class="text-xs">(順豐到付)</span></p></div>
-        </div>
-    </section>
-
-    <!-- 6. FAQ Section -->
-    <section class="bg-gray-50 py-16">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-2xl text-center mb-10">常見問題 FAQ</h2>
-            <div class="space-y-4 text-sm">
-                <details class="bg-white p-4 rounded shadow-sm">
-                    <summary class="font-bold cursor-pointer">Q1：Soel 有機芝麻護膚油會有芝麻味嗎？</summary>
-                    <p class="mt-2 opacity-80">A： 不會。Soel 採用低溫冷壓萃取生芝麻籽，僅保留淡淡植物清香與完整營養，並添加天然精油調配出療癒香氣。</p>
-                </details>
-                <details class="bg-white p-4 rounded shadow-sm">
-                    <summary class="font-bold cursor-pointer">Q2：這款護膚油會很黏膩嗎？我怕油感太重。</summary>
-                    <p class="mt-2 opacity-80">A： 完全不用擔心！分子細小能迅速被底層吸收。質地輕薄呈現的是健康飽滿的「透亮感」。</p>
-                </details>
-                <details class="bg-white p-4 rounded shadow-sm">
-                    <summary class="font-bold cursor-pointer">Q3：天然產品不含化學防腐劑，會不會很快變質？</summary>
-                    <p class="mt-2 opacity-80">A： 產品利用天然保濕成分及嚴選抗菌植物萃取，能強效抗氧化。建議客人留意包裝上的到期日即可。</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Footer (Cormorant Garamond 字體) -->
+    <!-- Footer -->
     <footer class="bg-[#3a3a3a] text-white py-16 text-center">
         <div class="footer-logo">COOL HOUSE</div>
         <div class="footer-sub">BEAUTY | MIND | JAPAN</div>
-        <div class="mt-8 flex justify-center space-x-6 text-sm opacity-60">
-            <a href="#">Instagram</a>
-            <a href="#">WhatsApp</a>
-        </div>
         <p class="mt-10 text-[10px] opacity-40">&copy; 2026 COOL HOUSE. All Rights Reserved.</p>
     </footer>
 
-    <!-- WhatsApp 浮動掣 -->
     <a href="https://wa.me/852你的電話" class="whatsapp-float">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.893 11.891-2.01 0-3.98-.51-5.725-1.479l-6.269 1.647zm6.657-3.41c1.554.921 3.13 1.386 4.686 1.386 5.398 0 9.791-4.397 9.791-9.801 0-5.405-4.393-9.801-9.791-9.801-2.617 0-5.076 1.021-6.924 2.873-1.849 1.851-2.868 4.314-2.868 6.928 0 1.734.45 3.398 1.303 4.811l-.993 3.626 3.797-.996z"/></svg>
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332-11.891-11.893 11.891-2.01 0-3.98-.51-5.725-1.479l-6.269 1.647zm6.657-3.41c1.554.921 3.13 1.386 4.686 1.386 5.398 0 9.791-4.397 9.791-9.801 0-5.405-4.393-9.801-9.791-9.801-2.617 0-5.076 1.021-6.924 2.873-1.849 1.851-2.868 4.314-2.868 6.928 0 1.734.45 3.398 1.303 4.811l-.993 3.626 3.797-.996z"/></svg>
     </a>
 
     <script>
