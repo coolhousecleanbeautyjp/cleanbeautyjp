@@ -1,227 +1,163 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool House | 日系天然高品質護理</title>
+    <title>Cool House | 日本質感選品 ｜ 關注敏感肌</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #f3efe8;
-            --headline-color: #3a3a3a;
-            --btn-color: #b3c1a1;
-            --text-main: #513322;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Noto Sans TC', sans-serif; /* 模擬源石ゴシック嘅簡約感 */
-        }
-        h1, h2, h3 {
-            font-family: 'Noto Serif TC', serif; /* 標題選用宋體增加高級感 */
-            color: var(--headline-color);
-        }
-        .product-tab.active {
-            border-bottom: 2px solid var(--btn-color);
-            color: var(--headline-color);
-            font-weight: bold;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-        .banner-slide { display: none; }
-        .banner-slide.active { display: block; }
+        :root { --bg: #f3efe8; --headline: #3a3a3a; --btn: #b3c1a1; --text: #513322; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans TC', sans-serif; margin: 0; }
+        h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); }
+        
+        .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 8px; font-size: 14px; letter-spacing: 2px; }
+        
+        .banner-container { position: relative; overflow: hidden; width: 100%; height: 460px; }
+        @media (max-width: 768px) { .banner-container { height: 550px; } }
+
+        .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
+        .banner-slide.active { opacity: 1; }
+
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
+        .footer-sub { font-size: 12px; letter-spacing: 6px; margin-top: 4px; opacity: 0.8; }
+        
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 999; }
+        .product-tab.active { border-bottom: 2px solid var(--btn); font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- 1. Rotating Banner -->
-    <section class="relative h-[60vh] overflow-hidden bg-gray-200">
-        <div id="banner-container">
-            <div class="banner-slide active h-[60vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080/e0e0e0/3a3a3a?text=Cool+House+日本製天然護理')">
-                <div class="text-center bg-white/30 backdrop-blur-sm p-8 rounded">
-                    <h2 class="text-4xl mb-2">純粹．療癒</h2>
-                    <p>專為敏感肌打造的高品質生活</p>
-                </div>
-            </div>
-            <div class="banner-slide h-[60vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080/dcdcdc/3a3a3a?text=高品質+100%25+天然成分')">
-                <div class="text-center bg-white/30 backdrop-blur-sm p-8 rounded">
-                    <h2 class="text-4xl mb-2">極致工藝</h2>
-                    <p>來自日本的職人精神</p>
-                </div>
-            </div>
-            <div class="banner-slide h-[60vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080/d4d4d4/3a3a3a?text=敏感肌適用首選')">
-                <div class="text-center bg-white/30 backdrop-blur-sm p-8 rounded">
-                    <h2 class="text-4xl mb-2">Cool House</h2>
-                    <p>給肌膚最溫柔的呵護</p>
-                </div>
-            </div>
-        </div>
+    <!-- 新店免運費標語 -->
+    <div class="promo-bar">新店期內！免運費大優惠！</div>
+
+    <!-- 1. Rotating Banner (已填入你的 Imgur 連結) -->
+    <section class="banner-container" id="hero-banner">
+        <div class="banner-slide active" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png"></div>
+        <div class="banner-slide" data-pc="https://i.imgur.com/8r52Abm.png" data-mb="https://i.imgur.com/bGDYaOq.png"></div>
+        <div class="banner-slide" data-pc="https://i.imgur.com/0V8WWee.png" data-mb="https://i.imgur.com/w0RsEAG.png"></div>
+        <div class="banner-slide" data-pc="https://i.imgur.com/Eyah5gg.png" data-mb="https://i.imgur.com/ypKPYhI.png"></div>
     </section>
 
     <!-- 2. Our Story -->
-    <section class="container mx-auto px-6 py-20 text-center">
-        <h2 class="text-3xl mb-6">Our Story</h2>
-        <p class="max-w-2xl mx-auto text-lg leading-relaxed">
-            Cool House 誕生於對純粹生活的追求。我們堅持日本製造，嚴選大自然賦予的天然成分。每一款產品都經過嚴格測試，確保敏感肌也能安心享用高品質的療癒體驗。
-        </p>
+    <section class="container mx-auto px-6 py-16 text-center">
+        <h2 class="text-2xl md:text-3xl mb-8 font-bold border-b-2 border-[#b3c1a1] inline-block pb-2">COOK HOUSE : 日本質感選品 ｜ 關注敏感肌</h2>
+        <div class="max-w-3xl mx-auto leading-relaxed text-lg space-y-4">
+            <p>持有日本化妝品檢定特級 Cosme Concierge 資格的選品人，曾深受敏感肌、玫瑰痤瘡及蕁麻疹的困擾。</p>
+            <p>從走訪日本各地，嚴選注重 「品質」與「效能」 的純淨產品。讓妳在日本職人控制品質及成份中，找回肌膚最健康的狀態。</p>
+        </div>
     </section>
 
-    <!-- 3. Product Categories (Tabs) -->
-    <section class="container mx-auto px-6 py-10">
-        <div class="flex justify-center space-x-8 mb-12 border-b border-gray-200">
-            <button onclick="filterProduct('all')" class="product-tab active pb-2">全部產品</button>
-            <button onclick="filterProduct('soel')" class="product-tab pb-2">Soel 系列</button>
-            <button onclick="filterProduct('styling')" class="product-tab pb-2">造型系列</button>
-            <button onclick="filterProduct('care')" class="product-tab pb-2">頭皮護理</button>
+    <!-- 3. Category Tabs -->
+    <section class="container mx-auto px-6 py-8">
+        <div class="flex justify-center space-x-6 mb-10 border-b border-gray-200 text-sm overflow-x-auto whitespace-nowrap">
+            <button onclick="filter('all')" class="product-tab active pb-2">全部產品</button>
+            <button onclick="filter('top')" class="product-tab pb-2">王牌熱賣</button>
+            <button onclick="filter('soel')" class="product-tab pb-2">Soel</button>
+            <button onclick="filter('supmile')" class="product-tab pb-2">Supmile</button>
+            <button onclick="filter('beige')" class="product-tab pb-2">Beige+</button>
         </div>
-
-        <!-- 4. 13 Product Grid -->
-        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- 產品範本 (會重複 13 次，這裡示範不同分類) -->
-            <!-- 產品 1 -->
-            <div class="product-card bg-white p-4 rounded shadow-sm" data-category="soel">
-                <img src="https://placehold.co/600x400/fdfbf7/513322?text=Soel+Lily+Musk" alt="Soel" class="w-full h-64 object-cover mb-4">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] bg-[#f3efe8] px-2 py-1 rounded">敏感肌適用</span>
-                    <span class="text-[10px] bg-[#b3c1a1]/20 px-2 py-1 rounded">天然由來</span>
-                </div>
-                <h3 class="text-xl mb-2">Soel Lily Musk 護髮油</h3>
-                <p class="text-sm mb-4 opacity-80">日本流行的「束感」造型，深層修復燙染受損。</p>
-                <div class="flex justify-between items-center mt-auto">
-                    <span class="text-lg font-bold">HK$ 280</span>
-                    <a href="https://wa.me/852你的電話?text=我想訂購Soel護髮油" class="bg-[#b3c1a1] text-white px-4 py-2 rounded text-sm hover:opacity-80 transition">WhatsApp 訂購</a>
-                </div>
-            </div>
-            
-            <!-- 這裡可以複製多個產品卡片，修改 data-category 即可 -->
-            <!-- 範例：重複 12 次... -->
-             <div class="product-card bg-white p-4 rounded shadow-sm" data-category="styling">
-                <img src="https://placehold.co/600x400/fdfbf7/513322?text=Styling+Balm" class="w-full h-64 object-cover mb-4">
-                <h3 class="text-xl mb-2">質感造型髮蠟</h3>
-                <p class="text-sm mb-4">高品質天然油脂，輕盈不黏膩。</p>
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 產品卡片範本 -->
+            <div class="product-card bg-white p-4 rounded shadow-sm" data-cat="soel top">
+                <img src="https://i.imgur.com/VY45igg.png" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-lg font-bold">Soel 有機芝麻護膚油</h3>
+                <p class="text-sm opacity-75 mb-4">低溫冷壓萃取，高效滲透滋養</p>
                 <div class="flex justify-between items-center">
-                    <span class="text-lg font-bold">HK$ 198</span>
-                    <a href="#" class="bg-[#b3c1a1] text-white px-4 py-2 rounded text-sm">WhatsApp 訂購</a>
+                    <span class="font-bold">HK$ (待填)</span>
+                    <a href="https://wa.me/852你的電話?text=我想訂購Soel有機芝麻護膚油" class="bg-[#b3c1a1] text-white px-4 py-2 rounded text-xs">WhatsApp 訂購</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Testimonials -->
-    <section class="bg-white py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl text-center mb-12">皇牌推薦</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="text-center">
-                    <img src="https://placehold.co/100x100" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p class="italic">「用咗之後髮尾真係順滑咗好多，陣香味好高級！」</p>
-                    <p class="mt-2 font-bold text-sm">- Miss Chan</p>
+    <!-- 4. 用家評價 -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-2xl text-center mb-12">用家真實評價</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed">
+                <div class="bg-[#f3efe8] p-6 rounded">
+                    <p class="mb-4">⭐⭐⭐⭐⭐ Mrs. Lee：「味道好天然舒緩，幾滴就足夠塗抹全臉。精華油超好吸收、完全不黏膩。最神奇的是放工時冒出的細小濕疹，晚上按摩完，第二天起床竟然消失了！」</p>
                 </div>
-                <div class="text-center">
-                    <img src="https://placehold.co/100x100" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p class="italic">「敏感頭皮都唔會痕，日本嘢真係高品質。」</p>
-                    <p class="mt-2 font-bold text-sm">- Mrs. Lee</p>
+                <div class="bg-[#f3efe8] p-6 rounded">
+                    <p class="mb-4">⭐⭐⭐⭐⭐ Ah Wing：「我是濕疹肌，轉季皮膚容易紅癢。相比之前用的韓國大品牌，Soel 的性價比高出很多。好推、不厚重，天然的味道非常舒服！」</p>
                 </div>
-                <div class="text-center">
-                    <img src="https://placehold.co/100x100" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p class="italic">「好鍾意佢個質感，好容易推開。」</p>
-                    <p class="mt-2 font-bold text-sm">- Ah Wing</p>
+                <div class="bg-[#f3efe8] p-6 rounded">
+                    <p class="mb-4">⭐⭐⭐⭐⭐ Ms Chan：「朋友都見到我皮膚變好，個個都想試。持續使用後皮膚滋潤很多，開始有光澤水光感。」</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Payment Process -->
-    <section class="container mx-auto px-6 py-20">
-        <h2 class="text-3xl text-center mb-12">購物流程</h2>
-        <div class="flex flex-col md:flex-row justify-around items-center space-y-10 md:space-y-0">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">1</div>
-                <p>WhatsApp 下單</p>
-            </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">2</div>
-                <p>PayMe / FPS 付款</p>
-            </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4">3</div>
-                <p>順豐到付</p>
-            </div>
+    <!-- 5. 購物與入數流程 -->
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-2xl text-center mb-12">訂購流程</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">1</div><p>WhatsApp 下單</p></div>
+            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">2</div><p>PayMe / FPS 付款</p></div>
+            <div><div class="w-12 h-12 bg-[#b3c1a1] text-white rounded-full flex items-center justify-center mx-auto mb-4">3</div><p>下單後48小時內出貨<br><span class="text-xs">(順豐到付)</span></p></div>
         </div>
     </section>
 
-    <!-- 7. FAQ Section -->
-    <section class="bg-gray-50 py-20">
+    <!-- 6. FAQ Section -->
+    <section class="bg-gray-50 py-16">
         <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-3xl text-center mb-12">常見問題 FAQ</h2>
-            <div class="space-y-4">
+            <h2 class="text-2xl text-center mb-10">常見問題 FAQ</h2>
+            <div class="space-y-4 text-sm">
                 <details class="bg-white p-4 rounded shadow-sm">
-                    <summary class="font-bold cursor-pointer">敏感肌膚可以使用嗎？</summary>
-                    <p class="mt-2 text-sm">可以。我們所有產品均採用 100% 天然由來成分，無添加化學香料。</p>
+                    <summary class="font-bold cursor-pointer">Q1：Soel 有機芝麻護膚油會有芝麻味嗎？</summary>
+                    <p class="mt-2 opacity-80">A： 不會。Soel 採用低溫冷壓萃取生芝麻籽，僅保留淡淡植物清香與完整營養，並添加天然精油調配出療癒香氣。</p>
                 </details>
                 <details class="bg-white p-4 rounded shadow-sm">
-                    <summary class="font-bold cursor-pointer">產品的使用期限是多久？</summary>
-                    <p class="mt-2 text-sm">未開封可保存 3 年，建議開封後於 12 個月內使用完畢。</p>
+                    <summary class="font-bold cursor-pointer">Q2：這款護膚油會很黏膩嗎？我怕油感太重。</summary>
+                    <p class="mt-2 opacity-80">A： 完全不用擔心！分子細小能迅速被底層吸收。質地輕薄呈現的是健康飽滿的「透亮感」。</p>
+                </details>
+                <details class="bg-white p-4 rounded shadow-sm">
+                    <summary class="font-bold cursor-pointer">Q3：天然產品不含化學防腐劑，會不會很快變質？</summary>
+                    <p class="mt-2 opacity-80">A： 產品利用天然保濕成分及嚴選抗菌植物萃取，能強效抗氧化。建議客人留意包裝上的到期日即可。</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- 8. Footer -->
-    <footer class="bg-[#3a3a3a] text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-2xl mb-4">Cool House</div>
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="hover:text-[#b3c1a1]">Instagram</a>
-                <a href="#" class="hover:text-[#b3c1a1]">Facebook</a>
-            </div>
-            <p class="text-xs opacity-50">&copy; 2026 Cool House Japan. All Rights Reserved.</p>
+    <!-- 7. Footer (Cormorant Garamond 字體) -->
+    <footer class="bg-[#3a3a3a] text-white py-16 text-center">
+        <div class="footer-logo">COOL HOUSE</div>
+        <div class="footer-sub">BEAUTY | MIND | JAPAN</div>
+        <div class="mt-8 flex justify-center space-x-6 text-sm opacity-60">
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
         </div>
+        <p class="mt-10 text-[10px] opacity-40">&copy; 2026 COOL HOUSE. All Rights Reserved.</p>
     </footer>
 
-    <!-- 9. Floating WhatsApp Button -->
+    <!-- WhatsApp 浮動掣 -->
     <a href="https://wa.me/852你的電話" class="whatsapp-float">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.893 11.891-2.01 0-3.98-.51-5.725-1.479l-6.269 1.647zm6.657-3.41c1.554.921 3.13 1.386 4.686 1.386 5.398 0 9.791-4.397 9.791-9.801 0-5.405-4.393-9.801-9.791-9.801-2.617 0-5.076 1.021-6.924 2.873-1.849 1.851-2.868 4.314-2.868 6.928 0 1.734.45 3.398 1.303 4.811l-.993 3.626 3.797-.996z"/></svg>
     </a>
 
     <script>
-        // Banner Slider
-        let currentSlide = 0;
+        function updateBanners() {
+            const isMobile = window.innerWidth < 768;
+            document.querySelectorAll('.banner-slide').forEach(slide => {
+                slide.style.backgroundImage = `url('${isMobile ? slide.dataset.mb : slide.dataset.pc}')`;
+            });
+        }
+        let current = 0;
         const slides = document.querySelectorAll('.banner-slide');
         setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 3000);
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 4000);
+        window.addEventListener('resize', updateBanners);
+        window.addEventListener('DOMContentLoaded', updateBanners);
 
-        // Product Filter
-        function filterProduct(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const tabs = document.querySelectorAll('.product-tab');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
+        function filter(cat) {
+            document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+            document.querySelectorAll('.product-card').forEach(c => {
+                c.style.display = (cat === 'all' || c.dataset.cat.includes(cat)) ? 'block' : 'none';
             });
         }
     </script>
