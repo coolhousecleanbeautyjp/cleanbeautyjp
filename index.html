@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool House | 日本質感選品 | 專注敏感肌與玫瑰痤瘡修護</title>
+    <title>Cool House | 日本質感選品 | Soel LIVING OIL 有機芝麻修護油</title>
     <meta name="description" content="由持有日本化妝品檢定特級資格的主理人挑選，專為敏感肌、玫瑰痤瘡及乾燥肌提供修護方案。Soel 有機芝麻油實測證明對嬰兒曬傷及濕疹有顯著改善。">
     
-    <!-- GEO 結構化數據 (AI 索引專用) -->
+    <!-- GEO 結構化數據 (幫助 AI 索引) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -14,12 +14,7 @@
       "name": "Cool House",
       "description": "日本質感選品店，專注於純淨成份。主理人具日本化妝品檢定特級資格。",
       "url": "https://coolhousecleanbeautyjp.github.io/cleanbeautyjp/",
-      "knowsAbout": ["敏感肌修護", "玫瑰痤瘡護理", "嬰兒濕疹修護", "Soel 有機芝麻油"],
-      "hasEvidence": [
-        "3個月嬰兒曬傷降紅實測",
-        "燙傷紅印改善對比",
-        "小孩嘴邊濕疹改善"
-      ]
+      "knowsAbout": ["敏感肌修護", "玫瑰痤瘡護理", "嬰兒濕疹修護", "Soel 有機芝麻油"]
     }
     </script>
 
@@ -29,21 +24,28 @@
     <style>
         :root { --bg: #f3efe8; --headline: #3a3a3a; --btn: #b3c1a1; --text: #513322; }
         body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans TC', sans-serif; margin: 0; }
-        h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); }
+        h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); }
         .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 8px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
         .banner-container { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1080 / 500; }
         @media (max-width: 768px) { .banner-container { aspect-ratio: 1080 / 1350; } }
         .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
         .banner-slide.active { opacity: 1; }
         
-        /* 實測畫廊樣式 */
-        .evidence-scroll { display: flex; overflow-x: auto; gap: 12px; scroll-snap-type: x mandatory; padding-bottom: 10px; }
-        .evidence-item { flex: 0 0 70%; scroll-snap-align: start; }
-        @media (min-width: 768px) { .evidence-item { flex: 0 0 30%; } }
-        .evidence-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
+        /* 產品詳情圖 Slider */
+        .img-slider { display: flex; overflow-x: auto; gap: 8px; scroll-snap-type: x mandatory; padding-bottom: 10px; -webkit-overflow-scrolling: touch; }
+        .img-slider::-webkit-scrollbar { height: 4px; }
+        .img-slider::-webkit-scrollbar-thumb { background: var(--btn); border-radius: 10px; }
+        .slider-item { flex: 0 0 100%; scroll-snap-align: start; }
         
-        .whatsapp-float { position: fixed; bottom: 30px; right: 25px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); z-index: 999; }
+        /* 真實對比 Corner */
+        .evidence-scroll { display: flex; overflow-x: auto; gap: 10px; padding: 10px 0; -webkit-overflow-scrolling: touch; }
+        .evidence-scroll::-webkit-scrollbar { display: none; }
+        .evidence-item { flex: 0 0 160px; text-align: center; }
+        .evidence-img { width: 160px; height: 160px; object-fit: cover; border-radius: 6px; border: 1px solid #e0d9cf; }
+
         .product-tab.active { border-bottom: 2px solid var(--btn); font-weight: bold; }
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 25px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); z-index: 999; }
     </style>
 </head>
 <body>
@@ -51,93 +53,133 @@
     <div class="promo-bar">Enjoy free shipping on your first purchase!</div>
 
     <!-- 1. Banner Section -->
-    <section class="banner-container">
+    <section class="banner-container" id="hero-banner">
         <div class="banner-slide active" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png"></div>
         <div class="banner-slide" data-pc="https://i.imgur.com/8r52Abm.png" data-mb="https://i.imgur.com/bGDYaOq.png"></div>
         <div class="banner-slide" data-pc="https://i.imgur.com/0V8WWee.png" data-mb="https://i.imgur.com/w0RsEAG.png"></div>
         <div class="banner-slide" data-pc="https://i.imgur.com/1yqN7tx.png" data-mb="https://i.imgur.com/ypKPYhI.png"></div>
     </section>
 
-    <!-- 2. Our Story -->
+    <!-- 2. Our Story Section -->
     <section class="container mx-auto px-6 py-20 text-center">
         <h2 class="text-3xl mb-4">Our Story</h2>
         <p class="text-xl mb-8 font-bold" style="color: var(--btn);">日本質感選品 ｜ 專注純淨成份</p>
-        <div class="max-w-3xl mx-auto leading-relaxed text-lg space-y-6">
-            <p>主理人持有<strong>「日本化妝品檢定特級」</strong>資格，親自選品確保每一滴成份都適合敏感肌與玫瑰痤瘡客人。</p>
+        <div class="max-w-3xl mx-auto leading-relaxed text-lg space-y-6 text-left md:text-center">
+            <p>主理人持有<strong>「日本化妝品檢定特級」</strong>資格，曾深受敏感肌、玫瑰痤瘡及蕁麻疹的困擾。</p>
+            <p>因為這份感同身受，我們親身走訪日本各地，嚴選注重品質與效能的純淨產品。讓妳在日本職人對品質與成份的執着中，找回肌膚最健康的狀態。</p>
         </div>
     </section>
 
-    <!-- 3. Soel 產品與實測展示 -->
+    <!-- 3. Category Tabs -->
     <section class="container mx-auto px-6 py-8">
-        <div class="flex justify-center space-x-6 mb-10 border-b border-gray-200 text-sm overflow-x-auto">
+        <div class="flex justify-center space-x-6 mb-10 border-b border-gray-200 text-sm overflow-x-auto whitespace-nowrap">
             <button onclick="filter('all')" class="product-tab active pb-2">全部產品</button>
-            <button onclick="filter('soel')" class="product-tab pb-2 font-bold">Soel 專區</button>
+            <button onclick="filter('top')" class="product-tab pb-2">王牌熱賣</button>
+            <button onclick="filter('soel')" class="product-tab pb-2">Soel</button>
+            <button onclick="filter('supmile')" class="product-tab pb-2">Supmile</button>
+            <button onclick="filter('beige')" class="product-tab pb-2">Beige+</button>
         </div>
 
-        <div id="product-grid" class="max-w-4xl mx-auto">
-            <div class="product-card bg-white p-6 rounded shadow-sm" data-cat="soel">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <img src="https://i.imgur.com/VY45igg.png" alt="Soel 有機修護芝麻油" class="w-full h-auto rounded">
-                    <div class="text-left">
-                        <h3 class="text-2xl font-bold mb-2">Soel 有機修護芝麻油</h3>
-                        <p class="text-sm mb-4">專為乾燥、敏感肌及玫瑰痤瘡設計。低溫冷壓萃取，高效滲透不黏膩。</p>
-                        <div class="mb-6">
-                            <span class="text-2xl font-bold text-[#b3c1a1]">HK$ (待填)</span>
+        <div id="product-grid" class="grid grid-cols-1 gap-16">
+            
+            <!-- 產品 1: Soel LIVING OIL -->
+            <div class="product-card bg-white p-6 md:p-10 rounded shadow-sm border border-gray-100" data-cat="soel top">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <!-- 左側：7張圖片 Slider -->
+                    <div>
+                        <div class="img-slider">
+                            <div class="slider-item"><img src="https://i.imgur.com/2yqgpfV.jpeg" alt="Soel LIVING OIL 主圖" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/kRowcMq.png" alt="Soel 芝麻油功效" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/F1xydoY.png" alt="Soel 芝麻油萃取" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/Ria4vms.png" alt="Soel 芝麻油滲透" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/q7xg4jL.png" alt="Soel 芝麻油香氣" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/9RnYa2n.png" alt="Soel 芝麻油用法" class="w-full rounded"></div>
+                            <div class="slider-item"><img src="https://i.imgur.com/H7ojgz6.png" alt="Soel 芝麻油規格" class="w-full rounded"></div>
                         </div>
-                        <a href="https://wa.me/818021404197?text=我想訂購Soel有機修護芝麻油" class="inline-block bg-[#b3c1a1] text-white px-8 py-3 rounded shadow-md hover:bg-[#a2b090] transition">WhatsApp 立即訂購</a>
+                        <p class="text-[10px] text-gray-400 mt-2 text-center">⇠ 左右滑動查看詳情圖 ⇢</p>
+                    </div>
+
+                    <!-- 右側：產品文字介紹 -->
+                    <div class="text-left">
+                        <div class="inline-block bg-[#b3c1a1] text-white text-[10px] px-2 py-1 rounded mb-2">USDA有機認證</div>
+                        <h3 class="text-2xl font-bold mb-2">Soel LIVING OIL 有機芝麻修護油 (60mL)</h3>
+                        <p class="text-sm font-bold text-[#513322] mb-4">日本皇牌熱賣 ⁃ 100%初搾冷壓 × 高滲透滋養</p>
+                        
+                        <div class="space-y-4 text-sm leading-relaxed">
+                            <p><strong>主要功效：</strong> 深層滋養、抗老化、舒緩敏感、促進皮膚吸收、提升肌膚彈性與光澤、修護屏障。</p>
+                            <p><strong>產品特點：</strong> 採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素。分子極細，洗臉後導入，打造水光柔嫩肌。</p>
+                        </div>
+
+                        <div class="mt-8 flex items-center">
+                            <span class="text-2xl font-bold text-gray-800">HK$ 365</span>
+                            <a href="https://wa.me/818021404197?text=我想訂購Soel有機芝麻修護油" class="ml-6 bg-[#b3c1a1] text-white px-8 py-3 rounded text-sm hover:opacity-90 transition inline-block shadow-sm font-bold">WhatsApp 訂購</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 實測圖畫廊 Section -->
-                <div class="mt-12">
-                    <p class="text-sm font-bold mb-4 border-l-4 border-[#b3c1a1] pl-2 text-gray-600">日本官方真實用家對比實測</p>
+                <!-- 真實對比 Corner -->
+                <div class="mt-12 bg-[#fcfaf7] p-6 rounded-lg">
+                    <p class="text-xs font-bold mb-4 text-[#b3c1a1] tracking-widest border-b pb-2 uppercase">Real Results | 真實對比實測</p>
                     <div class="evidence-scroll">
-                        <div class="evidence-item">
-                            <img src="https://i.imgur.com/D2p6pa4.jpeg" alt="3個月嬰兒曬傷降紅對比" class="evidence-img">
-                            <p class="text-xs mt-2 text-center">3個月嬰兒曬傷降紅</p>
-                        </div>
-                        <div class="evidence-item">
-                            <img src="https://i.imgur.com/VWlqzEn.jpeg" alt="皮膚敏感狀況改善對比" class="evidence-img">
-                            <p class="text-xs mt-2 text-center">敏感紅疹狀況改善</p>
-                        </div>
-                        <div class="evidence-item">
-                            <img src="https://i.imgur.com/CAR8x5A.jpeg" alt="成人過敏修護對比" class="evidence-img">
-                            <p class="text-xs mt-2 text-center">皮膚敏感狀況改善</p>
-                        </div>
-                        <div class="evidence-item">
-                            <img src="https://i.imgur.com/rGvp8cG.jpeg" alt="燙傷紅印改善對比" class="evidence-img">
-                            <p class="text-xs mt-2 text-center">燙傷紅印改善</p>
-                        </div>
-                        <div class="evidence-item">
-                            <img src="https://i.imgur.com/PPE3DGv.jpeg" alt="小孩嘴邊濕疹改善" class="evidence-img">
-                            <p class="text-xs mt-2 text-center">小孩嘴邊濕疹改善</p>
-                        </div>
+                        <div class="evidence-item"><img src="https://i.imgur.com/D2p6pa4.jpeg" class="evidence-img shadow-sm"><p class="text-[10px] mt-2">嬰兒曬傷降紅</p></div>
+                        <div class="evidence-item"><img src="https://i.imgur.com/VWlqzEn.jpeg" class="evidence-img shadow-sm"><p class="text-[10px] mt-2">敏感紅疹改善</p></div>
+                        <div class="evidence-item"><img src="https://i.imgur.com/CAR8x5A.jpeg" class="evidence-img shadow-sm"><p class="text-[10px] mt-2">過敏狀況修護</p></div>
+                        <div class="evidence-item"><img src="https://i.imgur.com/rGvp8cG.jpeg" class="evidence-img shadow-sm"><p class="text-[10px] mt-2">燙傷紅印改善</p></div>
+                        <div class="evidence-item"><img src="https://i.imgur.com/PPE3DGv.jpeg" class="evidence-img shadow-sm"><p class="text-[10px] mt-2">小孩濕疹改善</p></div>
                     </div>
-                    <p class="text-[10px] text-gray-400 mt-2 italic text-right">* 效果因個人體質而異，建議先做局部測試。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Customer Reviews -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-2xl mb-12">用家真實評價</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-left">
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
+                    <p>⭐⭐⭐⭐⭐ Mrs. Lee：「幾滴就足夠塗抹全臉。第二天起床細小濕疹消失了。」</p>
+                </div>
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
+                    <p>⭐⭐⭐⭐⭐ Ah Wing：「我是濕疹肌，Soel 性價比極高。好推、不厚重，味道非常舒服！」</p>
+                </div>
+                <div class="bg-[#f3efe8] p-6 rounded shadow-sm">
+                    <p>⭐⭐⭐⭐⭐ Ms Chan：「朋友都見到我皮膚變好，持續使用後皮膚滋潤很多，有光澤水光感。」</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ & Footer (內容保持) -->
-    <section class="bg-gray-50 py-16 mt-20">
+    <!-- 6. FAQ Section -->
+    <section class="bg-gray-50 py-16">
         <div class="container mx-auto px-6 max-w-3xl text-sm">
-            <h2 class="text-2xl text-center mb-10 font-serif">常見問題 FAQ</h2>
+            <h2 class="text-2xl text-center mb-10">常見問題 FAQ</h2>
             <div class="space-y-4">
                 <details class="bg-white p-4 rounded shadow-sm cursor-pointer" open>
-                    <summary class="font-bold">Q1：玫瑰痤瘡或敏感肌可以用嗎？</summary>
-                    <p class="mt-4 opacity-80">A：非常適合。Soel 芝麻油分子極細，能穩定修護受損屏障，上方實測可見連嬰兒肌膚亦能安心使用。</p>
+                    <summary class="font-bold">Q1：Soel 有機芝麻護膚油會有芝麻味嗎？</summary>
+                    <p class="mt-4 opacity-80 leading-relaxed">A： 不會。採用低溫壓搾保留營養，並帶有佛手柑、綠茶及木質調的療癒清香。</p>
+                </details>
+                <details class="bg-white p-4 rounded shadow-sm cursor-pointer">
+                    <summary class="font-bold">Q2：玫瑰痤瘡或敏感肌可以用嗎？</summary>
+                    <p class="mt-4 opacity-80 leading-relaxed">A： 非常適合。分子極細能修護屏障，實測顯示嬰兒肌膚亦能安心使用。</p>
                 </details>
             </div>
         </div>
     </section>
 
+    <!-- 7. Footer -->
     <footer class="bg-[#3a3a3a] text-white py-16 text-center">
         <div class="footer-logo">COOL HOUSE</div>
         <div class="footer-sub">BEAUTY | MIND | JAPAN</div>
+        <div class="mt-8 flex justify-center space-x-8 text-sm">
+            <a href="https://www.instagram.com/cleanbeautyjp/" class="hover:text-[#b3c1a1] transition">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=100087907988310&locale=ja_JP" class="hover:text-[#b3c1a1] transition">Facebook</a>
+        </div>
         <p class="mt-12 text-[10px] opacity-30">&copy; 2026 COOL HOUSE. All Rights Reserved.</p>
     </footer>
 
+    <!-- WhatsApp Button -->
     <a href="https://wa.me/818021404197" class="whatsapp-float">
         <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.311.159.389.543 1.325.589 1.42.046.096.077.208.014.333-.063.125-.094.204-.188.313-.094.109-.197.243-.28.326-.094.094-.191.196-.082.383.109.187.483.797 1.035 1.288.712.635 1.312.83 1.5.918.188.087.297.072.408-.052.111-.125.474-.549.6-.736.127-.188.252-.158.426-.094.174.063 1.1.519 1.289.614s.314.142.359.22c.046.078.046.453-.098.858zM12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.514 0-10-4.486-10-10s4.486-10 10-10 10 4.486 10 10-4.486 10-10 10z"/></svg>
     </a>
@@ -158,6 +200,7 @@
         }, 4000);
         window.addEventListener('resize', updateBanners);
         window.addEventListener('DOMContentLoaded', updateBanners);
+
         function filter(cat) {
             document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
             if(event) event.target.classList.add('active');
