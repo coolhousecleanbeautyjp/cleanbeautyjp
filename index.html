@@ -19,7 +19,7 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600&family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600&family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -40,28 +40,40 @@
         .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
         .banner-slide.active { opacity: 1; }
 
-        /* 專業產品畫廊 (大圖 + 細圖) */
-        .gallery-container { width: 100%; }
-        .main-img-box { width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 8px; background: white; border: 1px solid #e0d9cf; margin-bottom: 12px; }
+        /* 專業產品畫廊 (大圖 + 細圖 + 左右按鈕) */
+        .gallery-container { width: 100%; position: relative; }
+        .main-img-box { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 8px; background: white; border: 1px solid #e0d9cf; margin-bottom: 12px; cursor: zoom-in; }
         .main-img-box img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.3s; }
-        .thumb-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
-        .thumb-item { aspect-ratio: 1/1; border-radius: 4px; overflow: hidden; border: 1px solid #e0d9cf; cursor: pointer; transition: border-color 0.2s; opacity: 0.6; }
+        
+        /* 左右切換按鈕 */
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: 1px solid #e0d9cf; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--headline); font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.2s; z-index: 10; opacity: 0; }
+        .gallery-container:hover .nav-btn { opacity: 1; }
+        .nav-btn:hover { background: var(--btn); color: white; border-color: var(--btn); }
+        .nav-prev { left: 10px; }
+        .nav-next { right: 10px; }
+
+        .thumb-grid { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
+        .thumb-grid::-webkit-scrollbar { display: none; }
+        .thumb-item { flex: 0 0 calc(20% - 6.4px); aspect-ratio: 1/1; border-radius: 4px; overflow: hidden; border: 1px solid #e0d9cf; cursor: pointer; transition: border-color 0.2s; opacity: 0.6; }
         .thumb-item:hover, .thumb-item.active { border-color: var(--btn); opacity: 1; border-width: 2px; }
         .thumb-item img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* 全螢幕大圖 (Lightbox) */
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; cursor: zoom-out; }
+        .lightbox img { max-width: 95%; max-height: 95vh; object-fit: contain; border-radius: 4px; }
+
         /* 摺疊選單 (Accordion) */
-        details.prod-details summary { list-style: none; outline: none; border-bottom: 1px solid #e0d9cf; padding: 12px 0; font-weight: 400; color: var(--headline); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        details.prod-details summary { list-style: none; outline: none; border-bottom: 1px solid #e0d9cf; padding: 14px 0; font-weight: 700; color: var(--headline); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; }
         details.prod-details summary::-webkit-details-marker { display: none; }
-        details.prod-details[open] summary { border-bottom: none; }
+        details.prod-details[open] summary { border-bottom: none; color: var(--btn-hover); }
         .details-content { padding-bottom: 15px; color: var(--text-light); line-height: 1.8; font-size: 14px; }
-        .plus-icon { color: var(--btn); font-size: 20px; transition: transform 0.3s; }
+        .plus-icon { color: var(--btn); font-size: 20px; transition: transform 0.3s; font-weight: 300;}
         details[open] .plus-icon { transform: rotate(45deg); }
 
         /* 其他通用樣式 */
-        .product-tab.active { border-bottom: 2px solid var(--btn); color: var(--headline); font-weight: 400; }
+        .product-tab.active { border-bottom: 2px solid var(--btn); color: var(--headline); font-weight: 700; }
         .whatsapp-float { position: fixed; bottom: 30px; right: 25px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); z-index: 999; }
         
-        /* 區塊背景色 */
         .section-white { background-color: #ffffff; }
         .section-offwhite { background-color: #f9f7f4; }
     </style>
@@ -93,8 +105,13 @@
         <button onclick="filter('supmile', this)" class="product-tab pb-2">Supmile</button>
         <button onclick="filter('beige', this)" class="product-tab pb-2">Beige+</button>
     </div>
+    
     <div id="product-grid" class="grid grid-cols-1 gap-24"></div>
 </section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged Image">
+</div>
 
 <section class="section-white py-16">
     <div class="container mx-auto px-6 max-w-5xl">
@@ -150,15 +167,11 @@
     <div class="mt-8 flex justify-center space-x-6">
         <a href="https://www.instagram.com/你的IG帳號/" target="_blank" class="text-white hover:text-[#b3c1a1] transition duration-300">
             <span class="sr-only">Instagram</span>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-            </svg>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
         </a>
         <a href="https://www.facebook.com/你的FB帳號/" target="_blank" class="text-white hover:text-[#b3c1a1] transition duration-300">
             <span class="sr-only">Facebook</span>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-            </svg>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
         </a>
     </div>
 
@@ -171,16 +184,15 @@
 
 <script>
 // ================================================
-// 產品資料庫
+// 產品資料庫 (支援陣列 Badge 及 ✧ 號分隔)
 // ================================================
 const PRODUCTS = [
     {
         id: "soel-oil",
-        nameEn: "SOEL LIVING OIL SESAME OIL",
-        nameZh: "有機修護芝麻油 (60mL)",
+        nameEn: "soel LIVING-OIL sesame oil",
+        nameZh: "有機芝麻修護油 60mL",
         category: "soel top",
-        badge: "王牌熱賣",
-        tagline: "日本皇牌熱賣 ⁃ 100%初搾冷壓 × 高滲透滋養",
+        badges: ["USDA有機認證", "以油養膚", "敏感肌、孕婦小孩適用"],
         price: "HK$ 365",
         images: [
             "https://i.imgur.com/2yqgpfV.jpeg",
@@ -191,10 +203,12 @@ const PRODUCTS = [
             "https://i.imgur.com/9RnYa2n.png",
             "https://i.imgur.com/H7ojgz6.png"
         ],
-        mainFeatures: "深層滋養、抗老化、舒緩敏感。採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素，分子極細，洗臉後第一步導入，打造柔嫩肌。",
-        usage: "1. 洗臉後取約 1-2 滴於手心並輕輕搓開，按壓全臉幫助導入。<br>2. 乾燥季節可在面霜後使用形成鎖水屏障。<br>3. 小傷口或嬰兒曬傷可作為家中萬用油修護。",
-        ingredients: "芝麻種子油, 佛手柑果實油, 雪松精油, 花梨木油, 雞蛋花, 胡蘿蔔種子油, 維他命E",
-        specs: "◆ 內容：60mL<br>◆ 保存：未開封 2 年，開封後建議於 1 年內用完。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
+        shortIntro: "soel 的旗艦產品，採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素，分子極細，洗臉後第一步導入，打造柔嫩肌。",
+        mainEffects: "深層滋養保濕 ✧ 抗老化護理 ✧ 舒緩修護 ✧ 促進肌膚吸收 ✧ 提升肌膚彈性與光澤",
+        features: "✦ 萃取工藝：工匠低溫壓搾不施加熱力。保留活性極高濃度的芝麻素和維他命E。<br><br>✦ 珍貴的 ❮一番搾❯：僅取首道壓搾中取得的 20-30% 初榨油，成就抗氧化成分極高的高級油質。<br><br>✦ 高濃度芝麻素：具有強大的清除自由基能力，能減緩肌膚老化。<br><br>✦ 高滲透：分子結構與皮膚脂質非常接近，具優異的親膚滲透力，適合作為第一步的導入油，打造彈潤柔嫩的肌膚。<br><br>✦ 修復泛紅與受損：有助修護日曬後肌膚及修復敏感泛紅皮膚。<br><br>✦ 清爽療癒香氣：Top Note ｜ 綠葉與佛手柑的柑橘清香。Middle Notes ｜ 綠茶與白花的淡淡甜味。Last Notes ｜ 木質調與柔和的麝香。",
+        usage: "1. 洗臉後取約 1-2 滴於手心並輕輕搓開，按壓全臉，幫助後續化妝水吸收作為導入。<br>2. 乾燥季節，可在面霜後作為最後一道護膚步驟，形成天然鎖水屏障，長效保濕。<br>3. 加入平時用開嘅cream。<br>4. 作面部或身體按摩可去浮腫。<br>5. 潔面後，用大約五至六滴作按摩，然後洗淨。<br>6. 小傷口或嬰兒使用作家中萬用油。",
+        ingredients: "芝麻種子油, 佛手柑果實油, 雪松精油, 花梨木油, 雞蛋花萃取, 胡蘿蔔種子油, 當歸根油, 維他命E",
+        specs: "◆ 內容：60mL<br>◆ 製造國家：日本<br>◆ 保存：未開封 2 年，開封後建議於 1 年內用完。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
         results: [
             { img: "https://i.imgur.com/D2p6pa4.jpeg", label: "嬰兒曬傷降紅" },
             { img: "https://i.imgur.com/VWlqzEn.jpeg", label: "敏感紅疹改善" },
@@ -205,10 +219,9 @@ const PRODUCTS = [
     {
         id: "soel-soap",
         nameEn: "SOEL LIVING-OIL SOAP GOLDEN LIME",
-        nameZh: "金青檸熟成生皂 (100mL)",
+        nameZh: "金青檸熟成生皂 100mL",
         category: "soel",
-        badge: "USDA有機認證",
-        tagline: "天然維生素C | 豐富營養成分",
+        badges: ["USDA有機認證", "天然維生素C", "潔面 ｜ 面膜兩用"],
         price: "HK$ 238",
         images: [
             "https://i.imgur.com/rrtDoU5.png",
@@ -219,37 +232,39 @@ const PRODUCTS = [
             "https://i.imgur.com/Rrfmncq.png",
             "https://i.imgur.com/j4pvROR.png"
         ],
-        mainFeatures: "「九州產完熟黃檸 × 生皂質地 × 清爽洗感」<br>溫和潔淨肌膚、細緻泡沫溫和去污、針對毛孔暗沉的深層修護。高濃度維他命C改善油脂分泌。",
-        usage: "建議使用量：若早晚（每日 2 次）使用，1 瓶約可使用 2.5 至 3 個月。",
-        ingredients: "嚴選產自福岡縣小郡市極其罕見的日本國產完黃色成熟的金色檸檬萃取。",
-        specs: "◆ 內容：100mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封可保存 2 年。開封後建議於 6 個月內使用完畢。",
+        shortIntro: "嚴選產自福岡縣小郡市專業農場「RUSH FARM」，極其罕見的日本國產完黃色成熟的金色檸檬萃取，徹底洗淨毛孔污垢、過剩油脂及老廢角質，帶來前所未有的清爽與滋潤平衡。",
+        mainEffects: "溫和潔淨肌膚 ✧ 深層保濕滋潤 ✧ 細緻泡沫溫和去污 ✧ 天然配方 ✧ 低刺激 ✧ 針對毛孔 ✧ 暗沉的深層修護",
+        features: "✦ 絕不使用化學肥料、農藥防腐劑及防霉劑。獲得 USDA 美國標準有機認證。<br><br>✦ 堅持在最鮮活的狀態下封存入皂，保留植物最強大的修護能量。<br><br>✦ 極致維他命C：含金色檸檬的高濃度維他命C，非常適合粉刺、油性，使皮膚不易長痘痘，改善油脂分泌。還可以改善暗沉並提供抗衰老護理。<br><br>✦ 溫和去污：溫和有效洗淨毛孔污垢與粗糙角質，洗後肌膚呈現透亮光澤。<br><br>✦ 清爽保濕：獨特的生石鹼製法，清爽洗感的同時肌膚依然保持水潤。",
+        usage: "1. 日常潔面（直接塗抹質地）<br>• 卸妝後，取約 1-2 粒杏仁大小的生石鹼於掌心。<br>• 以按摩的方式細緻清洗全臉，沖洗乾淨。<br><br>2. 濃密泡沫潔面（配合起泡網）<br>• 卸妝後，取 1-2 粒杏仁大小的生石鹼，加入少量水，利用起泡網搓出濃密泡沫。<br>• 產生細緻如奶油般的泡沫後，用泡沫包裹全臉輕柔洗淨。<br><br>3. 深層修護面膜潔面<br>• 卸妝後，取 1-2 粒杏仁大小的生石鹼，不需起泡，像塗抹面霜般均勻延展至全臉。<br>• 讓精華成分停留於臉上 1-2 分鐘進行深層潔淨與滋養。",
+        ingredients: "水、鉀石鹼基、蔗糖、甘油、發酵乙醇（源自甘蔗，製造熟成過程中蒸發）、橄欖果油、芝麻種子油、馬里亞納猴麵包樹種子油、智利酒果種子油蔓越莓種子油、歐洲覆盆子種子油、酒粕、金青檸果皮（日本產）、萊姆果皮油、檸檬細籽油、佛手柑果實油、氯化鈉、臭橙果汁、紫菜萃取、聚麩氨酸。",
+        specs: "◆ 內容：100mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封可保存 2 年。開封後建議於 6 個月內使用完畢。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
         results: []
     },
     {
         id: "soel-cleansing-gel",
         nameEn: "SOEL LIVING-OIL CLEANSING GEL",
-        nameZh: "植萃彈力卸妝凝膠 (150mL)",
+        nameZh: "植萃彈力卸妝凝膠 150mL",
         category: "soel",
-        badge: "",
-        tagline: "深入卸除彩妝✤清潔毛孔髒污✤植睫毛適用",
+        badges: ["卸妝同時保濕"],
         price: "HK$ 289",
         images: [
             "https://i.imgur.com/jjuWdj1.png",
             "https://i.imgur.com/WFH5iyV.png"
         ],
-        mainFeatures: "「12種植物油 × 清透卸妝 × 潤澤不緊繃」<br>富含 12 種優質植物油與萃取精華，在溫和賦予肌膚水分的同時，能徹底清除角栓、毛孔污垢，甚至是防水型彩妝。",
-        usage: "待提供資料",
-        ingredients: "待提供資料",
-        specs: "待提供資料",
+        shortIntro: "一款能真實感受到「淨透感」的經典卸妝凝膠。富含 12 種優質植物油與萃取精華，在溫和賦予肌膚水分的同時，能徹底清除角栓、毛孔污垢，甚至是防水型彩妝。",
+        mainEffects: "深入卸除彩妝 ✧ 清潔毛孔髒污 ✧ 卸妝同時保濕 ✧ 植睫毛適用",
+        features: "✦ 奢華配方：以品牌核心芝麻油、荷荷巴油等保濕成分為基底12種植物油，在軟化並保護肌膚的同時，透過富含美容成分的油脂溫和洗淨，讓膚質清爽透亮。<br><br>✦ 洗後不緊繃：卸妝後肌膚不僅不乾澀，還能形成潤澤保護膜，深淨彩妝與毛孔卻防止乾燥，使肌膚變得柔軟細緻。<br><br>✦ 深淨彩妝毛孔：能徹底清除角栓、毛孔污垢，甚至是防水型彩妝。<br><br>✦ 友善植睫毛：有植睫毛或進行睫毛角蛋白美容的人士亦可安心使用。",
+        usage: "◆ 建議用量： 每次按壓 3-4 下，溫柔地按摩全臉使其與彩妝融合，最後以水或溫水徹底沖洗乾淨。",
+        ingredients: "◆ 水、1,3-丙二醇、PEG-20 甘油三異硬階酸酯、PEG-7 甘油椰油酸酯、PEG-20 甘油異硬脂酸酯、甲基葡糖聚醚-10、BG、肉豆蔻二醇、芝麻種子油、摩洛哥堅果油、角鯊烷、澳洲堅果種子油、荷荷巴種子油、橄欖果油、玫瑰果油、佛手柑果實油、雪松油、花梨木油、雞蛋花萃取、胡蘿蔔種子油、當歸根油、維他命E、椰油酰谷氨酸 TEA 鹽、戊二醇、1,2-己二醇、辛甘醇",
+        specs: "◆ 內容：150mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年 ｜ 開封後 1 年內<br>◆ 注意：請勿使用於傷口或紅腫部位。",
         results: []
     },
     {
         id: "soel-serum",
         nameEn: "SOEL LIVING-OIL SERUM",
-        nameZh: "植萃修復全效精華液 (60mL)",
+        nameZh: "植萃修復全效精華液 60mL",
         category: "soel",
-        badge: "",
-        tagline: "日夜修護、穩定膚況，強化肌膚防禦力",
+        badges: ["多效修復"],
         price: "HK$ 498",
         images: [
             "https://i.imgur.com/k52u08j.png",
@@ -258,23 +273,30 @@ const PRODUCTS = [
             "https://i.imgur.com/Mh4vIvi.png",
             "https://i.imgur.com/TesHWqh.png"
         ],
-        mainFeatures: "「30種植萃 × 水光保濕 × 穩膚彈亮」<br>奢侈地注入 30 種以上的高級植物油與萃取精華，針對缺乏水分與彈力的肌膚提供必要營養，導向健康且充滿活力的美麗肌膚。",
-        usage: "待提供資料",
-        ingredients: "待提供資料",
-        specs: "待提供資料",
+        shortIntro: "為肌膚節奏量身打造的奢華精華液。奢侈地注入 30 種以上的高級植物油與萃取精華，針對缺乏水分與彈力的肌膚提供必要營養，細緻肌理，導向健康且充滿活力的美麗肌膚。",
+        mainEffects: "高保濕 ✧ 潤澤肌膚 ✧ 提升肌膚彈性與細緻紋 ✧ 改善肌膚明亮度與均勻膚色 ✧ 舒緩並穩定敏感肌膚",
+        features: "✦ 水潤質地：注入 30 種以上的高級植物油與萃取精華，針對缺水與失去彈力肌膚，提供必要營養，細緻肌理。<br><br>✦ 親膚性高：快速被肌膚吸收，提供深層持久的保濕。<br><br>✦ 日夜守護：日間保護肌膚免受外界傷害，夜間則集中補充水分與營養，針對色斑等老化徵兆進行修護。",
+        usage: "1. 溫感按摩：取適量（約 2 至 3 滴）於掌心，利用手溫輕輕搓揉加熱後，由臉部中心向外均勻塗抹，細緻地按摩至全臉吸收。<br>2. 護理順序：請於化妝水或護膚油之後、面霜之前使用。",
+        ingredients: "◆ 水、1,3-丙二醇、甘油、摩洛哥堅果油、芝麻種子油、澳洲堅果種子油、角鯊烷、玫瑰果油、橄欖果油、姬風露萃取、七葉樹種子萃取、芍藥根萃取、洋薊萃取、白柳樹皮萃取、野百里香萃取、越橘葉萃取、百香果萃取、大車前種子萃取、迷迭香葉萃取、檸檬草葉萃取、薰衣草花萃取、艾草萃取、辣薄荷葉萃取、刀豆種子萃取、番薯葉萃取、花梨木油、佛手柑果實油、胡蘿蔔種子油、雞蛋花萃取、雪松油、當歸根油、戊二醇、羥乙基纖維素、PEG-60 氫化蓖麻油、檸檬酸、檸檬酸鈉、乙基己基棕櫚酸酯、維他命C衍生物、維他命E、BG、辛甘醇、乙基己基甘油、1,2-己二醇、硝酸鈉、磷酸二鈉、乙二醛",
+        specs: "◆ 內容：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年 ｜ 開封後 1 年內（請儘早使用以確保成分活性）。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
         results: []
     }
 ];
 
+// 確保畫廊狀態追蹤
+let currentGalleryIndices = {};
+
 // 核心渲染邏輯
 function buildProductHTML(p) {
+    currentGalleryIndices[p.id] = 0;
+    
     const thumbHTML = p.images.map((src, i) => `
-        <div class="thumb-item ${i===0?'active':''}" onclick="switchGallery('${p.id}', '${src}', this)">
+        <div class="thumb-item ${i===0?'active':''}" onclick="switchGallery('${p.id}', ${i})">
             <img src="${src}" loading="lazy">
         </div>
     `).join('');
 
-    const resultsHTML = p.results.length ? `
+    const resultsHTML = p.results && p.results.length ? `
         <div class="mt-10 bg-[#fcfaf7] p-6 rounded-lg">
             <p class="text-xs font-bold mb-4 text-[#b3c1a1] tracking-widest border-b pb-2">REAL RESULTS | 真實對比</p>
             <div class="evidence-scroll flex gap-3 overflow-x-auto">
@@ -288,19 +310,34 @@ function buildProductHTML(p) {
         </div>
     ` : '';
 
-    const usageHTML = (p.usage && p.usage !== "待提供資料") ? `
+    const badgeHTML = p.badges && p.badges.length ? `<div class="mb-3 flex flex-wrap gap-2">` + p.badges.map(b => `<span class="inline-block bg-[#b3c1a1] text-white text-[11px] px-2.5 py-1 rounded leading-relaxed tracking-wider font-medium shadow-sm">${b}</span>`).join('') + `</div>` : '';
+    const introHTML = p.shortIntro ? `<div class="mb-5 text-[14px] text-[#3a3a3a] leading-relaxed">${p.shortIntro}</div>` : '';
+    const effectsHTML = p.mainEffects ? `
+        <div class="mb-6 bg-[#fcfaf7] p-4 rounded border border-[#e0d9cf]">
+            <p class="text-xs font-bold text-[#b3c1a1] tracking-widest uppercase mb-2">主要功效</p>
+            <p class="text-[13px] text-[#6b5c52] leading-relaxed font-medium">${p.mainEffects}</p>
+        </div>
+    ` : '';
+
+    const featuresHTML = p.features ? `
+        <details class="prod-details">
+            <summary>產品特點 <span class="plus-icon">+</span></summary>
+            <div class="details-content">${p.features}</div>
+        </details>
+    ` : '';
+    const usageHTML = p.usage ? `
         <details class="prod-details">
             <summary>使用方法 <span class="plus-icon">+</span></summary>
             <div class="details-content">${p.usage}</div>
         </details>
     ` : '';
-    const ingredientsHTML = (p.ingredients && p.ingredients !== "待提供資料") ? `
+    const ingredientsHTML = p.ingredients ? `
         <details class="prod-details">
             <summary>全成份 <span class="plus-icon">+</span></summary>
             <div class="details-content">${p.ingredients}</div>
         </details>
     ` : '';
-    const specsHTML = (p.specs && p.specs !== "待提供資料") ? `
+    const specsHTML = p.specs ? `
         <details class="prod-details">
             <summary>產品規格及注意事項 <span class="plus-icon">+</span></summary>
             <div class="details-content">${p.specs}</div>
@@ -308,35 +345,36 @@ function buildProductHTML(p) {
     ` : '';
 
     return `
-        <div class="product-card bg-white p-6 md:p-10 rounded shadow-sm border border-gray-100">
+        <div class="product-card bg-white p-6 md:p-10 rounded shadow-sm border border-gray-100" id="${p.id}">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="gallery-container">
-                    <div class="main-img-box" id="main-box-${p.id}">
+                    <div class="main-img-box" onclick="openLightbox('${p.id}')">
                         <img src="${p.images[0]}" id="main-img-${p.id}">
+                        <div class="nav-btn nav-prev" onclick="event.stopPropagation(); changeImage('${p.id}', -1)">❮</div>
+                        <div class="nav-btn nav-next" onclick="event.stopPropagation(); changeImage('${p.id}', 1)">❯</div>
                     </div>
-                    <div class="thumb-grid">${thumbHTML}</div>
+                    <div class="thumb-grid" id="thumb-grid-${p.id}">${thumbHTML}</div>
                 </div>
                 
                 <div class="text-left">
-                    ${p.badge ? `<div class="inline-block bg-[#b3c1a1] text-white text-[10px] px-2 py-1 rounded mb-3">${p.badge}</div>` : ''}
+                    ${badgeHTML}
                     <h3 class="text-sm tracking-widest opacity-60 uppercase mb-1" style="font-family: 'Playfair Display', serif;">${p.nameEn}</h3>
-                    <h2 class="text-2xl mb-4">${p.nameZh}</h2>
+                    <h2 class="text-2xl mb-4 font-bold" style="font-family: 'Noto Serif TC', serif; color: var(--headline);">${p.nameZh}</h2>
                     
-                    <div class="mb-6">
-                        <p class="text-sm font-bold text-gray-800 mb-2">產品特點</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">${p.mainFeatures}</p>
-                    </div>
+                    ${introHTML}
+                    ${effectsHTML}
 
                     <div class="accordion-group border-t border-gray-100">
+                        ${featuresHTML}
                         ${usageHTML}
                         ${ingredientsHTML}
                         ${specsHTML}
                     </div>
 
                     <div class="mt-8 flex items-center justify-between">
-                        <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif;">${p.price}</span>
+                        <span class="text-2xl font-bold" style="font-family: 'Playfair Display', serif; color: var(--headline);">${p.price}</span>
                         <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" 
-                           class="bg-[#b3c1a1] text-white px-8 py-3 rounded text-sm hover:opacity-80 transition shadow-sm">
+                           class="bg-[#b3c1a1] text-white px-8 py-3 rounded text-sm hover:bg-[#8fa07a] transition shadow-sm font-medium">
                            WhatsApp 訂購
                         </a>
                     </div>
@@ -347,29 +385,76 @@ function buildProductHTML(p) {
     `;
 }
 
-// 圖片切換腳本
-function switchGallery(pid, src, thumb) {
+// 圖片切換與 Lightbox 控制
+function switchGallery(pid, index) {
+    const product = PRODUCTS.find(p => p.id === pid);
+    if (!product) return;
+    
+    currentGalleryIndices[pid] = index;
     const main = document.getElementById(`main-img-${pid}`);
     main.style.opacity = '0';
     setTimeout(() => {
-        main.src = src;
+        main.src = product.images[index];
         main.style.opacity = '1';
     }, 200);
     
-    const thumbs = thumb.parentElement.querySelectorAll('.thumb-item');
+    const thumbs = document.getElementById(`thumb-grid-${pid}`).querySelectorAll('.thumb-item');
     thumbs.forEach(t => t.classList.remove('active'));
-    thumb.classList.add('active');
+    if (thumbs[index]) thumbs[index].classList.add('active');
 }
 
-// 渲染與分類
+function changeImage(pid, direction) {
+    const product = PRODUCTS.find(p => p.id === pid);
+    if (!product) return;
+    
+    let newIndex = currentGalleryIndices[pid] + direction;
+    if (newIndex < 0) newIndex = product.images.length - 1;
+    if (newIndex >= product.images.length) newIndex = 0;
+    
+    switchGallery(pid, newIndex);
+}
+
+function openLightbox(pid) {
+    const product = PRODUCTS.find(p => p.id === pid);
+    if (!product) return;
+    const currentSrc = product.images[currentGalleryIndices[pid]];
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = currentSrc;
+    lightbox.style.display = 'flex';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+// 單一產品顯示邏輯 (獨立 URL)
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
 function renderProducts(cat) {
     const grid = document.getElementById('product-grid');
-    const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category.includes(cat));
+    const specificProduct = getQueryParam('p');
+    
+    let filtered;
+    if (specificProduct) {
+        filtered = PRODUCTS.filter(p => p.id === specificProduct);
+        document.querySelectorAll('.product-tab').forEach(t => t.style.display = 'none'); // 隱藏分類標籤
+    } else {
+        filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category.includes(cat));
+    }
+    
     grid.innerHTML = filtered.map(buildProductHTML).join('');
 }
 
 function filter(cat, btn) {
-    document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+    window.history.pushState({}, '', window.location.pathname); // 清除 URL 參數
+    document.querySelectorAll('.product-tab').forEach(t => {
+        t.style.display = 'inline-block';
+        t.classList.remove('active');
+    });
     if(btn) btn.classList.add('active');
     renderProducts(cat);
 }
