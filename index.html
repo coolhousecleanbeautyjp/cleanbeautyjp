@@ -65,7 +65,7 @@
         .price-text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-weight: 600; color: var(--price); letter-spacing: 0.02em; }
         .list-price { font-size: 16px; margin-top: auto; padding-top: 4px; }
 
-        /* 獨立詳情頁 (Detail View) */
+        /* 獨立詳情頁 */
         #product-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
         
         /* 畫廊 */
@@ -85,7 +85,7 @@
         .detail-effects { background: #fdfcfaf0; padding: 16px; border-radius: 6px; margin: 20px 0; font-size: 14px; color: var(--text); border: 1px solid #efeae1; }
         .detail-effects strong { color: var(--headline); font-family: 'Noto Serif TC', serif; display: block; margin-bottom: 8px; font-size: 15px; }
         
-        /* 懸浮置底購買 Bar (手機版專用) */
+        /* 懸浮置底購買 Bar */
         .sticky-bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 1px solid #efeae1; padding: 12px 20px; z-index: 50; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
         .bar-price { font-size: 20px; }
         .bar-btn { background: var(--btn); color: white; padding: 12px 30px; border-radius: 4px; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; font-size: 15px; text-align: center;}
@@ -116,7 +116,8 @@
 <header class="top-nav" id="main-nav">
     <button class="hamburger" onclick="toggleMenu()">☰</button>
     <div class="nav-logo" onclick="navigateTo('#hero-banner')">COOL HOUSE</div>
-    <div style="width:34px;"></div> </header>
+    <div style="width:34px;"></div>
+</header>
 
 <div class="side-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <div class="side-menu" id="sideMenu">
@@ -140,9 +141,11 @@
 
     <section id="our-story" class="container mx-auto px-6 py-16 text-center">
         <h2 class="text-2xl mb-3">Our Story</h2>
-        <p class="text-[15px] mb-6 font-semibold" style="color: var(--text-light); font-family: 'Playfair Display', serif;">日本質感選品 ｜ 專注純淨成份</p>
-        <div class="max-w-3xl mx-auto text-[15px] space-y-4 text-[#4a403a]">
-            <p>主理人持有<strong>「日本化妝品檢定特級」</strong>資格，曾深受玫瑰痤瘡及蕁麻疹困擾。我們親身嚴選 <strong>品質與效能</strong> 兼備的純淨產品。</p>
+        <p class="text-[15px] mb-6 font-semibold" style="color: var(--text-light); font-family: 'Playfair Display', serif;">質感選品 ｜ 專注成分</p>
+        <div class="max-w-3xl mx-auto text-[15px] space-y-4 text-[#4a403a] text-justify md:text-center leading-relaxed">
+            <p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
+            <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸健康而穩定的狀態，帶來安心且值得長久使用的護膚體驗。</p>
+            <p>主理人持有日本<strong>「化妝品檢定特級」</strong>資格，亦曾長期受敏感肌困擾，因此更重視成分的溫和性，以及肌膚所需要的平衡與舒適。</p>
         </div>
     </section>
 
@@ -152,6 +155,7 @@
             <button onclick="filterList('top', this)" class="product-tab">王牌熱賣</button>
             <button onclick="filterList('soel', this)" class="product-tab">Soel</button>
             <button onclick="filterList('supmile', this)" class="product-tab">Supmile</button>
+            <button onclick="filterList('beige', this)" class="product-tab">Beige+</button>
         </div>
         <div id="product-list" class="product-grid container mx-auto max-w-5xl mb-16"></div>
     </section>
@@ -159,9 +163,10 @@
     <section id="reviews-section" class="bg-white py-16">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="text-xl text-center mb-10">真實用家感受</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐ Mrs. Lee：「精華油超好吸收、完全不黏膩。最神奇的是第二天起床細小濕疹消失了。」</p></div>
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐ Ah Wing：「我是濕疹肌，Soel 的性價比高出很多。好推、不厚重，天然的味道非常舒服！」</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「香氣很天然療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」<br><br>— 用家 A</p></div>
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常舒服。質地不厚重，即使夏天使用也沒有負擔，天然植物香氣讓人很放鬆。」<br><br>— 用家 B</p></div>
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「持續使用後，肌膚變得更柔軟滋潤，整體氣色和光澤感都有改善，朋友也開始留意到皮膚狀態變好了。」<br><br>— 用家 C</p></div>
             </div>
         </div>
     </section>
@@ -199,40 +204,31 @@
 </div>
 
 <div id="product-page">
-    <div id="detail-content-area">
-        </div>
+    <div id="detail-content-area"></div>
 </div>
 
 <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
 <script>
 // ================================================
-// 產品資料庫
+// 產品資料庫 (共 13 款產品)
 // ================================================
 const PRODUCTS = [
+    // 1. Soel 芝麻修護油
     {
-        id: "soel-oil",
-        brand: "Soel",
+        id: "soel-oil", brand: "Soel",
         nameEn: "soel LIVING-OIL sesame oil",
         nameZh: "有機芝麻修護油 60mL",
         category: "soel top",
         badge: "USDA有機認證 ｜ 以油養膚 ｜ 敏感肌、孕婦小孩適用",
         price: "HK$ 365",
-        images: [
-            "https://i.imgur.com/2yqgpfV.jpeg",
-            "https://i.imgur.com/kRowcMq.png",
-            "https://i.imgur.com/F1xydoY.png",
-            "https://i.imgur.com/Ria4vms.png",
-            "https://i.imgur.com/q7xg4jL.png",
-            "https://i.imgur.com/9RnYa2n.png",
-            "https://i.imgur.com/H7ojgz6.png"
-        ],
-        shortIntro: "Soel 的旗艦產品，採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素，分子極細，洗臉後第一步導入，打造柔嫩肌。",
+        images: ["https://i.imgur.com/2yqgpfV.jpeg", "https://i.imgur.com/kRowcMq.png", "https://i.imgur.com/F1xydoY.png", "https://i.imgur.com/Ria4vms.png", "https://i.imgur.com/q7xg4jL.png", "https://i.imgur.com/9RnYa2n.png", "https://i.imgur.com/H7ojgz6.png"],
+        shortIntro: "soel 的旗艦產品，採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素，分子極細，洗臉後第一步導入，打造柔嫩肌。",
         mainEffects: "深層滋養保濕 ✧ 抗老化護理 ✧ 舒緩修護 ✧ 促進肌膚吸收 ✧ 提升肌膚彈性與光澤",
-        features: "✦ 萃取工藝：工匠低溫壓搾不施加熱力。保留極高濃度的芝麻素和維他命E。<br><br>✦ 珍貴「一番搾」：僅取首道壓搾中取得的 20-30% 初榨油。<br><br>✦ 高濃度芝麻素：具強大清除自由基能力，減緩肌膚老化。<br><br>✦ 高滲透：分子結構與皮膚脂質相近，極易吸收。<br><br>✦ 修復泛紅：修護日曬後肌膚及修復敏感泛紅。<br><br>✦ 療癒香氣：柑橘清香、綠茶白花、木質調麝香。",
-        usage: "1. 洗臉後取約 1-2 滴按壓全臉，幫助化妝水吸收。<br>2. 乾燥季節可在面霜後作天然鎖水屏障。<br>3. 加入平時用開嘅cream混合。<br>4. 作面部或身體按摩去浮腫。<br>5. 小傷口或嬰兒曬傷可作萬用油。",
+        features: "✦ 萃取工藝：工匠低溫壓搾不施加熱力。保留活性極高濃度的芝麻素和維他命E。<br><br>✦ 珍貴的❮一番搾❯：僅取首道壓搾中只能取得的 20-30%初榨油，成就抗氧化成分極高的高級油質。<br><br>✦ 高濃度芝麻素：具有強大的清除自由基能力，能減緩肌膚老化。<br><br>✦ 高滲透：分子結構與皮膚脂質非常接近，具優異的親膚滲透力, 適合作為第一步的導入油，打造彈潤柔嫩的肌膚。<br><br>✦ 修復泛紅與受損：有助修護日曬後肌膚及修復敏感泛紅皮膚。<br><br>✦ 清爽療癒香氣：Top Note | 綠葉與佛手柑的柑橘清香。Middle Notes| 綠茶與白花的淡淡甜味。Last Notes | 木質調與柔和的麝香。",
+        usage: "1. 洗臉後取約 1-2 滴於手心並輕輕搓開, 按壓全臉，幫助後續化妝水吸收作為導入。<br>2. 乾燥季節，可在面霜後作為最後一道護膚步驟，形成天然鎖水屏障，長效保濕。<br>3. 加入平時用開嘅cream<br>4. 作面部或身體按摩可去浮腫<br>5. 潔面後，用大約五至六滴作按摩，然後洗淨<br>6. 小傷口或嬰兒使用作家中萬用油",
         ingredients: "Sesamum Indicum (Sesame) Seed Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Cedrus Atlantica Bark Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Tocopherol",
-        specs: "◆ 內容：60mL<br>◆ 製造國家：日本<br>◆ 保存：未開封 2 年，開封後建議於 1 年內用完。",
+        specs: "◆ 內容：60mL<br>◆ 製造國家：日本<br>◆ 保存：未開封 2 年，開封後建議於 1 年內用完。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
         results: [
             { img: "https://i.imgur.com/D2p6pa4.jpeg", label: "嬰兒曬傷降紅" },
             { img: "https://i.imgur.com/VWlqzEn.jpeg", label: "敏感紅疹改善" },
@@ -240,282 +236,16 @@ const PRODUCTS = [
             { img: "https://i.imgur.com/PPE3DGv.jpeg", label: "小孩濕疹改善" }
         ]
     },
+    // 2. Soel 金青檸熟成生皂
     {
-        id: "soel-soap",
-        brand: "Soel",
+        id: "soel-soap", brand: "Soel",
         nameEn: "SOEL LIVING-OIL SOAP GOLDEN LIME",
         nameZh: "金青檸熟成生皂 100mL",
         category: "soel",
-        badge: "USDA有機認證 ｜ 天然維生素C ｜ 豐富營養",
+        badge: "USDA有機認證 ｜ 天然維生素C ｜ 潔面、面膜兩用",
         price: "HK$ 238",
         images: ["https://i.imgur.com/rrtDoU5.png", "https://i.imgur.com/9B4U7LL.png", "https://i.imgur.com/VlnGArd.png", "https://i.imgur.com/MxkuxLn.png", "https://i.imgur.com/EakAu5Q.png", "https://i.imgur.com/Rrfmncq.png", "https://i.imgur.com/j4pvROR.png"],
-        shortIntro: "九州產完熟黃檸 × 生皂質地 × 清爽洗感。深層淨膚去油光，溫和不乾澀。",
-        mainEffects: "溫和潔淨肌膚 ✧ 深層保濕滋潤 ✧ 針對毛孔暗沉",
-        features: "✦ USDA有機認證：絕不使用化學肥料、農藥。<br><br>✦ 極致維他命C：嚴選日本國產完熟金檸檬，改善油脂分泌。<br><br>✦ 清爽保濕：獨特生石鹼製法。",
-        usage: "建議使用量：若早晚使用，1 瓶約可使用 2.5 至 3 個月。",
-        ingredients: "Citrus Limon (Lemon) Fruit Extract, Soap Base",
-        specs: "◆ 內容：100mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封可保存 2 年。開封後建議於 6 個月內使用完畢。",
-        results: []
-    },
-    {
-        id: "soel-cleansing-gel",
-        brand: "Soel",
-        nameEn: "SOEL LIVING-OIL CLEANSING GEL",
-        nameZh: "植萃彈力卸妝凝膠 150mL",
-        category: "soel",
-        badge: "植萃成份 ｜ 深層潔淨",
-        price: "HK$ 289",
-        images: ["https://i.imgur.com/jjuWdj1.png", "https://i.imgur.com/WFH5iyV.png"],
-        shortIntro: "「12種植物油 × 清透卸妝 × 潤澤不緊繃」深淨彩妝與毛孔，卸後依然水潤柔滑。",
-        mainEffects: "深入卸除彩妝 ✧ 清潔毛孔髒污 ✧ 卸妝同時保濕 ✧ 植睫毛適用",
-        features: "✦ 一款能真實感受到「淨透感」的經典卸妝凝膠。<br><br>✦ 富含 12 種優質植物油與萃取精華，徹底清除角栓。",
-        usage: "待提供資料",
-        ingredients: "12 Botanical Oils Extract (Full INCI list to be provided)",
-        specs: "◆ 內容：150mL",
-        results: []
-    },
-    {
-        id: "soel-serum",
-        brand: "Soel",
-        nameEn: "SOEL LIVING-OIL SERUM",
-        nameZh: "植萃修復全效精華液 60mL",
-        category: "soel",
-        badge: "30種植萃 ｜ 水光保濕",
-        price: "HK$ 498",
-        images: ["https://i.imgur.com/k52u08j.png", "https://i.imgur.com/nVv83Zh.png", "https://i.imgur.com/tlhRsLv.png", "https://i.imgur.com/Mh4vIvi.png", "https://i.imgur.com/TesHWqh.png"],
-        shortIntro: "「30種植萃 × 水光保濕 × 穩膚彈亮」高滲透高保濕，打造光澤彈力肌膚。",
-        mainEffects: "高保濕 ✧ 潤澤肌膚 ✧ 提升彈性 ✧ 改善均勻膚色 ✧ 穩定敏感肌膚",
-        features: "✦ 為肌膚節奏量身打造的奢華精華液。<br><br>✦ 奢侈注入 30 種以上高級植物油與萃取精華，針對缺乏水分與彈力的肌膚提供營養。",
-        usage: "待提供資料",
-        ingredients: "30 Botanical Extracts (Full INCI list to be provided)",
-        specs: "◆ 內容：60mL",
-        results: []
-    },
-    {
-        id: "soel-cream",
-        brand: "Soel",
-        nameEn: "soel LIVING-OIL CREAM",
-        nameZh: "植萃滋養修護面霜 50g",
-        category: "soel",
-        badge: "真空保鮮 ｜ 天然來源99%",
-        price: "HK$ 378",
-        images: ["https://i.imgur.com/7rVhKU0.png", "https://i.imgur.com/SUs6HbZ.png"],
-        shortIntro: "真空壓杓瓶完美封存植萃營養，為肌膚提供持久不乾澀的深層滋養。 揉合多種有機油脂，軟化因環境壓力變硬的角質，修復原生彈力與透亮。",
-        mainEffects: "鎖水 ✧ 強韌屏障 ✧ 淡化乾紋 ✧ 有助肌膚保水與修復",
-        features: "✦ 真空保鮮：採用真空壓瓶設計，有效隔絕空氣細菌接觸，確保天然成分不氧化及劣化。<br><br>✦ 深層賦活：結合高品質有機阿甘油與芝麻油，深層滲透肌底，賦予肌膚飽滿潤澤與彈力。<br><br>✦ 鎖水屏障：富含 20 種植物油脂與精華，包括玫瑰果油及角鯊烷，形成天然保護膜長效鎖水。<br><br>✦ 柔膚提亮：添加有機阿甘油與時鐘果萃取，軟化因乾燥或紫外線變硬的角質，提升底妝貼合度。<br><br>✦ 純淨守護：天然來源成分 99% 以上，不含合成香料與化學防腐劑，溫和修復受損與乾燥肌膚。",
-        usage: "◆ 於早晚護理程序最後一步使用。旋轉瓶蓋升起壓頭，取適量均勻塗抹於全臉並輕壓至吸收。<br>◆ 可於面霜後再次使用 soel 前導油，加強密封滋養效果。",
-        ingredients: "Water, Sesamum Indicum (Sesame) Seed Oil, Glycerin, Propanediol, Argania Spinosa Kernel Oil, Squalane, Macadamia Integrifolia Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Rosa Canina Fruit Oil, Thymus Vulgaris (Thyme) Flower/Leaf Extract, Salix Alba (Willow) Bark Extract, Cynara Scolymus (Artichoke) Leaf Extract, Geranium Robertianum Extract, Passiflora Edulis Fruit Extract, Vaccinium Myrtillus Leaf Extract, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Juniperus Virginiana Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Polyglyceryl-10 Myristate, Xanthan Gum, Tocopherol, Butylene Glycol, Carbomer, Potassium Hydroxide, Pentylene Glycol, 1,2-Hexanediol, Caprylyl Glycol, Ethylhexylglycerin",
-        specs: "◆ 內容：50g<br>◆ 製造國家：日本<br>◆ 使用期限：未開封 2 年，開封後建議於 1 年內使用完畢。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
-        results: []
-    },
-    {
-        id: "soel-hair-oil",
-        brand: "Soel",
-        nameEn: "Soel LIVING-OIL Floral Lily Musk Hair Oil",
-        nameZh: "百合麝香護髮油 30mL",
-        category: "soel",
-        badge: "質感造型 ｜ 深度修復 ｜ 高級香韻",
-        price: "HK$ 318",
-        images: ["https://i.imgur.com/D3UWrPy.png"],
-        shortIntro: "中等質地，揉合了 7 種嚴選天然植物油。專為解決髮絲乾燥與受損設計，特別適合燙染受損的秀髮。它能賦予髮絲充足水潤感與柔軟度，輕鬆打造出日系「束感」層次造型，同時抑制毛躁。採用 100% 無農藥栽培植物成分，敏感肌亦能安心使用。",
-        mainEffects: "深層修護受損 ✧ 打造束感造型 ✧ 撫平毛躁 ✧ 100%天然植物成分",
-        features: "✦ 中等質地：恰到好處的輕盈感與濕潤度，能修飾乾燥蓬亂，營造自然流暢的髮絲線條。<br><br>✦ 100% 天然由來：不含合成添加物，不僅能用於護髮，乾燥季節亦可用於全身肌膚保濕。<br><br>✦ 深層修復：針對漂髮、染髮後的受損髮質，重拾順滑感。<br><br>✦ 香氣詳細：高級療癒感<br>• 前調/中調：聖母百合的純淨花香與玫瑰天竺葵的溫柔芬芳完美融合。<br>• 基調：加入天然黃葵子，勾勒出深沉、高雅的木質香氣。<br>• 特別點綴：葡萄柚精油帶來清新感，更有療癒感",
-        usage: "日常造型：取適量於掌心搓勻，均勻抹於髮絲，打造具立體感的束感造型。<br><br>浴後護理 (免洗精華)：洗髮後用毛巾擦乾水分，取適量以髮尾為中心抹勻全髮，再吹乾即可。<br><br>肌膚保養：取適量塗抹於肌膚乾燥處按摩至吸收。",
-        ingredients: "Macadamia Integrifolia Seed Oil, Oryza Sativa (Rice) Bran Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Squalane (Plant-derived), Hydrogenated Farnesene, Lilium Candidum Flower Extract, Pelargonium Graveolens Oil, Citrus Grandis (Grapefruit) Peel Oil, Abelmoschus Moschatus Seed Oil, Tocopherol",
-        specs: "◆ 內容：30mL<br>◆ 製造國家：日本<br>◆ 保存期限：請存放於陰涼處，並於開封後儘早使用完畢。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
-        results: []
-    }
-];
-
-// ================================================
-// 渲染邏輯 (SPA 切換)
-// ================================================
-const homePage = document.getElementById('home-page');
-const productPage = document.getElementById('product-page');
-const detailArea = document.getElementById('detail-content-area');
-const listArea = document.getElementById('product-list');
-
-// Banner 自動換相
-function updateBanners() {
-    const isMobile = window.innerWidth < 768;
-    document.querySelectorAll('.banner-slide').forEach(slide => {
-        slide.style.backgroundImage = `url('${isMobile ? slide.dataset.mb : slide.dataset.pc}')`;
-    });
-}
-let currentBanner = 0;
-const slides = document.querySelectorAll('.banner-slide');
-setInterval(() => {
-    slides[currentBanner].classList.remove('active');
-    currentBanner = (currentBanner + 1) % slides.length;
-    slides[currentBanner].classList.add('active');
-}, 4000);
-
-window.addEventListener('resize', updateBanners);
-
-// 1. 渲染「兩格目錄」
-function renderList(products) {
-    listArea.innerHTML = products.map(p => `
-        <div class="list-card" onclick="openDetail('${p.id}')">
-            <div class="list-img-box">
-                <img src="${p.images[0]}" loading="lazy">
-            </div>
-            <div class="list-brand">${p.brand}</div>
-            <h3 class="list-title">${p.nameZh}</h3>
-            <div class="price-text list-price">${p.price}</div>
-        </div>
-    `).join('');
-}
-
-function filterList(cat, btn) {
-    document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
-    if(btn) btn.classList.add('active');
-    const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category.includes(cat));
-    renderList(filtered);
-}
-
-// 2. 打開「詳情頁」
-let currentScrollY = 0;
-function openDetail(id) {
-    currentScrollY = window.scrollY;
-    const p = PRODUCTS.find(x => x.id === id);
-    
-    const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
-    
-    const thumbHTML = p.images.map((src, i) => `
-        <div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg('${src}', this)">
-            <img src="${src}">
-        </div>
-    `).join('');
-
-    const accHTML = (title, content) => content ? `
-        <details class="prod-details">
-            <summary>${title} <span class="plus-icon">+</span></summary>
-            <div class="details-content">${content}</div>
-        </details>
-    ` : '';
-
-    const resultsHTML = p.results && p.results.length ? `
-        <div class="mt-8 border-t border-[#f0ebe1] pt-8">
-            <h3 class="font-serif text-lg mb-4 text-[#2c2420]">真實對比</h3>
-            <div class="evidence-scroll">
-                ${p.results.map(r => `
-                    <div class="evidence-item">
-                        <img src="${r.img}">
-                        <p class="text-[12px] mt-2 text-center text-[#666] font-medium">${r.label}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    ` : '';
-
-    detailArea.innerHTML = `
-        <div class="container mx-auto max-w-5xl px-4 py-6">
-            <button onclick="closeDetail()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                返回目錄
-            </button>
-            
-            <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
-                <div class="md:sticky md:top-24">
-                    <div class="gallery-main">
-                        <img src="${p.images[0]}" id="detail-main-img">
-                    </div>
-                    <div class="gallery-nav">${thumbHTML}</div>
-                </div>
-                
-                <div class="pt-6 md:pt-0">
-                    <div class="detail-badges">${badgeTags}</div>
-                    <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
-                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-4">${p.nameZh}</h1>
-                    <div class="price-text detail-price md:hidden">${p.price}</div> <p class="text-[15px] mb-2">${p.shortIntro}</p>
-                    
-                    ${p.mainEffects ? `
-                    <div class="detail-effects">
-                        <strong>主要功效</strong>
-                        ${p.mainEffects}
-                    </div>` : ''}
-                    
-                    <div class="mt-8 border-t border-[#f0ebe1]">
-                        ${accHTML('產品特點', p.features)}
-                        ${accHTML('使用方法', p.usage)}
-                        ${accHTML('全成份', p.ingredients)}
-                        ${accHTML('產品規格及注意事項', p.specs)}
-                    </div>
-
-                    ${resultsHTML}
-
-                    <div class="hidden md:flex items-center justify-between mt-10 p-6 bg-[#faf9f7] rounded-md border border-[#e0d9cf]">
-                        <span class="text-[28px] font-bold price-text text-[var(--price)]">${p.price}</span>
-                        <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bg-[var(--btn)] text-white px-8 py-3 rounded hover:bg-[#8fa07a] transition font-medium text-[16px] shadow-sm">WhatsApp 訂購</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="sticky-bottom-bar md:hidden">
-            <div class="price-text bar-price">${p.price}</div>
-            <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bar-btn">WhatsApp 訂購</a>
-        </div>
-    `;
-
-    homePage.style.display = 'none';
-    productPage.style.display = 'block';
-    window.scrollTo(0, 0);
-}
-
-function closeDetail() {
-    productPage.style.display = 'none';
-    homePage.style.display = 'block';
-    window.scrollTo(0, currentScrollY);
-}
-
-function switchDetailImg(src, thumbElement) {
-    document.getElementById('detail-main-img').src = src;
-    const parent = thumbElement.parentElement;
-    parent.querySelectorAll('.gallery-thumb').forEach(el => el.classList.remove('active'));
-    thumbElement.classList.add('active');
-}
-
-function navigateTo(sectionId) {
-    document.getElementById('sideMenu').classList.remove('active');
-    document.getElementById('menuOverlay').classList.remove('active');
-    
-    if (productPage.style.display === 'block') {
-        closeDetail();
-    }
-    
-    setTimeout(() => {
-        const target = document.querySelector(sectionId);
-        if(target) {
-            const offset = 60; 
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = target.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
-    }, 50);
-}
-
-function toggleMenu() {
-    document.getElementById('sideMenu').classList.toggle('active');
-    document.getElementById('menuOverlay').classList.toggle('active');
-}
-
-window.addEventListener('scroll', () => {
-    const btn = document.getElementById('backToTop');
-    if(window.scrollY > 500 && homePage.style.display !== 'none') {
-        btn.classList.add('show');
-    } else {
-        btn.classList.remove('show');
-    }
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-    updateBanners();
-    renderList(PRODUCTS);
-});
-</script>
-
-</body>
-</html>
+        shortIntro: "嚴選產自福岡縣小郡市專業農場「RUSH FARM」, 極其罕見的日本國產完黃色成熟的金色檸檬萃取，徹底洗淨毛孔污垢、過剩油脂及老廢角質, 帶來前所未有的清爽與滋潤平衡。",
+        mainEffects: "溫和潔淨肌膚 ✧ 深層保濕滋潤 ✧ 細緻泡沫溫和去污 ✧ 天然配方 ✧ 低刺激 ✧ 針對毛孔與暗沉的深層修護",
+        features: "✦ 絕不使用化學肥料、農藥防腐劑及防霉劑。獲得 USDA 美國標準有機認證。<br><br>✦ 堅持在最鮮活的狀態下封存入皂，保留植物最強大的修護能量。<br><br>✦ 極致維他命C：含金色檸檬的高濃度維他命C，非常適合粉刺、油性, 使皮膚不易長痘痘, 改善油脂分泌。還可以改善暗沉並提供抗衰老護理。<br><br>✦ 溫和去污：溫和有效洗淨毛孔污垢、與粗糙角質，洗後肌膚呈現透亮光澤。<br><br>✦ 清爽保濕：獨特的生石鹼製法，清爽洗感的同時肌膚依然保持水潤。",
+        usage: "1. 日常潔面（直接塗抹質地）：卸妝後，取約 1-2 粒杏仁大小的生石鹼於掌心。以按摩的方式細緻清洗全臉,沖洗乾淨。<br><br>2. 濃密泡沫潔面（配合起泡網）：卸妝後，取 1-2 粒杏仁大小的生石鹼，加入少量水，利用
