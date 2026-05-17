@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cool House | 日本質感選品 | 專注敏感肌與玫瑰痤瘡修護</title>
-    <meta name="description" content="由持有日本化妝品檢定特級資格的主理人挑選，專為敏感肌、玫瑰痤瘡及乾燥肌提供修護方案。">
+    
+    <title>Cool House | 日本護膚選品 | 專注敏感肌與成分導向護膚</title>
+    <meta name="description" content="香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。體驗日本職人級的純淨護膚，讓肌膚回歸溫和、平衡與穩定。">
+    <meta name="keywords" content="日本護膚, clean beauty, 敏感肌, 純淨護膚, 成分導向, 溫和護理, 護膚油, 日本選品, 植物成分, 低刺激, clean beauty 香港, 敏感肌護膚推薦, 日本護膚油, 天然成分護膚, luxury natural skincare">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -46,12 +48,11 @@
         .side-menu a { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 600; color: var(--headline); text-decoration: none; padding: 18px 0; border-bottom: 1px solid #f0ebe1; display: block; }
         .close-menu { align-self: flex-end; font-size: 28px; background: none; border: none; color: var(--text-light); margin-bottom: 20px; outline: none; }
 
-        /* Banner */
-        .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 6px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
-        .banner-container { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1080 / 1200; }
-        @media (min-width: 768px) { .banner-container { aspect-ratio: 1080 / 500; } }
-        .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
-        .banner-slide.active { opacity: 1; }
+        /* Banner & Promo */
+        .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+        .banner-container { display: grid; width: 100%; background-color: var(--bg); }
+        .banner-slide { grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity 1s ease-in-out; object-fit: contain; }
+        .banner-slide.active { opacity: 1; z-index: 2; }
 
         /* 目錄頁：兩格排版 */
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; }
@@ -65,8 +66,8 @@
         .price-text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-weight: 600; color: var(--price); letter-spacing: 0.02em; }
         .list-price { font-size: 16px; margin-top: auto; padding-top: 4px; }
 
-        /* 獨立詳情頁 */
-        #product-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
+        /* 獨立頁面 */
+        .sub-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
         
         /* 畫廊 */
         .gallery-main { width: 100%; aspect-ratio: 1/1; position: relative; background: #faf9f7; border-radius: 6px; overflow: hidden; border: 1px solid #f0ebe1; }
@@ -125,34 +126,34 @@
     <a href="javascript:void(0)" onclick="navigateTo('#hero-banner')">Home 首頁</a>
     <a href="javascript:void(0)" onclick="navigateTo('#our-story')">Our Story 品牌故事</a>
     <a href="javascript:void(0)" onclick="navigateTo('#products-section')">Products 產品目錄</a>
-    <a href="javascript:void(0)" onclick="navigateTo('#reviews-section')">Reviews 真實評價</a>
-    <a href="javascript:void(0)" onclick="navigateTo('#faq-section')">FAQ 常見問題</a>
+    <a href="javascript:void(0)" onclick="openPage('journal-page')">Journal 護膚日誌</a>
+    <a href="javascript:void(0)" onclick="navigateTo('#reviews-section')">Customer Reviews</a>
+    <a href="javascript:void(0)" onclick="openPage('faq-page')">FAQ 常見問題</a>
 </div>
 
 <div id="home-page">
     <div class="promo-bar">Enjoy free shipping on your first purchase!</div>
     
     <section class="banner-container" id="hero-banner">
-        <div class="banner-slide active" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png"></div>
-        <div class="banner-slide" data-pc="https://i.imgur.com/8r52Abm.png" data-mb="https://i.imgur.com/bGDYaOq.png"></div>
-        <div class="banner-slide" data-pc="https://i.imgur.com/0V8WWee.png" data-mb="https://i.imgur.com/w0RsEAG.png"></div>
-        <div class="banner-slide" data-pc="https://i.imgur.com/1yqN7tx.png" data-mb="https://i.imgur.com/ypKPYhI.png"></div>
+        <img class="banner-slide active" src="https://i.imgur.com/UwQzz3n.png" data-pc="https://i.imgur.com/VY45igg.png" data-mb="https://i.imgur.com/UwQzz3n.png" alt="日本護膚選品">
+        <img class="banner-slide" src="https://i.imgur.com/bGDYaOq.png" data-pc="https://i.imgur.com/8r52Abm.png" data-mb="https://i.imgur.com/bGDYaOq.png" alt="日系 clean beauty">
+        <img class="banner-slide" src="https://i.imgur.com/w0RsEAG.png" data-pc="https://i.imgur.com/0V8WWee.png" data-mb="https://i.imgur.com/w0RsEAG.png" alt="純淨護膚">
+        <img class="banner-slide" src="https://i.imgur.com/ypKPYhI.png" data-pc="https://i.imgur.com/1yqN7tx.png" data-mb="https://i.imgur.com/ypKPYhI.png" alt="天然植物香氣">
     </section>
 
     <section id="our-story" class="container mx-auto px-6 py-16 text-center">
         <h2 class="text-2xl mb-3">Our Story</h2>
         <p class="text-[15px] mb-6 font-semibold" style="color: var(--text-light); font-family: 'Playfair Display', serif;">質感選品 ｜ 專注成分</p>
-        <div class="max-w-3xl mx-auto text-[15px] space-y-4 text-[#4a403a] text-justify md:text-center leading-relaxed">
+        <div class="max-w-3xl mx-auto text-[15px] space-y-4 text-[#4a403a]">
             <p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
-            <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸健康而穩定的狀態，帶來安心且值得長久使用的護膚體驗。</p>
-            <p>主理人持有日本<strong>「化妝品檢定特級」</strong>資格，亦曾長期受敏感肌困擾，因此更重視成分的溫和性，以及肌膚所需要的平衡與舒適。</p>
+            <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸溫和、平衡與穩定的狀態，帶來低負擔且值得長久使用的護膚體驗。</p>
+            <p>主理人持有日本「化妝品檢定特級」資格，亦曾長期受敏感肌困擾，因此更重視成分導向與低刺激配方，為你帶來真正的 skin wellness。</p>
         </div>
     </section>
 
     <section id="products-section" class="py-6 pt-10">
         <div class="flex justify-center space-x-6 mb-8 border-b border-[#efeae1] overflow-x-auto whitespace-nowrap px-4">
             <button onclick="filterList('all', this)" class="product-tab active">全部產品</button>
-            <button onclick="filterList('top', this)" class="product-tab">王牌熱賣</button>
             <button onclick="filterList('soel', this)" class="product-tab">Soel</button>
             <button onclick="filterList('supmile', this)" class="product-tab">Supmile</button>
             <button onclick="filterList('beige', this)" class="product-tab">Beige+</button>
@@ -162,90 +163,465 @@
 
     <section id="reviews-section" class="bg-white py-16">
         <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-xl text-center mb-10">真實用家感受</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「香氣很天然療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」<br><br>— 用家 A</p></div>
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常舒服。質地不厚重，即使夏天使用也沒有負擔，天然植物香氣讓人很放鬆。」<br><br>— 用家 B</p></div>
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐<br><br>「持續使用後，肌膚變得更柔軟滋潤，整體氣色和光澤感都有改善，朋友也開始留意到皮膚狀態變好了。」<br><br>— 用家 C</p></div>
+            <h2 class="text-2xl text-center mb-10 font-serif">Customer Reviews</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
+                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-[14px] text-[#4a403a] mb-4">「天然植物香氣很療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」</p>
+                    <p class="text-[12px] text-[#666] text-right">— 用家 A</p>
+                </div>
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
+                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-[14px] text-[#4a403a] mb-4">「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常溫和。質地不厚重，即使夏天使用也沒有負擔，低刺激配方讓人很放鬆。」</p>
+                    <p class="text-[12px] text-[#666] text-right">— 用家 B</p>
+                </div>
+                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
+                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-[14px] text-[#4a403a] mb-4">「持續使用後，肌膚變得更柔軟滋潤，整體氣色和透亮感都有改善，朋友也開始留意到皮膚狀態變好了。」</p>
+                    <p class="text-[12px] text-[#666] text-right">— 用家 C</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="py-16 bg-[#faf9f7]">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-xl text-center mb-10">訂購流程</h2>
-            <div class="flex flex-col md:flex-row justify-center md:gap-16 gap-6 text-center text-[15px] font-medium text-[#4a403a]">
-                <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">1</span><br>WhatsApp 下單</div>
-                <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">2</span><br>PayMe / FPS 付款</div>
-                <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">3</span><br>48小時內出貨 (順豐到付)</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq-section" class="bg-white py-16">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-xl text-center mb-8">常見問題 FAQ</h2>
-            <div class="space-y-3">
-                <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
-                    <summary class="font-semibold outline-none cursor-pointer text-[15px]">Q：Soel 有機芝麻護膚油會有芝麻味嗎？</summary>
-                    <p class="mt-3 text-[14px] text-gray-600">A：不會。低溫冷壓萃取生芝麻籽，保留淡淡清香與營養，並添加天然精油調配出療癒香氣。</p>
-                </details>
+            <h2 class="text-2xl text-center mb-10 font-serif">訂購流程</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-[15px] font-medium text-[#4a403a]">
+                <div class="bg-white p-6 rounded shadow-sm border border-[#e0d9cf]">
+                    <span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-3">1</span>
+                    <h3 class="font-bold mb-2">WhatsApp 下單</h3>
+                    <p class="text-[13px] text-[#666] font-normal">聯絡我們確認產品及即貨狀況。</p>
+                </div>
+                <div class="bg-white p-6 rounded shadow-sm border border-[#e0d9cf]">
+                    <span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-3">2</span>
+                    <h3 class="font-bold mb-2">付款方法</h3>
+                    <p class="text-[13px] text-[#666] font-normal">支援 PayMe、FPS 及銀行轉帳</p>
+                </div>
+                <div class="bg-white p-6 rounded shadow-sm border border-[#e0d9cf]">
+                    <span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-3">3</span>
+                    <h3 class="font-bold mb-2">配送及安排</h3>
+                    <p class="text-[13px] text-[#666] font-normal">付款確認後，香港地區將於 48 小時內出貨。可選順豐上門配送或順豐自提點取貨。出貨後將提供物流追蹤資訊。</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="py-16 text-center bg-[#2c2420] text-white">
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 4px;">COOL HOUSE</div>
-        <div style="font-size: 10px; letter-spacing: 6px; margin-top: 6px; opacity: 0.6;">BEAUTY | MIND | JAPAN</div>
-        <div class="mt-8 flex justify-center space-x-6">
-            <a href="https://www.instagram.com/你的IG帳號/" target="_blank" class="text-white opacity-80"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg></a>
-        </div>
+        <div style="font-size: 10px; letter-spacing: 6px; margin-top: 6px; opacity: 0.6;">CLEAN BEAUTY | SELECT SHOP | JAPAN</div>
     </footer>
 </div>
 
-<div id="product-page">
+<div id="product-page" class="sub-page">
     <div id="detail-content-area"></div>
+</div>
+
+<div id="faq-page" class="sub-page">
+    <div class="container mx-auto max-w-3xl px-5 py-6 pt-10">
+        <button onclick="closeSubPage()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            返回首頁
+        </button>
+        
+        <h2 class="text-3xl text-center mb-10 font-serif">FAQ</h2>
+        
+        <div class="space-y-4">
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">敏感肌適合使用嗎？</summary>
+                <div class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">
+                    <p>我們重視成分的溫和性與肌膚平衡，選品以低負擔、成分簡約的配方為主，專注於敏感肌護理。</p>
+                    <p class="mt-2">但每個人的膚況不同，如特別敏感，建議先於局部肌膚測試後再使用。</p>
+                </div>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">護膚油會唔會好笠？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">我們所選的天然植物油親膚性極高，質地輕盈容易被皮膚吸收。使用後呈現自然透亮感，而非油膩感，絕不黏膩。</p>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">夏天可以用護膚油嗎？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">絕對可以。夏天經常出入冷氣地方，肌膚容易缺水。使用質地輕盈的植物護膚油，能幫助肌膚鎖水，維持水油平衡，穩定肌膚狀態。</p>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">天然護膚品容易變質嗎？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">產品均按照品牌原有標準生產及保存。為保持純淨成分的最佳活性，建議避免陽光直射及高溫環境，並於開封後盡早使用。</p>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">產品是否日本直送？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">是的。所有產品均為日本護膚選品，由日本直接採購，並經主理人仔細挑選後引入香港。</p>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">如何確認產品是否有現貨？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">可透過 WhatsApp 聯絡我們查詢最新即貨狀況，全品現貨。</p>
+            </details>
+            <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none">
+                <summary class="font-semibold outline-none cursor-pointer text-[15px]">多久會安排出貨？</summary>
+                <p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">確認付款後，香港地區一般會於 48 小時內安排出貨。</p>
+            </details>
+        </div>
+    </div>
+</div>
+
+<div id="journal-page" class="sub-page">
+    <div class="container mx-auto max-w-3xl px-5 py-6 pt-10 text-center">
+        <button onclick="closeSubPage()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            返回首頁
+        </button>
+        <h2 class="text-3xl mb-4 font-serif">Journal</h2>
+        <p class="text-[15px] text-[#666] mb-10">探索日本 Clean Beauty 與敏感肌護理的深度指南。</p>
+        <div class="p-10 border border-[#efeae1] rounded bg-[#faf9f7] text-[#4a403a]">
+            專欄文章即將推出，敬請期待...
+        </div>
+    </div>
 </div>
 
 <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
 <script>
 // ================================================
-// 產品資料庫 (共 13 款產品)
+// 產品資料庫 (13件最新文案資料)
 // ================================================
 const PRODUCTS = [
-    // 1. Soel 芝麻修護油
     {
-        id: "soel-oil", brand: "Soel",
-        nameEn: "soel LIVING-OIL sesame oil",
-        nameZh: "有機芝麻修護油 60mL",
-        category: "soel top",
-        badge: "USDA有機認證 ｜ 以油養膚 ｜ 敏感肌、孕婦小孩適用",
-        price: "HK$ 365",
+        id: "soel-oil", brand: "Soel", nameEn: "soel LIVING-OIL", nameZh: "有機芝麻修護油 60mL", category: "soel", 
+        badge: "USDA 有機認證｜敏感肌適用｜導入修護｜低刺激護理", price: "HK$ 365",
         images: ["https://i.imgur.com/2yqgpfV.jpeg", "https://i.imgur.com/kRowcMq.png", "https://i.imgur.com/F1xydoY.png", "https://i.imgur.com/Ria4vms.png", "https://i.imgur.com/q7xg4jL.png", "https://i.imgur.com/9RnYa2n.png", "https://i.imgur.com/H7ojgz6.png"],
-        shortIntro: "soel 的旗艦產品，採用珍貴「一番搾」工藝，保留高出普通芝麻油 2-5 倍的維他命 E 及高濃度芝麻素，分子極細，洗臉後第一步導入，打造柔嫩肌。",
-        mainEffects: "深層滋養保濕 ✧ 抗老化護理 ✧ 舒緩修護 ✧ 促進肌膚吸收 ✧ 提升肌膚彈性與光澤",
-        features: "✦ 萃取工藝：工匠低溫壓搾不施加熱力。保留活性極高濃度的芝麻素和維他命E。<br><br>✦ 珍貴的❮一番搾❯：僅取首道壓搾中只能取得的 20-30%初榨油，成就抗氧化成分極高的高級油質。<br><br>✦ 高濃度芝麻素：具有強大的清除自由基能力，能減緩肌膚老化。<br><br>✦ 高滲透：分子結構與皮膚脂質非常接近，具優異的親膚滲透力, 適合作為第一步的導入油，打造彈潤柔嫩的肌膚。<br><br>✦ 修復泛紅與受損：有助修護日曬後肌膚及修復敏感泛紅皮膚。<br><br>✦ 清爽療癒香氣：Top Note | 綠葉與佛手柑的柑橘清香。Middle Notes| 綠茶與白花的淡淡甜味。Last Notes | 木質調與柔和的麝香。",
-        usage: "1. 洗臉後取約 1-2 滴於手心並輕輕搓開, 按壓全臉，幫助後續化妝水吸收作為導入。<br>2. 乾燥季節，可在面霜後作為最後一道護膚步驟，形成天然鎖水屏障，長效保濕。<br>3. 加入平時用開嘅cream<br>4. 作面部或身體按摩可去浮腫<br>5. 潔面後，用大約五至六滴作按摩，然後洗淨<br>6. 小傷口或嬰兒使用作家中萬用油",
-        ingredients: "Sesamum Indicum (Sesame) Seed Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Cedrus Atlantica Bark Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Tocopherol",
-        specs: "◆ 內容：60mL<br>◆ 製造國家：日本<br>◆ 保存：未開封 2 年，開封後建議於 1 年內用完。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
-        results: [
-            { img: "https://i.imgur.com/D2p6pa4.jpeg", label: "嬰兒曬傷降紅" },
-            { img: "https://i.imgur.com/VWlqzEn.jpeg", label: "敏感紅疹改善" },
-            { img: "https://i.imgur.com/CAR8x5A.jpeg", label: "燙傷紅印改善" },
-            { img: "https://i.imgur.com/PPE3DGv.jpeg", label: "小孩濕疹改善" }
-        ]
+        shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>Soel 的經典護膚油，以珍貴「一番搾」低溫冷壓芝麻油為基底，保留豐富芝麻素與天然維他命 E，為肌膚帶來深層而低負擔的滋養。<br>細緻輕盈的質地，能迅速融入肌膚，特別適合作為洗臉後第一步的導入護理，幫助後續保養更貼合吸收，讓肌膚回復柔軟、穩定與透亮狀態。<br>揉合天然植物精油，散發淡雅柑橘與木質香氣，讓每日護膚成為放鬆而療癒的時刻。",
+        mainEffects: "深層保濕 ✧ 舒緩修護 ✧ 提升透亮感 ✧ 維持肌膚平衡",
+        features: "✦ 珍貴「一番搾」工藝<br>僅取首道壓搾中最珍貴的初榨油脂，保留高濃度芝麻素與天然維他命 E，呈現細緻而純淨的油質。<br><br>✦ 高親膚滲透力<br>芝麻油脂結構與人體皮脂相近，質地輕盈細緻，能快速融入肌膚而不黏膩。<br><br>✦ 導入型護膚油<br>適合作為潔面後第一步使用，幫助肌膚維持柔軟度與穩定狀態，提升後續護膚貼合感。<br><br>✦ 天然植物香氣<br>以佛手柑、綠茶白花與木質調交織出柔和療癒香氣，帶來舒適放鬆的護膚體驗。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈流動感油質｜快速吸收｜自然透亮感<br><br><strong>香氣</strong><br>前調｜佛手柑與綠葉柑橘香氣<br>中調｜綠茶與淡雅白花<br>後調｜柔和木質與麝香調</div>",
+        usage: "<strong>日常導入護理</strong><br>洗臉後取 1–2 滴於掌心溫熱後，輕按全臉，再進行後續護膚程序。<br><br><strong>加強保濕</strong><br>乾燥季節可於面霜後使用，加強鎖水與潤澤感。<br><br><strong>混合護膚</strong><br>可加入日常面霜或粉底液中使用，提升柔潤貼膚感。<br><br><strong>按摩護理</strong><br>可作面部或身體按摩使用，幫助舒緩乾燥與緊繃感。",
+        ingredients: "芝麻種子油、佛手柑果實油、雪松精油、花梨木油、雞蛋花萃取、胡蘿蔔種子油、當歸根油、維他命 E",
+        specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: [{ img: "https://i.imgur.com/D2p6pa4.jpeg", label: "嬰兒曬傷降紅" }, { img: "https://i.imgur.com/VWlqzEn.jpeg", label: "敏感紅疹改善" }, { img: "https://i.imgur.com/CAR8x5A.jpeg", label: "燙傷紅印改善" }, { img: "https://i.imgur.com/PPE3DGv.jpeg", label: "小孩濕疹改善" }]
     },
-    // 2. Soel 金青檸熟成生皂
     {
-        id: "soel-soap", brand: "Soel",
-        nameEn: "SOEL LIVING-OIL SOAP GOLDEN LIME",
-        nameZh: "金青檸熟成生皂 100mL",
-        category: "soel",
-        badge: "USDA有機認證 ｜ 天然維生素C ｜ 潔面、面膜兩用",
-        price: "HK$ 238",
+        id: "soel-soap", brand: "Soel", nameEn: "soel LIVING-OIL SOAP Golden Lime", nameZh: "金青檸熟成生皂 100mL", category: "soel", 
+        badge: "USDA 有機認證｜潔面・面膜兩用｜天然維他命 C｜低刺激潔淨", price: "HK$ 238",
         images: ["https://i.imgur.com/rrtDoU5.png", "https://i.imgur.com/9B4U7LL.png", "https://i.imgur.com/VlnGArd.png", "https://i.imgur.com/MxkuxLn.png", "https://i.imgur.com/EakAu5Q.png", "https://i.imgur.com/Rrfmncq.png", "https://i.imgur.com/j4pvROR.png"],
-        shortIntro: "嚴選產自福岡縣小郡市專業農場「RUSH FARM」, 極其罕見的日本國產完黃色成熟的金色檸檬萃取，徹底洗淨毛孔污垢、過剩油脂及老廢角質, 帶來前所未有的清爽與滋潤平衡。",
-        mainEffects: "溫和潔淨肌膚 ✧ 深層保濕滋潤 ✧ 細緻泡沫溫和去污 ✧ 天然配方 ✧ 低刺激 ✧ 針對毛孔與暗沉的深層修護",
-        features: "✦ 絕不使用化學肥料、農藥防腐劑及防霉劑。獲得 USDA 美國標準有機認證。<br><br>✦ 堅持在最鮮活的狀態下封存入皂，保留植物最強大的修護能量。<br><br>✦ 極致維他命C：含金色檸檬的高濃度維他命C，非常適合粉刺、油性, 使皮膚不易長痘痘, 改善油脂分泌。還可以改善暗沉並提供抗衰老護理。<br><br>✦ 溫和去污：溫和有效洗淨毛孔污垢、與粗糙角質，洗後肌膚呈現透亮光澤。<br><br>✦ 清爽保濕：獨特的生石鹼製法，清爽洗感的同時肌膚依然保持水潤。",
-        usage: "1. 日常潔面（直接塗抹質地）：卸妝後，取約 1-2 粒杏仁大小的生石鹼於掌心。以按摩的方式細緻清洗全臉,沖洗乾淨。<br><br>2. 濃密泡沫潔面（配合起泡網）：卸妝後，取 1-2 粒杏仁大小的生石鹼，加入少量水，利用
+        shortIntro: "洗淨同時，保留肌膚需要的水分與柔軟度<br><br>嚴選日本福岡縣「RUSH FARM」稀有金色熟成青檸，於最鮮活狀態封存入皂，結合植物油脂與熟成生石鹼工藝，帶來溫和而深層的潔淨體驗。<br><br>細緻柔滑的質地，能溫和帶走毛孔污垢、多餘皮脂與老廢角質，同時維持肌膚所需水分平衡。洗後肌膚呈現乾淨透亮感，卻不緊繃。<br><br>可作日常潔面，亦可作深層修護面膜使用。",
+        mainEffects: "溫和潔淨 ✧ 毛孔護理 ✧ 保濕柔潤 ✧ 提升肌膚透亮感",
+        features: "✦ 日本產熟成金青檸<br>採用極罕見的日本國產金色熟成青檸，富含天然維他命 C 與植物養分，幫助維持肌膚清爽與透亮感。<br><br>✦ 生石鹼熟成工藝<br>以低負擔熟成製法製成，潔淨同時保留肌膚柔軟與水潤感。<br><br>✦ 溫和潔淨毛孔<br>細緻泡沫能溫和帶走毛孔污垢與老廢角質，洗後肌膚清爽而不乾澀。<br><br>✦ 植物油脂滋潤配方<br>揉合芝麻油、猴麵包樹油、覆盆子種子油等植物成分，提升洗後舒適度與柔潤感。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 混合肌 ✧ 油性肌 ✧ 暗沉粗糙肌膚<br><br><strong>質地</strong><br>柔滑生皂質地｜可起細緻泡沫｜洗後清爽不緊繃<br><br><strong>香氣</strong><br>清新柑橘調｜淡雅植物香氣｜自然療癒感</div>",
+        usage: "<strong>日常潔面</strong><br>卸妝後取適量於掌心，輕柔按摩全臉後以清水洗淨。<br><br><strong>泡沫潔面</strong><br>配合起泡網使用，可揉出綿密泡沫，提升潔淨舒適感。<br><br><strong>深層修護面膜</strong><br>厚敷於潔淨後肌膚約 1–2 分鐘後洗淨，作為深層潔淨護理使用。",
+        ingredients: "水、鉀石鹼基、蔗糖、甘油、橄欖果油、芝麻種子油、猴麵包樹種子油、蔓越莓種子油、覆盆子種子油、酒粕、金青檸果皮、萊姆果皮油、佛手柑果實油、紫菜萃取、聚麩氨酸等植物成分",
+        specs: "◆ 容量：100mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 6 個月內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "soel-cleansing-gel", brand: "Soel", nameEn: "soel LIVING-OIL CLEANSING GEL", nameZh: "植萃彈力卸妝凝膠 150mL", category: "soel", 
+        badge: "卸妝同時保濕｜溫和潔淨毛孔｜植睫毛適用｜低刺激護理", price: "HK$ 289",
+        images: ["https://i.imgur.com/jjuWdj1.png", "https://i.imgur.com/WFH5iyV.png"],
+        shortIntro: "卸淨彩妝，同時維持肌膚柔軟與水潤感<br><br>Soel 經典卸妝凝膠，揉合品牌核心芝麻油與 12 種植物油脂，以輕盈柔滑的凝膠質地，溫和卸除彩妝、角栓與毛孔污垢。<br><br>潔淨同時為肌膚保留所需水分，洗後不乾澀、不緊繃，呈現柔軟透亮的舒適膚感。即使防水型彩妝或植睫毛人士亦可安心使用。<br><br>淡雅植物香氣，讓每日卸妝成為放鬆肌膚節奏的療癒時刻。",
+        mainEffects: "深層卸妝 ✧ 毛孔潔淨 ✧ 保濕柔潤 ✧ 維持肌膚平衡",
+        features: "✦ 12 種植物油配方<br>以芝麻油、荷荷巴油、摩洛哥堅果油等植物成分為基底，溫和卸淨彩妝同時維持肌膚柔軟度。<br><br>✦ 洗後不緊繃<br>卸妝後肌膚依然保有潤澤感，減少乾燥帶來的不適與繃緊感。<br><br>✦ 深層潔淨毛孔<br>能溫和帶走角栓、多餘油脂及防水型彩妝，維持毛孔潔淨清爽。<br><br>✦ 友善敏感肌與植睫毛<br>低負擔配方，即使敏感肌或植睫毛人士亦能安心使用。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 混合肌 ✧ 缺水肌<br><br><strong>質地</strong><br>柔滑凝膠質地｜水潤輕盈｜洗後柔軟不黏膩<br><br><strong>香氣</strong><br>佛手柑柑橘調｜淡雅木質香氣｜天然植物療癒感</div>",
+        usage: "取約按壓 3–4 下於乾爽掌心，輕柔按摩全臉使其與彩妝融合，再以清水或溫水徹底洗淨。",
+        ingredients: "水、芝麻種子油、摩洛哥堅果油、角鯊烷、荷荷巴種子油、橄欖果油、玫瑰果油、佛手柑果實油、雪松油、花梨木油、胡蘿蔔種子油、當歸根油、維他命 E 等植物成分",
+        specs: "◆ 容量：150mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "soel-serum", brand: "Soel", nameEn: "soel LIVING-OIL SERUM", nameZh: "植萃修復全效精華液 60mL", category: "soel", 
+        badge: "多效修護｜高保濕精華｜植物成分｜敏感肌適用", price: "HK$ 498",
+        images: ["https://i.imgur.com/k52u08j.png", "https://i.imgur.com/nVv83Zh.png", "https://i.imgur.com/tlhRsLv.png", "https://i.imgur.com/Mh4vIvi.png", "https://i.imgur.com/TesHWqh.png"],
+        shortIntro: "為肌膚注入水分與柔軟彈性<br><br>揉合 30 種以上植物油與植物萃取精華，為缺水、乾燥與容易失衡的肌膚帶來細緻而低負擔的修護體驗。<br><br>水潤輕盈的質地能迅速融入肌膚，日間維持肌膚柔軟與保濕度，夜間則為肌膚補充所需養分，讓膚況回復穩定、透亮與細緻。<br><br>配合天然植物香氣，讓每日護膚回歸舒適而平衡的節奏。",
+        mainEffects: "高效保濕 ✧ 柔潤修護 ✧ 提升肌膚透亮感 ✧ 維持肌膚平衡",
+        features: "✦ 30 種以上植物精華<br>揉合芝麻油、摩洛哥堅果油、玫瑰果油與多種植物萃取，為肌膚補充水分與柔軟度。<br><br>✦ 水潤輕盈質地<br>快速融入肌膚，帶來細緻保濕感而不厚重黏膩。<br><br>✦ 日夜修護護理<br>日間維持肌膚水潤與舒適感，夜間幫助肌膚回復穩定與柔軟狀態。<br><br>✦ 低負擔植物配方<br>重視成分平衡與溫和性，適合希望減少肌膚負擔的人使用。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>水潤精華質地｜輕盈易吸收｜柔滑透亮感<br><br><strong>香氣</strong><br>佛手柑與花梨木調｜淡雅植物香氣｜舒緩療癒感</div>",
+        usage: "<strong>日常精華護理</strong><br>於化妝水或護膚油後，取約 2–3 滴於掌心，以手溫輕柔按壓全臉至吸收。<br><br><strong>建議護膚順序</strong><br>化妝水 → 護膚油 → 精華液 → 面霜",
+        ingredients: "水、芝麻種子油、摩洛哥堅果油、澳洲堅果種子油、角鯊烷、玫瑰果油、橄欖果油、白柳樹皮萃取、洋薊萃取、迷迭香葉萃取、薰衣草花萃取、佛手柑果實油、花梨木油、胡蘿蔔種子油、維他命 C 衍生物、維他命 E 等植物成分",
+        specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "soel-cream", brand: "Soel", nameEn: "soel LIVING-OIL CREAM", nameZh: "植萃滋養修護面霜 50g", category: "soel", 
+        badge: "真空保鮮｜天然來源 99%｜深層鎖水｜敏感肌適用", price: "HK$ 378",
+        images: ["https://i.imgur.com/7rVhKU0.png", "https://i.imgur.com/SUs6HbZ.png", "https://i.imgur.com/A5GvMxE.png"],
+        shortIntro: "柔軟包覆肌膚，維持長時間水潤與穩定感<br><br>以芝麻油、阿甘油與 20 種植物油脂為基底，為乾燥與缺乏彈性的肌膚帶來細緻而持久的滋養。<br><br>乳霜質地柔滑細膩，能於肌膚表面形成輕盈保護屏障，鎖住水分同時維持舒適透氣感。隨著每日使用，肌膚回復柔軟、穩定與自然光澤。<br><br>採用真空壓瓶設計，減少空氣接觸，更完整保存植物成分的鮮度與活性。",
+        mainEffects: "深層保濕 ✧ 修護乾燥 ✧ 強化肌膚屏障 ✧ 提升柔軟光澤感",
+        features: "✦ 真空保鮮設計<br>真空壓瓶有效減少空氣與細菌接觸，更穩定保存天然植物成分。<br><br>✦ 20 種植物油脂滋養<br>揉合芝麻油、阿甘油、角鯊烷與玫瑰果油等植物成分，為肌膚補充水分與柔軟度。<br><br>✦ 長效鎖水屏障<br>於肌膚表面形成細緻保護膜，減少乾燥與水分流失，維持舒適潤澤感。<br><br>✦ 柔軟細緻膚觸<br>質地滋潤卻不厚重，提升肌膚柔滑度與自然透亮感。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 熟齡肌<br><br><strong>質地</strong><br>柔滑乳霜質地｜細緻延展｜潤澤不厚重<br><br><strong>香氣</strong><br>淡雅植物木質調｜溫和療癒感</div>",
+        usage: "於化妝水、精華液後，取適量均勻塗抹全臉並輕按至吸收。<br>乾燥季節可於面霜後再疊加少量護膚油，加強鎖水與滋養效果。",
+        ingredients: "水、芝麻種子油、阿甘油、角鯊烷、澳洲堅果種子油、荷荷巴種子油、橄欖果油、玫瑰果油、百里香萃取、白柳樹皮萃取、洋薊葉萃取、佛手柑果油、花梨木油、胡蘿蔔種子油、維他命 E 等植物成分",
+        specs: "◆ 容量：50g<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "soel-hair-oil", brand: "Soel", nameEn: "soel LIVING-OIL Floral Lily Musk Hair Oil", nameZh: "百合麝香護髮油 30mL", category: "soel", 
+        badge: "100% 天然植物成分｜深層修護｜日系束感造型｜高級香韻", price: "HK$ 318",
+        images: ["https://i.imgur.com/D3UWrPy.png"],
+        shortIntro: "為髮絲注入柔軟光澤與細緻香氣<br><br>揉合 7 種天然植物油脂，專為乾燥、毛躁與燙染受損髮質而設。中等輕盈質地，能自然修飾髮絲線條，同時維持柔軟與水潤感。<br><br>不只作為日常護髮，更能打造自然日系束感與光澤感，讓髮絲呈現輕盈而細緻的空氣感層次。以百合、天竺葵與木質香調交織出柔和而高級的療癒香氣，讓護髮同時成為感官享受。",
+        mainEffects: "修護乾燥受損 ✧ 撫平毛躁 ✧ 提升髮絲光澤 ✧ 打造自然束感造型",
+        features: "✦ 7 種植物油滋養<br>揉合米糠油、荷荷巴油、植物性角鯊烷等天然油脂，為髮絲補充柔軟與潤澤感。<br><br>✦ 自然束感造型<br>輕盈不厚重，能自然整理髮流與空氣感層次，打造日系柔霧束感。<br><br>✦ 修護燙染受損<br>特別適合漂染、燙後乾燥毛躁髮質，提升順滑度與柔軟度。<br><br>✦ 100% 天然來源成分<br>低負擔植物配方，乾燥季節亦可少量用於身體保濕。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合髮質</strong><br>乾燥髮 ✧ 毛躁髮 ✧ 染燙受損髮 ✧ 缺乏光澤髮質<br><br><strong>質地</strong><br>中等輕盈油感｜柔滑不厚重｜自然光澤感<br><br><strong>香氣</strong><br>前調｜葡萄柚清新柑橘香氣<br>中調｜百合與玫瑰天竺葵花香<br>後調｜柔和木質與麝香調</div>",
+        usage: "<strong>日常造型</strong><br>取適量於掌心搓勻，均勻塗抹於髮尾與髮絲，整理自然束感與光澤感。<br><br><strong>浴後護理</strong><br>洗髮後以毛巾輕按乾水分，取適量塗抹於髮尾後吹乾。<br><br><strong>身體保濕</strong><br>可少量使用於手部或身體乾燥位置，加強柔潤感。",
+        ingredients: "米糠油、荷荷巴種子油、植物性角鯊烷、聖母百合花萃取、香葉天竺葵油、葡萄柚果皮油、黃葵子種子油、維他命 E",
+        specs: "◆ 容量：30mL<br>◆ 製造國家：日本<br>◆ 保存方式：請存放於陰涼乾燥處，開封後建議儘早使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "supmile-cleansing-milk", brand: "Supmile", nameEn: "SUPMILE Cleansing Milk", nameZh: "植物滋潤卸妝乳 120mL", category: "supmile", 
+        badge: "100% 天然成分｜卸妝同時保濕｜敏感肌適用｜7 大無添加", price: "HK$ 248",
+        images: ["https://i.imgur.com/MtKl10O.png", "https://i.imgur.com/hkvAibi.png"],
+        shortIntro: "溫和卸淨彩妝，同時守護肌膚水分平衡<br><br>以米糠油為基底，揉合五針松籽油與摩洛哥堅果油的植物卸妝乳。柔滑乳液質地能快速與彩妝及毛孔污垢融合，溫和潔淨同時保留肌膚所需水分。<br><br>洗後肌膚柔軟細緻，不乾澀、不緊繃，特別適合乾燥、敏感或容易缺水的肌膚使用。<br><br>低負擔天然配方，不僅可作卸妝使用，亦可作晨間潔面。",
+        mainEffects: "溫和卸妝 ✧ 深層保濕 ✧ 維持肌膚柔軟度 ✧ 舒緩乾燥不適",
+        features: "✦ 米糠油保濕配方<br>富含天然維他命 E，潔淨同時維持肌膚潤澤感。<br><br>✦ 五針松籽油修護<br>含珍貴松子油酸，幫助維持肌膚柔軟與屏障平衡。<br><br>✦ 柔滑乳液質地<br>快速與彩妝融合，溫和帶走毛孔污垢與多餘皮脂。<br><br>✦ 7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成色素、礦物油及石油系界面活性劑。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>柔滑乳液質地｜滋潤不厚重｜洗後柔軟不緊繃</div>",
+        usage: "取約按壓 2–3 次於乾爽掌心，均勻按摩全臉使其與彩妝融合，再以清水徹底洗淨。<br>亦可作晨間溫和潔面使用。",
+        ingredients: "水、米糠油、向日葵種子油、甘油、五針松種子油、摩洛哥堅果油、維他命 E 等植物成分",
+        specs: "◆ 容量：120mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "supmile-powder-wash", brand: "Supmile", nameEn: "SUPMILE Powder Wash", nameZh: "天然酵素洗顏粉 60g", category: "supmile", 
+        badge: "100% 天然成分｜溫和酵素潔面｜毛孔角質護理｜7 大無添加", price: "HK$ 188",
+        images: ["https://i.imgur.com/Rd0xoYR.png", "https://i.imgur.com/l2NpulU.png", "https://i.imgur.com/ULXYxwr.png"],
+        shortIntro: "溫和帶走老廢角質，回復細緻透亮肌膚<br><br>以天然無患子萃取與木瓜蛋白酶製成的植物酵素洗顏粉，遇水後能揉出細緻柔軟泡沫，溫和潔淨毛孔中的多餘皮脂與老廢角質。<br><br>潔面同時加入褐藻與植物保濕成分，洗後肌膚維持柔軟與水潤感，不易產生乾燥緊繃感。<br><br>特別適合容易粗糙、暗沉或毛孔堵塞的肌膚作日常溫和角質護理。",
+        mainEffects: "溫和潔淨 ✧ 毛孔護理 ✧ 改善粗糙暗沉 ✧ 維持肌膚水潤平衡",
+        features: "✦ 木瓜蛋白酶潔淨<br>以天然酵素溫和分解老廢角質與毛孔污垢，讓肌膚更柔滑細緻。<br><br>✦ 無患子植物潔面<br>天然植物洗淨成分，潔面同時減少肌膚負擔。<br><br>✦ 褐藻保濕修護<br>含豐富氨基酸與礦物質，幫助維持肌膚穩定與水潤感。<br><br>✦ 7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成色素、礦物油及石油系界面活性劑。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 混合肌 ✧ 油性肌 ✧ 毛孔粗糙肌膚<br><br><strong>質地</strong><br>細緻粉末質地｜柔軟泡沫感｜洗後清爽不乾澀</div>",
+        usage: "1. 取約 1 茶匙分量於掌心<br>2. 加入少量水或溫水輕揉起泡<br>3. 以泡沫輕柔潔面後，再以清水徹底洗淨",
+        ingredients: "無患子萃取、木瓜蛋白酶、褐藻萃取、積雪草萃取、石榴果萃取等植物成分",
+        specs: "◆ 容量：60g<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "supmile-moist-water", brand: "Supmile", nameEn: "SUPMILE Moist Water", nameZh: "植物保濕化妝水 120mL", category: "supmile", 
+        badge: "100% 天然成分｜天然神經醯胺｜CICA 積雪草｜7 大無添加", price: "HK$ 228",
+        images: ["https://i.imgur.com/Xvt1Z6g.png", "https://i.imgur.com/jXWcZyp.png"],
+        shortIntro: "為肌膚補充水分，回復穩定柔軟狀態<br><br>揉合天然神經醯胺、積雪草與植物保濕精華，為乾燥與容易不穩定的肌膚帶來輕盈而持久的補水護理。<br><br>水感質地清爽細緻，能快速融入肌膚角質層，提升肌膚柔軟度與舒適感，同時維持水油平衡。<br><br>配合多種植物修護成分，讓肌膚於日常環境壓力下依然保持穩定、水潤與透亮。",
+        mainEffects: "深層補水 ✧ 舒緩修護 ✧ 維持肌膚屏障 ✧ 提升透亮感",
+        features: "✦ 天然神經醯胺配方<br>幫助補充角質層水分，維持肌膚屏障與柔軟度。<br><br>✦ CICA 積雪草修護<br>舒緩乾燥與不穩定膚況，提升肌膚舒適感。<br><br>✦ 雙重玻尿酸保濕<br>同時補充表層與角質層水分，帶來細緻水潤感。<br><br>✦ 7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成色素、礦物油及石油系界面活性劑。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈水感質地｜快速吸收｜清爽不黏膩</div>",
+        usage: "洗臉後取適量於掌心或化妝棉，輕柔按壓全臉至吸收。<br>可重複疊加於乾燥位置，加強補水效果。",
+        ingredients: "水、甘油、石榴果實萃取、積雪草萃取、積雪草葉萃取、玻尿酸、水解透明質酸、天然神經醯胺、甘草根萃取、洋甘菊萃取、迷迭香葉萃取、晚櫻花萃取等植物成分",
+        specs: "◆ 容量：120mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "supmile-moist-veil-cream", brand: "Supmile", nameEn: "SUPMILE Moist Veil Cream", nameZh: "保濕鎖水乳液 50mL", category: "supmile", 
+        badge: "100% 天然成分｜乳液狀面霜｜長效鎖水｜7 大無添加", price: "HK$ 248",
+        images: ["https://i.imgur.com/D05FCqL.png", "https://i.imgur.com/XkK6MtJ.png"],
+        shortIntro: "輕盈包覆肌膚，維持長時間水潤與柔軟感<br><br>以獨特「乳液狀面霜」技術製成，兼具乳液的輕盈延展性與面霜的鎖水修護力，為肌膚帶來細緻而低負擔的保濕體驗。<br><br>揉合角鯊烷、荷荷巴油與植物保濕成分，幫助維持水油平衡，同時減少乾燥引起的不適與粗糙感。<br><br>質地柔滑不黏膩，適合四季使用，讓肌膚維持穩定、柔軟與自然透亮感。",
+        mainEffects: "長效保濕 ✧ 鎖水修護 ✧ 維持水油平衡 ✧ 柔軟肌膚",
+        features: "✦ 乳液狀面霜技術<br>擁有輕盈延展質地，同時具備面霜級別的鎖水保護力。<br><br>✦ 三重植物油脂保護<br>角鯊烷、荷荷巴油與五針松子油幫助柔軟角質並減少水分流失。<br><br>✦ 深層補水保濕<br>配合玻尿酸、甘油葡糖苷與瓜氨酸，維持肌膚長時間水潤感。<br><br>✦ 7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成色素、礦物油及石油系界面活性劑。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈乳霜質地｜柔滑延展｜清爽不厚重</div>",
+        usage: "於化妝水或精華液後，取適量均勻塗抹全臉並輕柔按壓至吸收。",
+        ingredients: "水、荷荷巴種子油、角鯊烷、向日葵種子油、五針松種子油、石榴果實萃取、玻尿酸、積雪草葉萃取、甘油葡糖苷、瓜氨酸、維他命 E 等植物成分",
+        specs: "◆ 容量：50mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "supmile-body-care-milk", brand: "Supmile", nameEn: "SUPMILE BODY CARE MILK", nameZh: "植萃全效潤膚乳 200mL", category: "supmile", 
+        badge: "100% 天然成分｜全身保濕修護｜敏感肌適用｜7 大無添加", price: "HK$ 218",
+        images: ["https://i.imgur.com/MMtA9zy.png"],
+        shortIntro: "為肌膚帶來柔軟而低負擔的每日保濕<br><br>揉合多種植物油脂與天然植萃，以輕盈細滑的乳液質地，為乾燥肌膚補充水分與柔潤感。<br><br>質地快速吸收，不黏膩、不厚重，能於肌膚表面形成舒適保護感，特別適合乾燥、敏感或換季不穩定肌膚作日常身體護理。<br><br>溫和植物配方，全家人亦可安心使用。",
+        mainEffects: "長效保濕 ✧ 舒緩乾燥 ✧ 維持肌膚柔軟度 ✧ 強化肌膚屏障",
+        features: "✦ 水油平衡配方<br>揉合植物油脂與保濕成分，維持肌膚柔軟與舒適感。<br><br>✦ 多重植物修護<br>配合明日葉、薏仁、積雪草與甘草根萃取，幫助舒緩乾燥與粗糙問題。<br><br>✦ 輕盈快速吸收<br>乳液質地細緻柔滑，塗抹後不黏膩，四季皆適合使用。<br><br>✦ 7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成色素、礦物油及石油系界面活性劑。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 嬰幼兒及家庭日常護理<br><br><strong>質地</strong><br>絲滑乳液質地｜輕盈水潤｜快速吸收<br><br><strong>香氣</strong><br>天然草本與淡雅茶樹香氣｜清新舒緩感</div>",
+        usage: "潔膚後取適量均勻塗抹全身肌膚，輕柔按摩至吸收。<br>乾燥位置可重複疊加使用，加強滋潤效果。",
+        ingredients: "水、橄欖果油、向日葵種子油、角鯊烷、石榴果實萃取、明日葉萃取、薏仁種子萃取、積雪草萃取、甘草根萃取、茶樹葉油、薰衣草油、佛手柑果實油、維他命 E 等植物成分",
+        specs: "◆ 容量：200mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "beige-bb-cream", brand: "Beige+", nameEn: "BEIGE+ SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige", 
+        badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", price: "HK$ 318",
+        images: ["https://i.imgur.com/P7ivpkx.png", "https://i.imgur.com/xnhJVtV.png", "https://i.imgur.com/NQ3bhmE.png"],
+        shortIntro: "如美容液般輕盈的保養型底妝<br><br>專為追求低負擔妝感與敏感肌膚而設的日系 BB 霜。結合美容液、防曬、粉底、調色與隔離功能，以輕盈細緻質地自然修飾毛孔、暗沉與膚色不均。<br><br>上妝同時為肌膚補充水分與保護力，打造自然透亮而不厚重的原生肌質感。<br><br>配合物理性防曬配方與多重保濕成分，即使長時間帶妝，肌膚依然保持舒適柔潤感。",
+        mainEffects: "修飾膚色 ✧ 保濕持妝 ✧ 物理防曬 ✧ 提升肌膚透亮感",
+        features: "✦ 1 瓶 5 效<br>結合隔離、防曬、美容液、粉底與調色功能，打造輕盈自然底妝。<br><br>✦ 物理防曬配方<br>SPF40 PA+++，溫和阻隔紫外線與日常環境刺激，敏感肌亦適合使用。<br><br>✦ 保養級美容成分<br>配合煙醯胺、5 重神經醯胺、玻尿酸與植物性角鯊烷，維持妝感水潤貼服。<br><br>✦ 肥皂可卸<br>日常淡妝可使用一般潔面產品卸除，減少肌膚負擔。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 混合肌 ✧ 喜歡自然妝感人士<br><br><strong>妝感質地</strong><br>輕盈水潤｜自然透亮感｜柔焦裸肌妝效<br><br><strong>Ochre｜自然色</strong><br>適合一般亞洲膚色，打造自然均勻膚感。</div>",
+        usage: "完成日常護膚後，取適量由臉部中央向外均勻推開。<br>可按需要局部疊加，加強修飾效果。",
+        ingredients: "Water、Titanium Dioxide、Niacinamide、Squalane、Hydrolyzed Hyaluronic Acid、Ceramide NG、Ceramide AP、Ceramide NP、Olive Fruit Oil、Jojoba Seed Oil、Geranium Oil 等保濕與植物成分",
+        specs: "◆ 容量：30g<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    },
+    {
+        id: "beige-nano-mist", brand: "Beige+", nameEn: "BEIGE+ Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige", 
+        badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 298",
+        images: ["https://i.imgur.com/i1GEoeN.png", "https://i.imgur.com/LETcHx7.png", "https://i.imgur.com/I5R5TvC.png", "https://i.imgur.com/o2NCwY4.png"],
+        shortIntro: "為妝容與肌膚同時補水的定妝噴霧<br><br>採用油水雙層設計與獨特奈米氣泡技術，噴灑瞬間形成極細緻霧感，讓保濕成分更均勻貼合肌膚。<br><br>結合定妝、補水與美容液功能，在維持妝容清爽貼服的同時，減少因乾燥造成的浮粉與脫妝問題。<br><br>特別適合油性與混合性肌膚，於潮濕天氣或長時間帶妝時，依然保持自然透亮感。",
+        mainEffects: "定妝持妝 ✧ 即時補水 ✧ 平衡油脂 ✧ 提升妝容貼服度",
+        features: "✦ 奈米氣泡技術<br>搖勻後形成微細奈米氣泡，使噴霧更均勻細緻，不易破壞妝容。<br><br>✦ 油水平衡護理<br>清爽補水同時減少過多油光，維持舒適柔滑妝感。<br><br>✦ 保養級美容成分<br>配合煙醯胺、4 重神經醯胺、玻尿酸與植物油脂，維持肌膚水潤與穩定感。<br><br>✦ 輕盈抗汗持妝<br>幫助減少汗水與油脂影響，維持妝容自然貼服感。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>混合肌 ✧ 油性肌 ✧ 缺水肌 ✧ 容易脫妝肌膚<br><br><strong>質地</strong><br>超細緻霧感｜清爽水潤｜不黏膩</div>",
+        usage: "<strong>使用前</strong><br>產品為油水雙層設計，使用前請充分搖勻。<br><br><strong>定妝補水</strong><br>距離臉部約 10–15cm，閉上雙眼後均勻噴灑全臉約 3–5 下。<br><br><strong>使用小貼士</strong><br>噴灑後無需拍打，讓噴霧自然貼合肌膚與妝容。",
+        ingredients: "Water、Niacinamide、Jojoba Seed Oil、Olive Fruit Oil、Hydrolyzed Elastin、Sodium Hyaluronate、Ceramide AP、Ceramide NG、Ceramide NP、Houttuynia Cordata Extract 等保濕與植物成分",
+        specs: "◆ 容量：45mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位",
+        results: []
+    }
+];
+
+// ================================================
+// 渲染邏輯 (SPA 切換)
+// ================================================
+const homePage = document.getElementById('home-page');
+const productPage = document.getElementById('product-page');
+const faqPage = document.getElementById('faq-page');
+const journalPage = document.getElementById('journal-page');
+const detailArea = document.getElementById('detail-content-area');
+const listArea = document.getElementById('product-list');
+
+// Banner 自動換相
+function updateBanners() {
+    const isMobile = window.innerWidth < 768;
+    document.querySelectorAll('.banner-slide').forEach(slide => {
+        slide.src = isMobile ? slide.dataset.mb : slide.dataset.pc;
+    });
+}
+let currentBanner = 0;
+const slides = document.querySelectorAll('.banner-slide');
+setInterval(() => {
+    slides[currentBanner].classList.remove('active');
+    currentBanner = (currentBanner + 1) % slides.length;
+    slides[currentBanner].classList.add('active');
+}, 4000);
+
+window.addEventListener('resize', updateBanners);
+
+// 1. 渲染「兩格目錄」
+function renderList(products) {
+    listArea.innerHTML = products.map(p => `
+        <div class="list-card" onclick="openDetail('${p.id}')">
+            <div class="list-img-box">
+                <img src="${p.images[0]}" loading="lazy">
+            </div>
+            <div class="list-brand">${p.brand}</div>
+            <h3 class="list-title">${p.nameZh}</h3>
+            <div class="price-text list-price">${p.price}</div>
+        </div>
+    `).join('');
+}
+
+function filterList(cat, btn) {
+    document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category.includes(cat));
+    renderList(filtered);
+}
+
+// 2. 打開「產品詳情頁」
+let currentScrollY = 0;
+function openDetail(id) {
+    currentScrollY = window.scrollY;
+    const p = PRODUCTS.find(x => x.id === id);
+    
+    const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
+    const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg('${src}', this)"><img src="${src}"></div>`).join('');
+    const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
+    const resultsHTML = p.results && p.results.length ? `<div class="mt-8 border-t border-[#f0ebe1] pt-8"><h3 class="font-serif text-lg mb-4 text-[#2c2420]">真實對比</h3><div class="evidence-scroll">${p.results.map(r => `<div class="evidence-item"><img src="${r.img}"><p class="text-[12px] mt-2 text-center text-[#666] font-medium">${r.label}</p></div>`).join('')}</div></div>` : '';
+
+    detailArea.innerHTML = `
+        <div class="container mx-auto max-w-5xl px-4 py-6">
+            <button onclick="closeSubPage()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                返回目錄
+            </button>
+            
+            <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                <div class="md:sticky md:top-24">
+                    <div class="gallery-main"><img src="${p.images[0]}" id="detail-main-img"></div>
+                    <div class="gallery-nav">${thumbHTML}</div>
+                </div>
+                
+                <div class="pt-6 md:pt-0">
+                    <div class="detail-badges">${badgeTags}</div>
+                    <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
+                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-4">${p.nameZh}</h1>
+                    <div class="price-text detail-price md:hidden">${p.price}</div>
+                    
+                    <div class="text-[15px] mb-2 text-[#4a403a]">${p.shortIntro}</div>
+                    
+                    ${p.mainEffects ? `<div class="detail-effects"><strong>主要功效</strong>${p.mainEffects}</div>` : ''}
+                    
+                    <div class="mt-8 border-t border-[#f0ebe1]">
+                        ${accHTML('產品特點', p.features)}
+                        ${accHTML('使用方法', p.usage)}
+                        ${accHTML('全成份', p.ingredients)}
+                        ${accHTML('產品規格及注意事項', p.specs)}
+                    </div>
+
+                    ${resultsHTML}
+
+                    <div class="hidden md:flex items-center justify-between mt-10 p-6 bg-[#faf9f7] rounded-md border border-[#e0d9cf]">
+                        <span class="text-[28px] font-bold price-text text-[var(--price)]">${p.price}</span>
+                        <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bg-[var(--btn)] text-white px-8 py-3 rounded hover:bg-[#8fa07a] transition font-medium text-[16px] shadow-sm">WhatsApp 訂購</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky-bottom-bar md:hidden">
+            <div class="price-text bar-price">${p.price}</div>
+            <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bar-btn">WhatsApp 訂購</a>
+        </div>
+    `;
+
+    hideAllPages();
+    productPage.style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+// 3. 打開任何獨立頁面
+function openPage(pageId) {
+    toggleMenu(); 
+    currentScrollY = window.scrollY;
+    hideAllPages();
+    document.getElementById(pageId).style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+// 隱藏所有頁面
+function hideAllPages() {
+    homePage.style.display = 'none';
+    productPage.style.display = 'none';
+    faqPage.style.display = 'none';
+    journalPage.style.display = 'none';
+}
+
+// 關閉 Sub-page，返回首頁
+function closeSubPage() {
+    hideAllPages();
+    homePage.style.display = 'block';
+    window.scrollTo(0, currentScrollY);
+}
+
+function switchDetailImg(src, thumbElement) {
+    document.getElementById('detail-main-img').src = src;
+    const parent = thumbElement.parentElement;
+    parent.querySelectorAll('.gallery-thumb').forEach(el => el.classList.remove('active'));
+    thumbElement.classList.add('active');
+}
+
+function navigateTo(sectionId) {
+    document.getElementById('sideMenu').classList.remove('active');
+    document.getElementById('menuOverlay').classList.remove('active');
+    
+    if (homePage.style.display === 'none') {
+        closeSubPage();
+    }
+    
+    setTimeout(() => {
+        const target = document.querySelector(sectionId);
+        if(target) {
+            const offset = 60; 
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = target.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+    }, 50);
+}
+
+function toggleMenu() {
+    document.getElementById('sideMenu').classList.toggle('active');
+    document.getElementById('menuOverlay').classList.toggle('active');
+}
+
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if(window.scrollY > 500 && homePage.style.display !== 'none') {
+        btn.classList.add('show');
+    } else {
+        btn.classList.remove('show');
+    }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    updateBanners();
+    renderList(PRODUCTS);
+});
+</script>
+
+</body>
+</html>
