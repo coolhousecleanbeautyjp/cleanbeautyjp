@@ -18,7 +18,7 @@
             --text: #333333; 
             --text-light: #666666;
             --price: #3d2f28; 
-            --nav-bg: #f3efe8; /* 新增頂部導航底色 */
+            --nav-bg: #f3efe8;
         }
         
         body { 
@@ -33,12 +33,12 @@
         }
         h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-weight: 600; letter-spacing: 0.04em; line-height: 1.4; }
         
-        /* 頂部全域導航欄 (Sticky Nav) - 改為 #f3efe8 */
+        /* 頂部全域導航欄 */
         .top-nav { position: sticky; top: 0; z-index: 60; background-color: var(--nav-bg); border-bottom: 1px solid #e0d9cf; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
         .hamburger { font-size: 24px; color: var(--headline); cursor: pointer; background: none; border: none; padding: 5px; outline: none; }
         .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.15em; color: var(--headline); cursor: pointer; text-align: center; }
         
-        /* 側邊欄選單 (Slide Menu) */
+        /* 側邊欄選單 */
         .side-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .side-menu-overlay.active { opacity: 1; pointer-events: auto; }
         .side-menu { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: #fff; z-index: 71; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: left 0.3s ease; display: flex; flex-direction: column; padding: 30px 20px; }
@@ -53,7 +53,7 @@
         .banner-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
         .banner-slide.active { opacity: 1; }
 
-        /* 目錄頁：兩格排版 (List View) */
+        /* 目錄頁：兩格排版 */
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; }
         @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 0 40px; } }
         .list-card { cursor: pointer; display: flex; flex-direction: column; }
@@ -69,16 +69,15 @@
         #product-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
         
         /* 畫廊 */
-        .gallery-main { width: 100%; aspect-ratio: 1/1; position: relative; background: #faf9f7; }
+        .gallery-main { width: 100%; aspect-ratio: 1/1; position: relative; background: #faf9f7; border-radius: 6px; overflow: hidden; border: 1px solid #f0ebe1; }
         .gallery-main img { width: 100%; height: 100%; object-fit: contain; }
-        .gallery-nav { display: flex; gap: 8px; overflow-x: auto; padding: 12px 20px; scrollbar-width: none; border-bottom: 1px solid #f0ebe1; }
+        .gallery-nav { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0; scrollbar-width: none; }
         .gallery-nav::-webkit-scrollbar { display: none; }
-        .gallery-thumb { width: 60px; height: 60px; flex-shrink: 0; border: 1px solid #efeae1; border-radius: 4px; overflow: hidden; opacity: 0.5; transition: 0.2s; }
+        .gallery-thumb { width: 60px; height: 60px; flex-shrink: 0; border: 1px solid #efeae1; border-radius: 4px; overflow: hidden; opacity: 0.5; transition: 0.2s; cursor: pointer; }
         .gallery-thumb.active { opacity: 1; border: 1px solid var(--headline); }
         .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
         /* 詳情排版 */
-        .detail-content { padding: 20px; }
         .detail-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
         .badge-tag { font-size: 11px; background: var(--btn); color: #fff; padding: 4px 8px; border-radius: 2px; letter-spacing: 0.05em; font-weight: 500;}
         .detail-price { font-size: 24px; margin-bottom: 16px; }
@@ -86,7 +85,7 @@
         .detail-effects { background: #fdfcfaf0; padding: 16px; border-radius: 6px; margin: 20px 0; font-size: 14px; color: var(--text); border: 1px solid #efeae1; }
         .detail-effects strong { color: var(--headline); font-family: 'Noto Serif TC', serif; display: block; margin-bottom: 8px; font-size: 15px; }
         
-        /* 懸浮置底購買 Bar */
+        /* 懸浮置底購買 Bar (手機版專用) */
         .sticky-bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 1px solid #efeae1; padding: 12px 20px; z-index: 50; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
         .bar-price { font-size: 20px; }
         .bar-btn { background: var(--btn); color: white; padding: 12px 30px; border-radius: 4px; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; font-size: 15px; text-align: center;}
@@ -160,7 +159,7 @@
     <section id="reviews-section" class="bg-white py-16">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="text-xl text-center mb-10">真實用家感受</h2>
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐ Mrs. Lee：「精華油超好吸收、完全不黏膩。最神奇的是第二天起床細小濕疹消失了。」</p></div>
                 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]"><p class="text-[14px]">⭐⭐⭐⭐⭐ Ah Wing：「我是濕疹肌，Soel 的性價比高出很多。好推、不厚重，天然的味道非常舒服！」</p></div>
             </div>
@@ -170,7 +169,7 @@
     <section class="py-16 bg-[#faf9f7]">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-xl text-center mb-10">訂購流程</h2>
-            <div class="flex flex-col gap-6 text-center text-[15px] font-medium text-[#4a403a]">
+            <div class="flex flex-col md:flex-row justify-center md:gap-16 gap-6 text-center text-[15px] font-medium text-[#4a403a]">
                 <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">1</span><br>WhatsApp 下單</div>
                 <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">2</span><br>PayMe / FPS 付款</div>
                 <div><span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-2">3</span><br>48小時內出貨 (順豐到付)</div>
@@ -291,6 +290,40 @@ const PRODUCTS = [
         ingredients: "30 Botanical Extracts (Full INCI list to be provided)",
         specs: "◆ 內容：60mL",
         results: []
+    },
+    {
+        id: "soel-cream",
+        brand: "Soel",
+        nameEn: "soel LIVING-OIL CREAM",
+        nameZh: "植萃滋養修護面霜 50g",
+        category: "soel",
+        badge: "真空保鮮 ｜ 天然來源99%",
+        price: "HK$ 378",
+        images: ["https://i.imgur.com/7rVhKU0.png", "https://i.imgur.com/SUs6HbZ.png"],
+        shortIntro: "真空壓杓瓶完美封存植萃營養，為肌膚提供持久不乾澀的深層滋養。 揉合多種有機油脂，軟化因環境壓力變硬的角質，修復原生彈力與透亮。",
+        mainEffects: "鎖水 ✧ 強韌屏障 ✧ 淡化乾紋 ✧ 有助肌膚保水與修復",
+        features: "✦ 真空保鮮：採用真空壓瓶設計，有效隔絕空氣細菌接觸，確保天然成分不氧化及劣化。<br><br>✦ 深層賦活：結合高品質有機阿甘油與芝麻油，深層滲透肌底，賦予肌膚飽滿潤澤與彈力。<br><br>✦ 鎖水屏障：富含 20 種植物油脂與精華，包括玫瑰果油及角鯊烷，形成天然保護膜長效鎖水。<br><br>✦ 柔膚提亮：添加有機阿甘油與時鐘果萃取，軟化因乾燥或紫外線變硬的角質，提升底妝貼合度。<br><br>✦ 純淨守護：天然來源成分 99% 以上，不含合成香料與化學防腐劑，溫和修復受損與乾燥肌膚。",
+        usage: "◆ 於早晚護理程序最後一步使用。旋轉瓶蓋升起壓頭，取適量均勻塗抹於全臉並輕壓至吸收。<br>◆ 可於面霜後再次使用 soel 前導油，加強密封滋養效果。",
+        ingredients: "Water, Sesamum Indicum (Sesame) Seed Oil, Glycerin, Propanediol, Argania Spinosa Kernel Oil, Squalane, Macadamia Integrifolia Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Rosa Canina Fruit Oil, Thymus Vulgaris (Thyme) Flower/Leaf Extract, Salix Alba (Willow) Bark Extract, Cynara Scolymus (Artichoke) Leaf Extract, Geranium Robertianum Extract, Passiflora Edulis Fruit Extract, Vaccinium Myrtillus Leaf Extract, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Juniperus Virginiana Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Polyglyceryl-10 Myristate, Xanthan Gum, Tocopherol, Butylene Glycol, Carbomer, Potassium Hydroxide, Pentylene Glycol, 1,2-Hexanediol, Caprylyl Glycol, Ethylhexylglycerin",
+        specs: "◆ 內容：50g<br>◆ 製造國家：日本<br>◆ 使用期限：未開封 2 年，開封後建議於 1 年內使用完畢。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
+        results: []
+    },
+    {
+        id: "soel-hair-oil",
+        brand: "Soel",
+        nameEn: "Soel LIVING-OIL Floral Lily Musk Hair Oil",
+        nameZh: "百合麝香護髮油 30mL",
+        category: "soel",
+        badge: "質感造型 ｜ 深度修復 ｜ 高級香韻",
+        price: "HK$ 318",
+        images: ["https://i.imgur.com/D3UWrPy.png"],
+        shortIntro: "中等質地，揉合了 7 種嚴選天然植物油。專為解決髮絲乾燥與受損設計，特別適合燙染受損的秀髮。它能賦予髮絲充足水潤感與柔軟度，輕鬆打造出日系「束感」層次造型，同時抑制毛躁。採用 100% 無農藥栽培植物成分，敏感肌亦能安心使用。",
+        mainEffects: "深層修護受損 ✧ 打造束感造型 ✧ 撫平毛躁 ✧ 100%天然植物成分",
+        features: "✦ 中等質地：恰到好處的輕盈感與濕潤度，能修飾乾燥蓬亂，營造自然流暢的髮絲線條。<br><br>✦ 100% 天然由來：不含合成添加物，不僅能用於護髮，乾燥季節亦可用於全身肌膚保濕。<br><br>✦ 深層修復：針對漂髮、染髮後的受損髮質，重拾順滑感。<br><br>✦ 香氣詳細：高級療癒感<br>• 前調/中調：聖母百合的純淨花香與玫瑰天竺葵的溫柔芬芳完美融合。<br>• 基調：加入天然黃葵子，勾勒出深沉、高雅的木質香氣。<br>• 特別點綴：葡萄柚精油帶來清新感，更有療癒感",
+        usage: "日常造型：取適量於掌心搓勻，均勻抹於髮絲，打造具立體感的束感造型。<br><br>浴後護理 (免洗精華)：洗髮後用毛巾擦乾水分，取適量以髮尾為中心抹勻全髮，再吹乾即可。<br><br>肌膚保養：取適量塗抹於肌膚乾燥處按摩至吸收。",
+        ingredients: "Macadamia Integrifolia Seed Oil, Oryza Sativa (Rice) Bran Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Squalane (Plant-derived), Hydrogenated Farnesene, Lilium Candidum Flower Extract, Pelargonium Graveolens Oil, Citrus Grandis (Grapefruit) Peel Oil, Abelmoschus Moschatus Seed Oil, Tocopherol",
+        specs: "◆ 內容：30mL<br>◆ 製造國家：日本<br>◆ 保存期限：請存放於陰涼處，並於開封後儘早使用完畢。<br>◆ 注意：請勿使用於傷口或紅腫部位。",
+        results: []
     }
 ];
 
@@ -301,6 +334,23 @@ const homePage = document.getElementById('home-page');
 const productPage = document.getElementById('product-page');
 const detailArea = document.getElementById('detail-content-area');
 const listArea = document.getElementById('product-list');
+
+// Banner 自動換相
+function updateBanners() {
+    const isMobile = window.innerWidth < 768;
+    document.querySelectorAll('.banner-slide').forEach(slide => {
+        slide.style.backgroundImage = `url('${isMobile ? slide.dataset.mb : slide.dataset.pc}')`;
+    });
+}
+let currentBanner = 0;
+const slides = document.querySelectorAll('.banner-slide');
+setInterval(() => {
+    slides[currentBanner].classList.remove('active');
+    currentBanner = (currentBanner + 1) % slides.length;
+    slides[currentBanner].classList.add('active');
+}, 4000);
+
+window.addEventListener('resize', updateBanners);
 
 // 1. 渲染「兩格目錄」
 function renderList(products) {
@@ -326,20 +376,17 @@ function filterList(cat, btn) {
 // 2. 打開「詳情頁」
 let currentScrollY = 0;
 function openDetail(id) {
-    currentScrollY = window.scrollY; // 記住主頁位置
+    currentScrollY = window.scrollY;
     const p = PRODUCTS.find(x => x.id === id);
     
-    // 生成 Badge
     const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
     
-    // 畫廊
     const thumbHTML = p.images.map((src, i) => `
         <div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg('${src}', this)">
             <img src="${src}">
         </div>
     `).join('');
 
-    // Accordions
     const accHTML = (title, content) => content ? `
         <details class="prod-details">
             <summary>${title} <span class="plus-icon">+</span></summary>
@@ -347,7 +394,6 @@ function openDetail(id) {
         </details>
     ` : '';
 
-    // 真實對比
     const resultsHTML = p.results && p.results.length ? `
         <div class="mt-8 border-t border-[#f0ebe1] pt-8">
             <h3 class="font-serif text-lg mb-4 text-[#2c2420]">真實對比</h3>
@@ -363,43 +409,50 @@ function openDetail(id) {
     ` : '';
 
     detailArea.innerHTML = `
-        <div class="px-5 py-4">
-            <button onclick="closeDetail()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none">
+        <div class="container mx-auto max-w-5xl px-4 py-6">
+            <button onclick="closeDetail()" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                 返回目錄
             </button>
-        </div>
-        
-        <div class="gallery-main">
-            <img src="${p.images[0]}" id="detail-main-img">
-        </div>
-        <div class="gallery-nav">${thumbHTML}</div>
-        
-        <div class="detail-content">
-            <div class="detail-badges">${badgeTags}</div>
-            <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
-            <h1 class="text-[24px] font-bold leading-snug mb-4">${p.nameZh}</h1>
-            <div class="price-text detail-price">${p.price}</div>
             
-            <p class="text-[15px] mb-2">${p.shortIntro}</p>
-            
-            ${p.mainEffects ? `
-            <div class="detail-effects">
-                <strong>主要功效</strong>
-                ${p.mainEffects}
-            </div>` : ''}
-            
-            <div class="mt-8 border-t border-[#f0ebe1]">
-                ${accHTML('產品特點', p.features)}
-                ${accHTML('使用方法', p.usage)}
-                ${accHTML('全成份', p.ingredients)}
-                ${accHTML('產品規格及注意事項', p.specs)}
+            <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                <div class="md:sticky md:top-24">
+                    <div class="gallery-main">
+                        <img src="${p.images[0]}" id="detail-main-img">
+                    </div>
+                    <div class="gallery-nav">${thumbHTML}</div>
+                </div>
+                
+                <div class="pt-6 md:pt-0">
+                    <div class="detail-badges">${badgeTags}</div>
+                    <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
+                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-4">${p.nameZh}</h1>
+                    <div class="price-text detail-price md:hidden">${p.price}</div> <p class="text-[15px] mb-2">${p.shortIntro}</p>
+                    
+                    ${p.mainEffects ? `
+                    <div class="detail-effects">
+                        <strong>主要功效</strong>
+                        ${p.mainEffects}
+                    </div>` : ''}
+                    
+                    <div class="mt-8 border-t border-[#f0ebe1]">
+                        ${accHTML('產品特點', p.features)}
+                        ${accHTML('使用方法', p.usage)}
+                        ${accHTML('全成份', p.ingredients)}
+                        ${accHTML('產品規格及注意事項', p.specs)}
+                    </div>
+
+                    ${resultsHTML}
+
+                    <div class="hidden md:flex items-center justify-between mt-10 p-6 bg-[#faf9f7] rounded-md border border-[#e0d9cf]">
+                        <span class="text-[28px] font-bold price-text text-[var(--price)]">${p.price}</span>
+                        <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bg-[var(--btn)] text-white px-8 py-3 rounded hover:bg-[#8fa07a] transition font-medium text-[16px] shadow-sm">WhatsApp 訂購</a>
+                    </div>
+                </div>
             </div>
-
-            ${resultsHTML}
         </div>
 
-        <div class="sticky-bottom-bar">
+        <div class="sticky-bottom-bar md:hidden">
             <div class="price-text bar-price">${p.price}</div>
             <a href="https://wa.me/818021404197?text=我想訂購${p.nameZh}" class="bar-btn">WhatsApp 訂購</a>
         </div>
@@ -410,14 +463,12 @@ function openDetail(id) {
     window.scrollTo(0, 0);
 }
 
-// 關閉詳情頁
 function closeDetail() {
     productPage.style.display = 'none';
     homePage.style.display = 'block';
     window.scrollTo(0, currentScrollY);
 }
 
-// 詳情頁切換圖片
 function switchDetailImg(src, thumbElement) {
     document.getElementById('detail-main-img').src = src;
     const parent = thumbElement.parentElement;
@@ -425,21 +476,18 @@ function switchDetailImg(src, thumbElement) {
     thumbElement.classList.add('active');
 }
 
-// 導航跳轉 (處理首頁與詳情頁邏輯)
 function navigateTo(sectionId) {
     document.getElementById('sideMenu').classList.remove('active');
     document.getElementById('menuOverlay').classList.remove('active');
     
-    // 如果喺詳情頁，先閂咗佢返首頁
     if (productPage.style.display === 'block') {
         closeDetail();
     }
     
-    // 預留少少時間等頁面切換後先 scroll，避免被頂部導航遮住
     setTimeout(() => {
         const target = document.querySelector(sectionId);
         if(target) {
-            const offset = 60; // 頂部導航高度
+            const offset = 60; 
             const bodyRect = document.body.getBoundingClientRect().top;
             const elementRect = target.getBoundingClientRect().top;
             const elementPosition = elementRect - bodyRect;
@@ -449,13 +497,11 @@ function navigateTo(sectionId) {
     }, 50);
 }
 
-// Menu Toggle
 function toggleMenu() {
     document.getElementById('sideMenu').classList.toggle('active');
     document.getElementById('menuOverlay').classList.toggle('active');
 }
 
-// Back to Top Listener
 window.addEventListener('scroll', () => {
     const btn = document.getElementById('backToTop');
     if(window.scrollY > 500 && homePage.style.display !== 'none') {
@@ -465,8 +511,10 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Init
-renderList(PRODUCTS);
+window.addEventListener('DOMContentLoaded', () => {
+    updateBanners();
+    renderList(PRODUCTS);
+});
 </script>
 
 </body>
