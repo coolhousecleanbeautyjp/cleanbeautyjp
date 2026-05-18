@@ -234,7 +234,7 @@
 
     <section class="py-16 bg-[#faf9f7]">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-2xl text-center mb-10 font-serif">訂購流程</h2>
+            <h2 class="text-2xl text-center mb-10 font-serif">How to buy?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-[15px] font-medium text-[#4a403a]">
                 <div class="bg-white p-6 rounded shadow-sm border border-[#e0d9cf]">
                     <span class="inline-block bg-[#b3c1a1] text-white w-8 h-8 leading-8 rounded-full mb-3">1</span>
@@ -616,9 +616,6 @@ function openDetail(id) {
     const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
     const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}"></div>`).join('');
     const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
-    
-    // 如果想要產品頁面都有品牌介紹，可以解除下方註解：
-    // const brandIntroHTML = BRAND_INTROS[p.category] ? `<div class="mb-5 p-3 bg-[#faf9f7] border border-[#efeae1] rounded text-[13px] text-[#666] leading-relaxed">${BRAND_INTROS[p.category]}</div>` : '';
 
     detailArea.innerHTML = `
         <div class="container mx-auto max-w-5xl px-4 py-6">
