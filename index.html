@@ -35,11 +35,13 @@
         }
         h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-weight: 600; letter-spacing: 0.04em; line-height: 1.4; }
         
-        /* 導航欄 */
+        /* 導航欄 (右上角 WhatsApp) */
         .top-nav { position: sticky; top: 0; z-index: 60; background-color: var(--nav-bg); border-bottom: 1px solid #e0d9cf; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
         .hamburger { font-size: 24px; color: var(--headline); cursor: pointer; background: none; border: none; padding: 5px; outline: none; }
         .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.15em; color: var(--headline); cursor: pointer; text-align: center; }
-        
+        .nav-whatsapp { color: var(--headline); opacity: 0.8; transition: 0.3s; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; }
+        .nav-whatsapp:hover { opacity: 1; }
+
         /* 側邊欄 */
         .side-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .side-menu-overlay.active { opacity: 1; pointer-events: auto; }
@@ -48,17 +50,18 @@
         .side-menu a { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 600; color: var(--headline); text-decoration: none; padding: 18px 0; border-bottom: 1px solid #f0ebe1; display: block; }
         .close-menu { align-self: flex-end; font-size: 28px; background: none; border: none; color: var(--text-light); margin-bottom: 20px; outline: none; }
 
-        /* Banner & Promo */
+        /* Banner & Promo - 縮細並加入卡片感 */
         .promo-bar { background-color: var(--headline); color: white; text-align: center; padding: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
         
-        .banner-wrapper { position: relative; width: 100%; background-color: var(--bg); }
-        @media (min-width: 768px) { .banner-wrapper { max-width: 1000px; margin: 0 auto; } }
+        .banner-wrapper { position: relative; width: 100%; background-color: var(--bg); padding: 16px; }
+        @media (min-width: 768px) { .banner-wrapper { max-width: 900px; margin: 0 auto; padding: 24px 0; } }
         
-        .banner-container { display: grid; width: 100%; cursor: pointer; }
+        .banner-container { display: grid; width: 100%; cursor: pointer; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
         .banner-slide { grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity 1s ease-in-out; object-fit: contain; }
         .banner-slide.active { opacity: 1; z-index: 2; }
         
-        .banner-dots { position: absolute; bottom: 15px; left: 0; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; }
+        .banner-dots { position: absolute; bottom: 25px; left: 0; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; }
+        @media (min-width: 768px) { .banner-dots { bottom: 35px; } }
         .banner-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
         .banner-dot.active { background: #fff; transform: scale(1.2); }
 
@@ -136,7 +139,9 @@
 <header class="top-nav" id="main-nav">
     <button class="hamburger" onclick="toggleMenu()">☰</button>
     <div class="nav-logo" onclick="navigateTo('#hero-banner')">COOL HOUSE</div>
-    <div style="width:34px;"></div>
+    <a href="https://wa.me/818021404197" target="_blank" class="nav-whatsapp" aria-label="WhatsApp 聯絡我們">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </a>
 </header>
 
 <div class="side-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
@@ -168,17 +173,25 @@
         </div>
     </div>
 
-    <section id="our-story" class="container mx-auto px-6 py-16 text-center">
-        <h2 class="text-2xl mb-3">Our Story</h2>
-        <p class="text-[15px] mb-6 font-semibold" style="color: var(--text-light); font-family: 'Playfair Display', serif;">質感選品 ｜ 專注成分</p>
-        <div class="max-w-3xl mx-auto text-[15px] space-y-4 text-[#4a403a]">
-            <p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
-            <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸溫和、平衡與穩定的狀態，帶來低負擔且值得長久使用的護膚體驗。</p>
-            <p>主理人持有日本「化妝品檢定特級」資格，亦曾長期受敏感肌困擾，因此更重視成分導向與低刺激配方，為你帶來真正的 skin wellness。</p>
+    <section id="our-story" class="container mx-auto px-6 py-12">
+        <div class="relative bg-white border border-[#efeae1] rounded-lg p-6 md:p-10 shadow-sm max-w-3xl mx-auto text-left">
+            <button onclick="toggleCollapse('story-content', this)" class="absolute top-6 right-6 text-xl text-[#666] transition-transform duration-300 outline-none" style="transform: rotate(0deg);">▼</button>
+            
+            <h2 class="text-2xl mb-2 text-center">Our Story</h2>
+            <p class="text-[14px] mb-6 text-center font-semibold text-[var(--text-light)] font-serif">質感選品 ｜ 專注成分</p>
+            
+            <div class="text-[15px] text-[#4a403a] leading-relaxed">
+                <p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
+                
+                <div id="story-content" class="hidden mt-4 space-y-4">
+                    <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸溫和、平衡與穩定的狀態，帶來低負擔且值得長久使用的護膚體驗。</p>
+                    <p>主理人持有日本「化妝品檢定特級」資格，亦曾長期受敏感肌困擾，因此更重視成分導向與低刺激配方，為你帶來真正的 skin wellness。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="products-section" class="py-6 pt-10">
+    <section id="products-section" class="py-6 pt-6">
         <div class="flex justify-center space-x-6 mb-8 border-b border-[#efeae1] overflow-x-auto whitespace-nowrap px-4" id="filter-tabs">
             <button onclick="filterList('all', this)" class="product-tab active" data-cat="all">全部產品</button>
             <button onclick="filterList('soel', this)" class="product-tab" data-cat="soel">Soel</button>
@@ -188,24 +201,30 @@
         <div id="product-list" class="product-grid container mx-auto max-w-5xl mb-16"></div>
     </section>
 
-    <section id="reviews-section" class="bg-white py-16">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-2xl text-center mb-10 font-serif">Customer Reviews</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
-                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
-                    <p class="text-[14px] text-[#4a403a] mb-4">「天然植物香氣很療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」</p>
-                    <p class="text-[12px] text-[#666] text-right">— 用家 A</p>
-                </div>
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
-                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
-                    <p class="text-[14px] text-[#4a403a] mb-4">「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常溫和。質地不厚重，即使夏天使用也沒有負擔，低刺激配方讓人很放鬆。」</p>
-                    <p class="text-[12px] text-[#666] text-right">— 用家 B</p>
-                </div>
-                <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
-                    <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
-                    <p class="text-[14px] text-[#4a403a] mb-4">「持續使用後，肌膚變得更柔軟滋潤，整體氣色和透亮感都有改善，朋友也開始留意到皮膚狀態變好了。」</p>
-                    <p class="text-[12px] text-[#666] text-right">— 用家 C</p>
+    <section id="reviews-section" class="py-12 bg-[#faf9f7]">
+        <div class="container mx-auto px-6 max-w-5xl relative bg-white border border-[#efeae1] rounded-lg p-6 md:p-10 shadow-sm">
+            <button onclick="toggleCollapse('reviews-content', this)" class="absolute top-6 right-6 text-xl text-[#666] transition-transform duration-300 outline-none">▼</button>
+            <h2 class="text-2xl text-center font-serif mb-2">Customer Reviews</h2>
+            <p class="text-[14px] mb-8 text-center font-semibold text-[var(--text-light)]">用家真實評價</p>
+            
+            <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1] mb-6 md:mb-0 max-w-2xl mx-auto">
+                <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                <p class="text-[14px] text-[#4a403a] mb-4">「天然植物香氣很療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」</p>
+                <p class="text-[12px] text-[#666] text-right">— 用家 A</p>
+            </div>
+            
+            <div id="reviews-content" class="hidden mt-6 border-t border-[#efeae1] pt-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
+                        <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-[14px] text-[#4a403a] mb-4">「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常溫和。質地不厚重，即使夏天使用也沒有負擔，低刺激配方讓人很放鬆。」</p>
+                        <p class="text-[12px] text-[#666] text-right">— 用家 B</p>
+                    </div>
+                    <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
+                        <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-[14px] text-[#4a403a] mb-4">「持續使用後，肌膚變得更柔軟滋潤，整體氣色和透亮感都有改善，朋友也開始留意到皮膚狀態變好了。」</p>
+                        <p class="text-[12px] text-[#666] text-right">— 用家 C</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -447,7 +466,7 @@ const PRODUCTS = [
     },
     {
         id: "beige-bb-cream", brand: "Beige+", nameEn: "BEIGE+ SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige", 
-        badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", price: "HK$ 208", /* 價錢已更新 */
+        badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", price: "HK$ 208",
         images: ["https://i.imgur.com/P7ivpkx.png", "https://i.imgur.com/xnhJVtV.png", "https://i.imgur.com/NQ3bhmE.png"],
         shortIntro: "如美容液般輕盈的保養型底妝<br><br>專為追求低負擔妝感與敏感肌膚而設的日系 BB 霜。結合美容液、防曬、粉底、調色與隔離功能，以輕盈細緻質地自然修飾毛孔、暗沉與膚色不均。<br><br>上妝同時為肌膚補充水分與保護力，打造自然透亮而不厚重的原生肌質感。<br><br>配合物理性防曬配方與多重保濕成分，即使長時間帶妝，肌膚依然保持舒適柔潤感。",
         mainEffects: "修飾膚色 ✧ 保濕持妝 ✧ 物理防曬 ✧ 提升肌膚透亮感",
@@ -458,7 +477,7 @@ const PRODUCTS = [
     },
     {
         id: "beige-nano-mist", brand: "Beige+", nameEn: "BEIGE+ Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige", 
-        badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 180", /* 價錢已更新 */
+        badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 180",
         images: ["https://i.imgur.com/i1GEoeN.png", "https://i.imgur.com/LETcHx7.png", "https://i.imgur.com/I5R5TvC.png", "https://i.imgur.com/o2NCwY4.png"],
         shortIntro: "為妝容與肌膚同時補水的定妝噴霧<br><br>採用油水雙層設計與獨特奈米氣泡技術，噴灑瞬間形成極細緻霧感，讓保濕成分更均勻貼合肌膚。<br><br>結合定妝、補水與美容液功能，在維持妝容清爽貼服的同時，減少因乾燥造成的浮粉與脫妝問題。<br><br>特別適合油性與混合性肌膚，於潮濕天氣或長時間帶妝時，依然保持自然透亮感。",
         mainEffects: "定妝持妝 ✧ 即時補水 ✧ 平衡油脂 ✧ 提升妝容貼服度",
@@ -468,6 +487,12 @@ const PRODUCTS = [
         specs: "◆ 容量：45mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     }
 ];
+
+const BRAND_INTROS = {
+    "Soel": "專注於植物油與天然精華萃取的護膚品牌。以講究的「一番搾」工藝，保留植物最強大的抗氧生命力，喚醒肌膚原有的健康與平衡。",
+    "Supmile": "堅持 100% 天然由來成分與 7 大無添加。專為敏感、乾燥及不穩定肌膚設計，提供極致溫和、絕對安心的純淨修護體驗。",
+    "Beige+": "專為敏感肌而設的保養型底妝品牌。完美結合高濃度美容液與物理防禦功能，打造低負擔、會呼吸的透亮自然妝感。"
+};
 
 // ================================================
 // 系統變數與渲染邏輯 
@@ -523,13 +548,24 @@ function goToBanner(index) {
 }
 
 function bannerClick(category) {
-    // 按下 Banner 後，篩選品牌並碌落產品區
     const targetBtn = document.querySelector(`.product-tab[data-cat="${category}"]`);
     if(targetBtn) filterList(category, targetBtn);
     navigateTo('#products-section');
 }
 
 window.addEventListener('resize', updateBannersSrc);
+
+// --- 展開/收起功能 (Story & Reviews) ---
+function toggleCollapse(id, btn) {
+    const content = document.getElementById(id);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        btn.style.transform = 'rotate(180deg)';
+    } else {
+        content.classList.add('hidden');
+        btn.style.transform = 'rotate(0deg)';
+    }
+}
 
 // --- 產品目錄渲染 ---
 function renderList(products) {
@@ -564,6 +600,8 @@ function openDetail(id) {
     const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
     const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}"></div>`).join('');
     const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
+    
+    const brandIntroHTML = BRAND_INTROS[p.brand] ? `<div class="mb-5 p-3 bg-[#faf9f7] border border-[#efeae1] rounded text-[13px] text-[#666] leading-relaxed"><strong>關於 ${p.brand}</strong><br>${BRAND_INTROS[p.brand]}</div>` : '';
 
     detailArea.innerHTML = `
         <div class="container mx-auto max-w-5xl px-4 py-6">
@@ -586,7 +624,9 @@ function openDetail(id) {
                     <div class="detail-badges">${badgeTags}</div>
                     <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
                     
-                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-2">${p.nameZh}</h1>
+                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-3">${p.nameZh}</h1>
+                    
+                    ${brandIntroHTML}
                     
                     <div class="hidden md:flex items-center gap-6 mb-6">
                         <span class="text-[26px] font-bold price-text text-[var(--price)]">${p.price}</span>
@@ -633,7 +673,6 @@ function switchDetailImg(index) {
     currentImageIndex = index;
     document.getElementById('detail-main-img').src = currentDetailImages[currentImageIndex];
     
-    // 更新縮圖狀態
     const thumbs = document.getElementById('gallery-thumbs-container').children;
     for(let i=0; i<thumbs.length; i++){
         thumbs[i].classList.remove('active');
@@ -649,7 +688,6 @@ function openLightbox() {
 }
 
 function closeLightbox(event) {
-    // 點擊背景或 X 關閉
     if(event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')){
         document.getElementById('lightbox').classList.remove('active');
     }
