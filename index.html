@@ -15,6 +15,7 @@
             --bg: #fdfcfaf0;
             --headline: #2c2420;
             --btn: #b3c1a1;
+            --btn-hover: #8fa07a;
             --text: #333333; 
             --text-light: #666666;
             --price: #3d2f28; 
@@ -33,6 +34,10 @@
         }
         h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-weight: 600; letter-spacing: 0.04em; line-height: 1.4; }
         
+        /* 隱藏滾動條 */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
         /* 導航欄 */
         .top-nav { position: sticky; top: 0; z-index: 60; background-color: var(--nav-bg); border-bottom: 1px solid #e0d9cf; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; }
         .hamburger { font-size: 24px; color: var(--headline); cursor: pointer; background: none; border: none; padding: 5px; outline: none; }
@@ -71,15 +76,27 @@
         @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 32px 24px; padding: 0 40px; } }
         .list-card { cursor: pointer; display: flex; flex-direction: column; }
         .list-img-box { aspect-ratio: 1/1; background: #fff; overflow: hidden; border-radius: 4px; border: 1px solid #f0ebe1; position: relative; margin-bottom: 10px; }
-        .list-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* 圖片放大效果 */
+        .list-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        
+        /* 品牌字體 */
         .list-brand { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
         
         /* 目錄雙語產品名 */
-        .list-title-en { font-size: 11px; color: #888; font-family: 'Playfair Display', serif; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-        .list-title { font-size: 13px; font-weight: 500; line-height: 1.4; margin: 0 0 6px 0; color: var(--headline); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .list-title-en { font-size: 11px; color: #888; font-family: 'Playfair Display', serif; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s ease; }
+        .list-title { font-size: 13px; font-weight: 500; line-height: 1.4; margin: 0 0 6px 0; color: var(--headline); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s ease; }
+        
+        /* HOVER HOOK：文字變色 + 圖片微放大 */
+        .list-card:hover .list-title, .ranking-card:hover .list-title { color: var(--btn-hover); }
+        .list-card:hover .list-img-box img, .ranking-card:hover .list-img-box img { transform: scale(1.06); }
         
         .price-text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-weight: 600; color: var(--price); letter-spacing: 0.02em; }
         .list-price { font-size: 15px; margin-top: auto; }
+
+        /* Ranking Card 專用 */
+        .ranking-card { cursor: pointer; display: flex; flex-direction: column; }
+        .rank-badge { position: absolute; top: 0; left: 0; background: var(--headline); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; z-index: 10; font-family: -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: 0.05em; }
 
         /* 獨立頁面 */
         .sub-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
@@ -205,12 +222,20 @@
         </div>
     </section>
 
-    <section id="products-section" class="py-6 pt-2">
+    <section id="ranking-section" class="py-8 bg-[#faf9f7] border-y border-[#efeae1]">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-[20px] text-center mb-6 font-serif tracking-wide uppercase">Ranking</h2>
+            <div id="ranking-list" class="flex overflow-x-auto gap-4 pb-2 scrollbar-hide px-2">
+                </div>
+        </div>
+    </section>
+
+    <section id="products-section" class="py-10">
         <div class="flex justify-center space-x-6 mb-5 border-b border-[#efeae1] overflow-x-auto whitespace-nowrap px-4" id="filter-tabs">
             <button onclick="filterList('all', this)" class="product-tab active" data-cat="all">全部產品</button>
-            <button onclick="filterList('soel', this)" class="product-tab" data-cat="soel">Soel</button>
+            <button onclick="filterList('soel', this)" class="product-tab" data-cat="soel">soel</button>
             <button onclick="filterList('supmile', this)" class="product-tab" data-cat="supmile">Supmile</button>
-            <button onclick="filterList('beige', this)" class="product-tab" data-cat="beige">Beige+</button>
+            <button onclick="filterList('beige', this)" class="product-tab" data-cat="beige">beige+</button>
         </div>
         
         <div id="brand-intro-box" class="container mx-auto max-w-2xl px-6 mb-8 text-center text-[13px] text-[#666] leading-relaxed transition-opacity duration-300">
@@ -353,14 +378,14 @@
 
 <script>
 // ================================================
-// 產品資料庫
+// 產品資料庫 (修改了品牌小楷)
 // ================================================
 const PRODUCTS = [
     {
-        id: "soel-oil", brand: "Soel", nameEn: "LIVING-OIL Organic Sesame oil", nameZh: "有機芝麻修護油 60mL", category: "soel", 
+        id: "soel-oil", brand: "soel", nameEn: "LIVING-OIL Organic Sesame oil", nameZh: "有機芝麻修護油 60mL", category: "soel", 
         badge: "USDA 有機認證｜敏感肌適用｜導入修護｜低刺激護理", price: "HK$ 365",
         images: ["https://i.imgur.com/2yqgpfV.jpeg", "https://i.imgur.com/kRowcMq.png", "https://i.imgur.com/F1xydoY.png", "https://i.imgur.com/Ria4vms.png", "https://i.imgur.com/q7xg4jL.png", "https://i.imgur.com/9RnYa2n.png", "https://i.imgur.com/H7ojgz6.png"],
-        shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>Soel 的經典護膚油，以珍貴「一番搾」低溫冷壓芝麻油為基底，保留豐富芝麻素與天然維他命 E，為肌膚帶來深層而低負擔的滋養。<br>細緻輕盈的質地，能迅速融入肌膚，特別適合作為洗臉後第一步的導入護理，幫助後續保養更貼合吸收，讓肌膚回復柔軟、穩定與透亮狀態。<br>揉合天然植物精油，散發淡雅柑橘與木質香氣，讓每日護膚成為放鬆而療癒的時刻。",
+        shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>soel 的經典護膚油，以珍貴「一番搾」低溫冷壓芝麻油為基底，保留豐富芝麻素與天然維他命 E，為肌膚帶來深層而低負擔的滋養。<br>細緻輕盈的質地，能迅速融入肌膚，特別適合作為洗臉後第一步的導入護理，幫助後續保養更貼合吸收，讓肌膚回復柔軟、穩定與透亮狀態。<br>揉合天然植物精油，散發淡雅柑橘與木質香氣，讓每日護膚成為放鬆而療癒的時刻。",
         mainEffects: "深層保濕 ✧ 舒緩修護 ✧ 提升透亮感 ✧ 維持肌膚平衡",
         features: "✦ 珍貴「一番搾」工藝<br>僅取首道壓搾中最珍貴的初榨油脂，保留高濃度芝麻素與天然維他命 E，呈現細緻而純淨的油質。<br><br>✦ 高親膚滲透力<br>芝麻油脂結構與人體皮脂相近，質地輕盈細緻，能快速融入肌膚而不黏膩。<br><br>✦ 導入型護膚油<br>適合作為潔面後第一步使用，幫助肌膚維持柔軟度與穩定狀態，提升後續護膚貼合感。<br><br>✦ 天然植物香氣<br>以佛手柑、綠茶白花與木質調交織出柔和療癒香氣，帶來舒適放鬆的護膚體驗。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈流動感油質｜快速吸收｜自然透亮感<br><br><strong>香氣</strong><br>前調｜佛手柑與綠葉柑橘香氣<br>中調｜綠茶與淡雅白花<br>後調｜柔和木質與麝香調</div>",
         usage: "<strong>日常導入護理</strong><br>洗臉後取 1–2 滴於掌心溫熱後，輕按全臉，再進行後續護膚程序。<br><br><strong>加強保濕</strong><br>乾燥季節可於面霜後使用，加強鎖水與潤澤感。<br><br><strong>混合護膚</strong><br>可加入日常面霜或粉底液中使用，提升柔潤貼膚感。<br><br><strong>按摩護理</strong><br>可作面部或身體按摩使用，幫助舒緩乾燥與緊繃感。",
@@ -368,7 +393,7 @@ const PRODUCTS = [
         specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "soel-soap", brand: "Soel", nameEn: "LIVING-OIL SOAP Golden Lime", nameZh: "金青檸熟成生皂 100mL", category: "soel", 
+        id: "soel-soap", brand: "soel", nameEn: "LIVING-OIL SOAP Golden Lime", nameZh: "金青檸熟成生皂 100mL", category: "soel", 
         badge: "USDA 有機認證｜潔面・面膜兩用｜天然維他命 C｜低刺激潔淨", price: "HK$ 238",
         images: ["https://i.imgur.com/rrtDoU5.png", "https://i.imgur.com/9B4U7LL.png", "https://i.imgur.com/VlnGArd.png", "https://i.imgur.com/MxkuxLn.png", "https://i.imgur.com/EakAu5Q.png", "https://i.imgur.com/Rrfmncq.png", "https://i.imgur.com/j4pvROR.png"],
         shortIntro: "洗淨同時，保留肌膚需要的水分與柔軟度<br><br>嚴選日本福岡縣「RUSH FARM」稀有金色熟成青檸，於最鮮活狀態封存入皂，結合植物油脂與熟成生石鹼工藝，帶來溫和而深層的潔淨體驗。<br><br>細緻柔滑的質地，能溫和帶走毛孔污垢、多餘皮脂與老廢角質，同時維持肌膚所需水分平衡。洗後肌膚呈現乾淨透亮感，卻不緊繃。<br><br>可作日常潔面，亦可作深層修護面膜使用。",
@@ -379,10 +404,10 @@ const PRODUCTS = [
         specs: "◆ 容量：100mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 6 個月內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "soel-cleansing-gel", brand: "Soel", nameEn: "LIVING-OIL CLEANSING GEL", nameZh: "植萃彈力卸妝凝膠 150mL", category: "soel", 
+        id: "soel-cleansing-gel", brand: "soel", nameEn: "LIVING-OIL CLEANSING GEL", nameZh: "植萃彈力卸妝凝膠 150mL", category: "soel", 
         badge: "卸妝同時保濕｜溫和潔淨毛孔｜植睫毛適用｜低刺激護理", price: "HK$ 289",
         images: ["https://i.imgur.com/jjuWdj1.png", "https://i.imgur.com/WFH5iyV.png"],
-        shortIntro: "卸淨彩妝，同時維持肌膚柔軟與水潤感<br><br>Soel 經典卸妝凝膠，揉合品牌核心芝麻油與 12 種植物油脂，以輕盈柔滑的凝膠質地，溫和卸除彩妝、角栓與毛孔污垢。<br><br>潔淨同時為肌膚保留所需水分，洗後不乾澀、不緊繃，呈現柔軟透亮的舒適膚感。即使防水型彩妝或植睫毛人士亦可安心使用。<br><br>淡雅植物香氣，讓每日卸妝成為放鬆肌膚節奏的療癒時刻。",
+        shortIntro: "卸淨彩妝，同時維持肌膚柔軟與水潤感<br><br>soel 經典卸妝凝膠，揉合品牌核心芝麻油與 12 種植物油脂，以輕盈柔滑的凝膠質地，溫和卸除彩妝、角栓與毛孔污垢。<br><br>潔淨同時為肌膚保留所需水分，洗後不乾澀、不緊繃，呈現柔軟透亮的舒適膚感。即使防水型彩妝或植睫毛人士亦可安心使用。<br><br>淡雅植物香氣，讓每日卸妝成為放鬆肌膚節奏的療癒時刻。",
         mainEffects: "深層卸妝 ✧ 毛孔潔淨 ✧ 保濕柔潤 ✧ 維持肌膚平衡",
         features: "✦ 12 種植物油配方<br>以芝麻油、荷荷巴油、摩洛哥堅果油等植物成分為基底，溫和卸淨彩妝同時維持肌膚柔軟度。<br><br>✦ 洗後不緊繃<br>卸妝後肌膚依然保有潤澤感，減少乾燥帶來的不適與繃緊感。<br><br>✦ 深層潔淨毛孔<br>能溫和帶走角栓、多餘油脂及防水型彩妝，維持毛孔潔淨清爽。<br><br>✦ 友善敏感肌與植睫毛<br>低負擔配方，即使敏感肌或植睫毛人士亦能安心使用。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 混合肌 ✧ 缺水肌<br><br><strong>質地</strong><br>柔滑凝膠質地｜水潤輕盈｜洗後柔軟不黏膩<br><br><strong>香氣</strong><br>佛手柑柑橘調｜淡雅木質香氣｜天然植物療癒感</div>",
         usage: "取約按壓 3–4 下於乾爽掌心，輕柔按摩全臉使其與彩妝融合，再以清水或溫水徹底洗淨。",
@@ -390,7 +415,7 @@ const PRODUCTS = [
         specs: "◆ 容量：150mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "soel-serum", brand: "Soel", nameEn: "LIVING-OIL SERUM", nameZh: "植萃修復全效精華液 60mL", category: "soel", 
+        id: "soel-serum", brand: "soel", nameEn: "LIVING-OIL SERUM", nameZh: "植萃修復全效精華液 60mL", category: "soel", 
         badge: "多效修護｜高保濕精華｜植物成分｜敏感肌適用", price: "HK$ 498",
         images: ["https://i.imgur.com/k52u08j.png", "https://i.imgur.com/nVv83Zh.png", "https://i.imgur.com/tlhRsLv.png", "https://i.imgur.com/Mh4vIvi.png", "https://i.imgur.com/TesHWqh.png"],
         shortIntro: "為肌膚注入水分與柔軟彈性<br><br>揉合 30 種以上植物油與植物萃取精華，為缺水、乾燥與容易失衡的肌膚帶來細緻而低負擔的修護體驗。<br><br>水潤輕盈的質地能迅速融入肌膚，日間維持肌膚柔軟與保濕度，夜間則為肌膚補充所需養分，讓膚況回復穩定、透亮與細緻。<br><br>配合天然植物香氣，讓每日護膚回歸舒適而平衡的節奏。",
@@ -401,7 +426,7 @@ const PRODUCTS = [
         specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "soel-cream", brand: "Soel", nameEn: "LIVING-OIL CREAM", nameZh: "植萃滋養修護面霜 50g", category: "soel", 
+        id: "soel-cream", brand: "soel", nameEn: "LIVING-OIL CREAM", nameZh: "植萃滋養修護面霜 50g", category: "soel", 
         badge: "真空保鮮｜天然來源 99%｜深層鎖水｜敏感肌適用", price: "HK$ 378",
         images: ["https://i.imgur.com/7rVhKU0.png", "https://i.imgur.com/SUs6HbZ.png", "https://i.imgur.com/A5GvMxE.png"],
         shortIntro: "柔軟包覆肌膚，維持長時間水潤與穩定感<br><br>以芝麻油、阿甘油與 20 種植物油脂為基底，為乾燥與缺乏彈性的肌膚帶來細緻而持久的滋養。<br><br>乳霜質地柔滑細膩，能於肌膚表面形成輕盈保護屏障，鎖住水分同時維持舒適透氣感。隨著每日使用，肌膚回復柔軟、穩定與自然光澤。<br><br>採用真空壓瓶設計，減少空氣接觸，更完整保存植物成分的鮮度與活性。",
@@ -412,7 +437,7 @@ const PRODUCTS = [
         specs: "◆ 容量：50g<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "soel-hair-oil", brand: "Soel", nameEn: "LIVING-OIL Floral Lily Musk Hair Oil", nameZh: "百合麝香護髮油 30mL", category: "soel", 
+        id: "soel-hair-oil", brand: "soel", nameEn: "LIVING-OIL Floral Lily Musk Hair Oil", nameZh: "百合麝香護髮油 30mL", category: "soel", 
         badge: "100% 天然植物成分｜深層修護｜日系束感造型｜高級香韻", price: "HK$ 318",
         images: ["https://i.imgur.com/D3UWrPy.png"],
         shortIntro: "為髮絲注入柔軟光澤與細緻香氣<br><br>揉合 7 種天然植物油脂，專為乾燥、毛躁與燙染受損髮質而設。中等輕盈質地，能自然修飾髮絲線條，同時維持柔軟與水潤感。<br><br>不只作為日常護髮，更能打造自然日系束感與光澤感，讓髮絲呈現輕盈而細緻的空氣感層次。以百合、天竺葵與木質香調交織出柔和而高級的療癒香氣，讓護髮同時成為感官享受。",
@@ -478,7 +503,7 @@ const PRODUCTS = [
         specs: "◆ 容量：200mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "beige-bb-cream", brand: "Beige+", nameEn: "SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige", 
+        id: "beige-bb-cream", brand: "beige+", nameEn: "SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige", 
         badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", price: "HK$ 208",
         images: ["https://i.imgur.com/P7ivpkx.png", "https://i.imgur.com/xnhJVtV.png", "https://i.imgur.com/NQ3bhmE.png"],
         shortIntro: "如美容液般輕盈的保養型底妝<br><br>專為追求低負擔妝感與敏感肌膚而設的日系 BB 霜。結合美容液、防曬、粉底、調色與隔離功能，以輕盈細緻質地自然修飾毛孔、暗沉與膚色不均。<br><br>上妝同時為肌膚補充水分與保護力，打造自然透亮而不厚重的原生肌質感。<br><br>配合物理性防曬配方與多重保濕成分，即使長時間帶妝，肌膚依然保持舒適柔潤感。",
@@ -489,7 +514,7 @@ const PRODUCTS = [
         specs: "◆ 容量：30g<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "beige-nano-mist", brand: "Beige+", nameEn: "Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige", 
+        id: "beige-nano-mist", brand: "beige+", nameEn: "Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige", 
         badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 180",
         images: ["https://i.imgur.com/i1GEoeN.png", "https://i.imgur.com/LETcHx7.png", "https://i.imgur.com/I5R5TvC.png", "https://i.imgur.com/o2NCwY4.png"],
         shortIntro: "為妝容與肌膚同時補水的定妝噴霧<br><br>採用油水雙層設計與獨特奈米氣泡技術，噴灑瞬間形成極細緻霧感，讓保濕成分更均勻貼合肌膚。<br><br>結合定妝、補水與美容液功能，在維持妝容清爽貼服的同時，減少因乾燥造成的浮粉與脫妝問題。<br><br>特別適合油性與混合性肌膚，於潮濕天氣或長時間帶妝時，依然保持自然透亮感。",
@@ -503,9 +528,9 @@ const PRODUCTS = [
 
 const BRAND_INTROS = {
     "all": "嚴選日本高品質護膚選品，為你帶來純淨、低負擔的保養體驗。",
-    "soel": "<strong>Soel</strong><br>專注於植物油與天然精華萃取的護膚品牌。以講究的「一番搾」工藝，保留植物最強大的抗氧生命力，喚醒肌膚原有的健康與平衡。",
+    "soel": "<strong>soel</strong><br>專注於植物油與天然精華萃取的護膚品牌。以講究的「一番搾」工藝，保留植物最強大的抗氧生命力，喚醒肌膚原有的健康與平衡。",
     "supmile": "<strong>Supmile</strong><br>堅持 100% 天然由來成分與 7 大無添加。專為敏感、乾燥及不穩定肌膚設計，提供極致溫和、絕對安心的純淨修護體驗。",
-    "beige": "<strong>Beige+</strong><br>專為敏感肌而設的保養型底妝品牌。完美結合高濃度美容液與物理防禦功能，打造低負擔、會呼吸的透亮自然妝感。"
+    "beige": "<strong>beige+</strong><br>專為敏感肌而設的保養型底妝品牌。完美結合高濃度美容液與物理防禦功能，打造低負擔、會呼吸的透亮自然妝感。"
 };
 
 // ================================================
@@ -517,10 +542,10 @@ const faqPage = document.getElementById('faq-page');
 const journalPage = document.getElementById('journal-page');
 const detailArea = document.getElementById('detail-content-area');
 const listArea = document.getElementById('product-list');
+const rankingArea = document.getElementById('ranking-list');
 
 let currentDetailImages = [];
 let currentImageIndex = 0;
-
 let currentBanner = 0;
 let bannerInterval;
 const slides = document.querySelectorAll('.banner-slide');
@@ -578,7 +603,29 @@ function toggleCollapse(id, btn) {
     }
 }
 
-// 目錄加入英文產品名
+// 動態渲染 Ranking
+function renderRanking() {
+    // 根據你提供嘅順序
+    const rankingIds = ["soel-oil", "beige-bb-cream", "beige-nano-mist", "soel-serum", "supmile-powder-wash"];
+    rankingArea.innerHTML = rankingIds.map((id, index) => {
+        const p = PRODUCTS.find(x => x.id === id);
+        return `
+            <div class="ranking-card flex-shrink-0 w-[140px] md:w-[180px]" onclick="openDetail('${p.id}')">
+                <div class="relative mb-3">
+                    <div class="rank-badge">NO.${index + 1}</div>
+                    <div class="list-img-box !mb-0 border-[#f0ebe1] border">
+                        <img src="${p.images[0]}" loading="lazy">
+                    </div>
+                </div>
+                <div class="list-brand">${p.brand}</div>
+                <h3 class="list-title-en text-[10px]">${p.nameEn}</h3>
+                <h3 class="list-title text-[12px]">${p.nameZh}</h3>
+            </div>
+        `;
+    }).join('');
+}
+
+// 目錄渲染
 function renderList(products) {
     listArea.innerHTML = products.map(p => `
         <div class="list-card" onclick="openDetail('${p.id}')">
@@ -612,7 +659,6 @@ function filterList(cat, btn) {
 
 let currentScrollY = 0;
 
-// 新增功能：關閉詳情頁並篩選特定品牌
 function closeSubPageAndFilter(category) {
     hideAllPages();
     homePage.style.display = 'block';
@@ -620,7 +666,6 @@ function closeSubPageAndFilter(category) {
     const targetBtn = document.querySelector(`.product-tab[data-cat="${category}"]`);
     if(targetBtn) filterList(category, targetBtn);
     
-    // 捲動返去產品目錄頂部
     setTimeout(() => {
         const target = document.querySelector('#products-section');
         if(target) {
@@ -645,7 +690,7 @@ function openDetail(id) {
     const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}"></div>`).join('');
     const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
 
-    // 左上角返回按鈕文字轉做品牌名
+    // 修改：產品標題加入品牌名
     detailArea.innerHTML = `
         <div class="container mx-auto max-w-5xl px-4 py-6">
             <button onclick="closeSubPageAndFilter('${p.category}')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
@@ -667,7 +712,7 @@ function openDetail(id) {
                     <div class="detail-badges">${badgeTags}</div>
                     <h3 class="text-[12px] font-serif text-[#7a6f68] uppercase tracking-widest mb-1">${p.nameEn}</h3>
                     
-                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-3">${p.nameZh}</h1>
+                    <h1 class="text-[24px] md:text-[28px] font-bold leading-snug mb-3"><span class="capitalize">${p.brand}</span> ${p.nameZh}</h1>
                     
                     <div class="hidden md:flex items-center gap-6 mb-6">
                         <span class="text-[26px] font-bold price-text text-[var(--price)]">${p.price}</span>
@@ -791,6 +836,7 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('DOMContentLoaded', () => {
     initBanners();
+    renderRanking();
     renderList(PRODUCTS);
 });
 </script>
