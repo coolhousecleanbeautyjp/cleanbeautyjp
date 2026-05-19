@@ -378,7 +378,7 @@
 
 <script>
 // ================================================
-// 產品資料庫 (修改了品牌小楷)
+// 產品資料庫
 // ================================================
 const PRODUCTS = [
     {
@@ -550,6 +550,7 @@ let currentBanner = 0;
 let bannerInterval;
 const slides = document.querySelectorAll('.banner-slide');
 const dots = document.querySelectorAll('.banner-dot');
+let currentScrollY = 0;
 
 function initBanners() {
     updateBannersSrc();
@@ -605,7 +606,6 @@ function toggleCollapse(id, btn) {
 
 // 動態渲染 Ranking
 function renderRanking() {
-    // 根據你提供嘅順序
     const rankingIds = ["soel-oil", "beige-bb-cream", "beige-nano-mist", "soel-serum", "supmile-powder-wash"];
     rankingArea.innerHTML = rankingIds.map((id, index) => {
         const p = PRODUCTS.find(x => x.id === id);
@@ -657,9 +657,7 @@ function filterList(cat, btn) {
     }
 }
 
-let currentScrollY = 0;
-
-function closeSubPageAndFilter(category) {
+function closeSubPageAndFilter(category, updateHistory = true) {
     hideAllPages();
     homePage.style.display = 'block';
     
@@ -677,9 +675,14 @@ function closeSubPageAndFilter(category) {
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
     }, 50);
+
+    // 清除網址列參數
+    if (updateHistory) {
+        window.history.pushState({ type: 'home' }, '', window.location.pathname);
+    }
 }
 
-function openDetail(id) {
+function openDetail(id, updateHistory = true) {
     currentScrollY = window.scrollY;
     const p = PRODUCTS.find(x => x.id === id);
     
@@ -690,7 +693,6 @@ function openDetail(id) {
     const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}"></div>`).join('');
     const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
 
-    // 修改：產品標題加入品牌名
     detailArea.innerHTML = `
         <div class="container mx-auto max-w-5xl px-4 py-6">
             <button onclick="closeSubPageAndFilter('${p.category}')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
@@ -744,6 +746,11 @@ function openDetail(id) {
     hideAllPages();
     productPage.style.display = 'block';
     window.scrollTo(0, 0);
+
+    // 加入網址列參數，令產品可以分享 Link
+    if (updateHistory) {
+        window.history.pushState({ type: 'product', id: id }, '', '?p=' + id);
+    }
 }
 
 function changeImg(step) {
@@ -778,12 +785,18 @@ function closeLightbox(event) {
     }
 }
 
-function openPage(pageId) {
-    toggleMenu(); 
+function openPage(pageId, updateHistory = true) {
+    document.getElementById('sideMenu').classList.remove('active');
+    document.getElementById('menuOverlay').classList.remove('active');
     currentScrollY = window.scrollY;
     hideAllPages();
     document.getElementById(pageId).style.display = 'block';
     window.scrollTo(0, 0);
+
+    if (updateHistory) {
+        const shortName = pageId.replace('-page', '');
+        window.history.pushState({ type: 'page', id: pageId }, '', '?page=' + shortName);
+    }
 }
 
 function hideAllPages() {
@@ -793,10 +806,14 @@ function hideAllPages() {
     journalPage.style.display = 'none';
 }
 
-function closeSubPage() {
+function closeSubPage(updateHistory = true) {
     hideAllPages();
     homePage.style.display = 'block';
     window.scrollTo(0, currentScrollY);
+
+    if (updateHistory) {
+        window.history.pushState({ type: 'home' }, '', window.location.pathname);
+    }
 }
 
 function navigateTo(sectionId) {
@@ -834,10 +851,40 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// 初始化：檢查網址列有冇帶參數，有就直接打開相應產品或頁面
 window.addEventListener('DOMContentLoaded', () => {
     initBanners();
     renderRanking();
     renderList(PRODUCTS);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pId = urlParams.get('p');
+    const pageId = urlParams.get('page');
+
+    if (pId && PRODUCTS.find(x => x.id === pId)) {
+        openDetail(pId, false);
+    } else if (pageId && document.getElementById(pageId + '-page')) {
+        openPage(pageId + '-page', false);
+    }
+});
+
+// 監聽上一頁/下一頁動作
+window.addEventListener('popstate', (e) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pId = urlParams.get('p');
+    const pageId = urlParams.get('page');
+
+    if (pId && PRODUCTS.find(x => x.id === pId)) {
+        openDetail(pId, false);
+    } else if (pageId && document.getElementById(pageId + '-page')) {
+        hideAllPages();
+        document.getElementById(pageId + '-page').style.display = 'block';
+        window.scrollTo(0, 0);
+    } else {
+        hideAllPages();
+        homePage.style.display = 'block';
+        window.scrollTo(0, currentScrollY);
+    }
 });
 </script>
 
