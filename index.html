@@ -233,6 +233,7 @@
     <section id="products-section" class="py-10">
         <div class="flex justify-center space-x-6 mb-5 border-b border-[#efeae1] overflow-x-auto whitespace-nowrap px-4" id="filter-tabs">
             <button onclick="filterList('all', this)" class="product-tab active" data-cat="all">全部產品</button>
+            <button onclick="filterList('summer', this)" class="product-tab" data-cat="summer">Best for Summer</button>
             <button onclick="filterList('soel', this)" class="product-tab" data-cat="soel">soel</button>
             <button onclick="filterList('supmile', this)" class="product-tab" data-cat="supmile">Supmile</button>
             <button onclick="filterList('beige', this)" class="product-tab" data-cat="beige">beige+</button>
@@ -378,7 +379,7 @@
 
 <script>
 // ================================================
-// 產品資料庫
+// 產品資料庫 (加入兩款新產品，並將部分現有產品加入 Summer 分類)
 // ================================================
 const PRODUCTS = [
     {
@@ -459,7 +460,7 @@ const PRODUCTS = [
         specs: "◆ 容量：120mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "supmile-powder-wash", brand: "Supmile", nameEn: "Powder Wash", nameZh: "天然酵素洗顏粉 60g", category: "supmile", 
+        id: "supmile-powder-wash", brand: "Supmile", nameEn: "Powder Wash", nameZh: "天然酵素洗顏粉 60g", category: "supmile, summer", 
         badge: "100% 天然成分｜溫和酵素潔面｜毛孔角質護理｜7 大無添加", price: "HK$ 188",
         images: ["https://i.imgur.com/Rd0xoYR.png", "https://i.imgur.com/l2NpulU.png", "https://i.imgur.com/ULXYxwr.png"],
         shortIntro: "溫和帶走老廢角質，回復細緻透亮肌膚<br><br>以天然無患子萃取與木瓜蛋白酶製成的植物酵素洗顏粉，遇水後能揉出細緻柔軟泡沫，溫和潔淨毛孔中的多餘皮脂與老廢角質。<br><br>潔面同時加入褐藻與植物保濕成分，洗後肌膚維持柔軟與水潤感，不易產生乾燥緊繃感。<br><br>特別適合容易粗糙、暗沉或毛孔堵塞的肌膚作日常溫和角質護理。",
@@ -470,7 +471,7 @@ const PRODUCTS = [
         specs: "◆ 容量：60g<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "supmile-moist-water", brand: "Supmile", nameEn: "Moist Water", nameZh: "植物保濕化妝水 120mL", category: "supmile", 
+        id: "supmile-moist-water", brand: "Supmile", nameEn: "Moist Water", nameZh: "植物保濕化妝水 120mL", category: "supmile, summer", 
         badge: "100% 天然成分｜天然神經醯胺｜CICA 積雪草｜7 大無添加", price: "HK$ 228",
         images: ["https://i.imgur.com/Xvt1Z6g.png", "https://i.imgur.com/jXWcZyp.png"],
         shortIntro: "為肌膚補充水分，回復穩定柔軟狀態<br><br>揉合天然神經醯胺、積雪草與植物保濕精華，為乾燥與容易不穩定的肌膚帶來輕盈而持久的補水護理。<br><br>水感質地清爽細緻，能快速融入肌膚角質層，提升肌膚柔軟度與舒適感，同時維持水油平衡。<br><br>配合多種植物修護成分，讓肌膚於日常環境壓力下依然保持穩定、水潤與透亮。",
@@ -503,7 +504,7 @@ const PRODUCTS = [
         specs: "◆ 容量：200mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "beige-bb-cream", brand: "beige+", nameEn: "SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige", 
+        id: "beige-bb-cream", brand: "beige+", nameEn: "SKIN VEIL BB", nameZh: "5 in 1 持妝 BB 霜 SPF40 PA+++ 30g（Ochre）", category: "beige, summer", 
         badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", price: "HK$ 208",
         images: ["https://i.imgur.com/P7ivpkx.png", "https://i.imgur.com/xnhJVtV.png", "https://i.imgur.com/NQ3bhmE.png"],
         shortIntro: "如美容液般輕盈的保養型底妝<br><br>專為追求低負擔妝感與敏感肌膚而設的日系 BB 霜。結合美容液、防曬、粉底、調色與隔離功能，以輕盈細緻質地自然修飾毛孔、暗沉與膚色不均。<br><br>上妝同時為肌膚補充水分與保護力，打造自然透亮而不厚重的原生肌質感。<br><br>配合物理性防曬配方與多重保濕成分，即使長時間帶妝，肌膚依然保持舒適柔潤感。",
@@ -514,7 +515,7 @@ const PRODUCTS = [
         specs: "◆ 容量：30g<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     },
     {
-        id: "beige-nano-mist", brand: "beige+", nameEn: "Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige", 
+        id: "beige-nano-mist", brand: "beige+", nameEn: "Nano Bubble Day Fix Mist", nameZh: "定妝補水噴霧（清爽型）45mL", category: "beige, summer", 
         badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 180",
         images: ["https://i.imgur.com/i1GEoeN.png", "https://i.imgur.com/LETcHx7.png", "https://i.imgur.com/I5R5TvC.png", "https://i.imgur.com/o2NCwY4.png"],
         shortIntro: "為妝容與肌膚同時補水的定妝噴霧<br><br>採用油水雙層設計與獨特奈米氣泡技術，噴灑瞬間形成極細緻霧感，讓保濕成分更均勻貼合肌膚。<br><br>結合定妝、補水與美容液功能，在維持妝容清爽貼服的同時，減少因乾燥造成的浮粉與脫妝問題。<br><br>特別適合油性與混合性肌膚，於潮濕天氣或長時間帶妝時，依然保持自然透亮感。",
@@ -523,11 +524,38 @@ const PRODUCTS = [
         usage: "<strong>使用前</strong><br>產品為油水雙層設計，使用前請充分搖勻。<br><br><strong>定妝補水</strong><br>距離臉部約 10–15cm，閉上雙眼後均勻噴灑全臉約 3–5 下。<br><br><strong>使用小貼士</strong><br>噴灑後無需拍打，讓噴霧自然貼合肌膚與妝容。",
         ingredients: "水、煙醯胺、荷荷巴種子油、橄欖果油、水解彈性蛋白、透明質酸鈉、神經醯胺 AP、神經醯胺 NG、神經醯胺 NP、魚腥草萃取等保濕與植物成分",
         specs: "◆ 容量：45mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
+    },
+    // ==========================================
+    // 以下為兩款全新上架產品
+    // ==========================================
+    {
+        id: "supmile-bc-oil", brand: "Supmile", nameEn: "Botanical Care Oil BC", nameZh: "植物修護美容油 30mL", category: "supmile, summer", 
+        badge: "天然由來100%｜維他命C誘導體｜抗氧保濕｜夏日適用", price: "HK$ 368",
+        images: ["https://i.imgur.com/axj3yqt.png", "https://i.imgur.com/SdBOKjS.png", "https://i.imgur.com/IzSgnwJ.png", "https://i.imgur.com/RCE3adj.png", "https://i.imgur.com/0fJUpM5.png"],
+        shortIntro: "植物修護．天然養膚<br><br>天然由來成分100%的美容油，以植物油與高機能美容成分調配而成，為肌膚帶來透亮感、滋潤感與穩定感。<br><br>蘊含植物由來維他命C誘導體及富勒烯等美容成分，幫助改善因紫外線引起的暗沉與疲倦感，同時維持肌膚透亮與光澤感。<br><br>天然精油香氣融合薰衣草、野玫瑰、佛手柑與迷迭香，帶來柔和療癒的護膚時間。",
+        mainEffects: "改善暗沉 ✧ 高效抗氧 ✧ 舒緩乾燥 ✧ 提升透亮光澤",
+        features: "✦ 植物由來維他命C誘導體<br>幫助提亮膚色、改善暗沉，維持肌膚透亮感與均勻感。<br><br>✦ Fullerene 富勒烯<br>高效抗氧化成分，幫助對抗自由基，減少紫外線與環境壓力對肌膚造成的影響。<br><br>✦ 紅沒藥醇及雨生紅球藻<br>舒緩乾燥與敏感不適，幫助穩定肌膚狀態，維持肌膚彈性與光澤感。<br><br>✦ 清爽植物油配方<br>配合角鯊烷、荷荷巴籽油、向日葵籽油等，質地輕盈柔滑不黏膩，非常適合夏天或潮濕天氣使用。",
+        usage: "<strong>日常使用</strong><br>洗面後，取約一枚一圓硬幣大小份量於掌心，輕輕溫熱後均勻塗抹全臉。之後可配合化妝水使用，最後再以乳液或面霜完成護膚程序。<br><br><strong>混合使用</strong><br>亦可於化妝水後使用，或加入1-2滴於精華液中混合使用，幫助後續護膚更易吸收。",
+        ingredients: "角鯊烷、荷荷巴籽油、向日葵籽油、四己基癸醇抗壞血酸酯、紅沒藥醇、雨生紅球藻萃取、富勒烯、紅花籽油脂肪酸薄荷酯、石榴籽油、米胚芽油、薰衣草油、野玫瑰油、佛手柑果油、迷迭香葉油、辛酸、維他命E、迷迭香葉萃取",
+        specs: "◆ 容量：30mL<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
+    },
+    {
+        id: "soel-uv-base", brand: "soel", nameEn: "Living Oil UV Skin Base", nameZh: "透亮防曬底霜 SPF31 PA+++ 50g", category: "soel, summer", 
+        badge: "SPF31 PA+++｜物理防曬｜抗藍光微塵｜肥皂可卸", price: "HK$ 250",
+        images: ["https://i.imgur.com/DxpekK7.png", "https://i.imgur.com/L7Sk1qA.png", "https://i.imgur.com/wIJzUrR.png"],
+        shortIntro: "以「肌膚保養延伸」為概念的修護防曬<br><br>在阻隔日常紫外線同時，利用植物油的滋潤力量，幫助肌膚維持柔軟、穩定與舒適感。<br><br>SPF31 / PA+++ 適合日常通勤與生活使用，輕盈貼膚、不厚重，乾燥肌與敏感肌亦可安心使用。<br><br>自然柔和的 tone-up 效果，改善乾燥造成的暗沉感，不泛白、不厚重，呈現自然細緻的光澤肌。",
+        mainEffects: "防曬隔離 ✧ 保濕滋潤 ✧ 自然提亮 ✧ 抵禦環境壓力",
+        features: "✦ 6 種精選植物油<br>配合芝麻籽油、荷荷巴籽油、猴麵包樹籽油、Cacay Oil、仙人掌籽油及夏威夷果仁油，帶來如護膚品般的滋潤感與柔滑光澤。<br><br>✦ 環境對策型護膚成分<br>加入黃芩根萃取及越橘葉萃取，幫助肌膚減少因微塵、乾燥與藍光環境帶來的外在壓力。<br><br>✦ 物理防曬配方<br>採用 Non-Chemical 紫外線吸收劑配方，無香料，減低對肌膚的負擔。<br><br>✦ 肥皂可輕鬆卸除<br>可作妝前底霜使用，日常只塗這款防曬的話，可直接使用一般潔面產品輕鬆卸除。",
+        usage: "完成日常護膚程序後，取適量均勻塗抹於全臉及頸部。非常適合作為妝前底霜使用，幫助後續底妝更服貼。",
+        ingredients: "芝麻籽油、荷荷巴籽油、猴麵包樹籽油、Cacay Oil、仙人掌籽油、夏威夷果仁油、黃芩根萃取、越橘葉萃取等",
+        specs: "◆ 容量：50g<br>◆ 防曬系數：SPF31 / PA+++<br>◆ 製造國家：日本<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
     }
 ];
 
+// 加入了 Summer 分類的簡介
 const BRAND_INTROS = {
     "all": "嚴選日本高品質護膚選品，為你帶來純淨、低負擔的保養體驗。",
+    "summer": "<strong>Best for Summer ☀️</strong><br>為炎炎夏日嚴選的清爽護膚與防曬底妝，輕盈保濕不黏膩，讓肌膚在悶熱天氣依然保持透亮穩定。",
     "soel": "<strong>soel</strong><br>專注於植物油與天然精華萃取的護膚品牌。以講究的「一番搾」工藝，保留植物最強大的抗氧生命力，喚醒肌膚原有的健康與平衡。",
     "supmile": "<strong>Supmile</strong><br>堅持 100% 天然由來成分與 7 大無添加。專為敏感、乾燥及不穩定肌膚設計，提供極致溫和、絕對安心的純淨修護體驗。",
     "beige": "<strong>beige+</strong><br>專為敏感肌而設的保養型底妝品牌。完美結合高濃度美容液與物理防禦功能，打造低負擔、會呼吸的透亮自然妝感。"
@@ -661,8 +689,10 @@ function closeSubPageAndFilter(category, updateHistory = true) {
     hideAllPages();
     homePage.style.display = 'block';
     
-    const targetBtn = document.querySelector(`.product-tab[data-cat="${category}"]`);
-    if(targetBtn) filterList(category, targetBtn);
+    // 如果是從 summer 的產品返回，優先跳回 summer tab；如果是其他品牌，就跳回該品牌
+    const targetCat = category.includes('summer') ? 'summer' : category.split(',')[0];
+    const targetBtn = document.querySelector(`.product-tab[data-cat="${targetCat}"]`);
+    if(targetBtn) filterList(targetCat, targetBtn);
     
     setTimeout(() => {
         const target = document.querySelector('#products-section');
@@ -676,7 +706,6 @@ function closeSubPageAndFilter(category, updateHistory = true) {
         }
     }, 50);
 
-    // 清除網址列參數
     if (updateHistory) {
         window.history.pushState({ type: 'home' }, '', window.location.pathname);
     }
@@ -697,7 +726,7 @@ function openDetail(id, updateHistory = true) {
         <div class="container mx-auto max-w-5xl px-4 py-6">
             <button onclick="closeSubPageAndFilter('${p.category}')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-6">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                返回 ${p.brand}
+                返回目錄
             </button>
             
             <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
@@ -747,7 +776,6 @@ function openDetail(id, updateHistory = true) {
     productPage.style.display = 'block';
     window.scrollTo(0, 0);
 
-    // 加入網址列參數，令產品可以分享 Link
     if (updateHistory) {
         window.history.pushState({ type: 'product', id: id }, '', '?p=' + id);
     }
@@ -851,7 +879,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 初始化：檢查網址列有冇帶參數，有就直接打開相應產品或頁面
+// 初始化
 window.addEventListener('DOMContentLoaded', () => {
     initBanners();
     renderRanking();
