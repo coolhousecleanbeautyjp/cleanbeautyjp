@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>COOL HOUSE Beauty | 日本護膚選品</title>
+<title>Cool House Beauty | 日本護膚選品</title>
 <link rel="icon" type="image/jpeg" href="https://i.imgur.com/HiGZ7dp.jpeg">
 <link rel="apple-touch-icon" href="https://i.imgur.com/HiGZ7dp.jpeg">
-<meta name="description" content="Japanese Natural and clean beauty select shop。嚴選日本天然植物成分與低刺激配方，專注敏感肌肌膚護理。">
+<meta name="description" content="香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -171,15 +171,20 @@ coolhousebeauty@gmail.com
 </div>
 
 <section id="our-story" class="container mx-auto px-6 py-12">
-<div class="relative bg-white border border-[#efeae1] rounded-lg p-6 md:p-10 shadow-sm max-w-3xl mx-auto text-center">
-<button onclick="toggleCollapse('story-content', this)" class="absolute top-6 right-6 text-xl text-[#666] transition-transform duration-300 outline-none" style="transform: rotate(0deg);">▼</button>
-<h2 class="text-2xl mb-2">Our Story</h2>
-<p class="text-[14px] mb-0 font-semibold text-[var(--text-light)] font-serif">質感選品 ｜ 專注成分</p>
-<div id="story-content" class="hidden mt-6 space-y-4 text-[15px] text-[#4a403a] leading-relaxed">
-<p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
-<p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚回歸溫和、平衡與穩定的狀態，帶來低負擔且值得長久使用的護膚體驗。</p>
-<p>主理人持有日本「化妝品檢定特級」資格，亦曾長期受敏感肌困擾，因此更重視成分導向與低刺激配方，為你帶來真正的 skin wellness。</p>
-</div>
+<div class="bg-white border border-[#efeae1] rounded-lg shadow-sm max-w-3xl mx-auto overflow-hidden">
+  <div class="w-full aspect-[21/9] bg-[#f5f2ec] overflow-hidden relative">
+    <img src="https://i.imgur.com/087Ba3Z.png" alt="Cool House Beauty Story" class="w-full h-full object-cover">
+  </div>
+  <div class="p-6 md:p-10 text-center relative">
+    <button onclick="toggleCollapse('story-content', this)" class="absolute top-6 right-6 text-xl text-[#666] transition-transform duration-300 outline-none" style="transform: rotate(0deg);">▼</button>
+    <h2 class="text-2xl mb-2">Our Story</h2>
+    <p class="text-[14px] mb-0 font-semibold text-[var(--text-light)] font-serif">質感選品 ｜ 專注成分</p>
+    <div id="story-content" class="hidden mt-6 space-y-4 text-[15px] text-[#4a403a] leading-relaxed">
+      <p>我們親身走訪日本各地，嚴選兼具品質與效能的純淨產品。</p>
+      <p>每一件選品，皆承載日本職人對細節與品質的執着。從成分、配方到使用感，我們重視每一個細節，只希望讓肌膚與身體回歸溫和、平衡與穩定的狀態，帶來低負擔且值得長久使用的護理體驗。</p>
+      <p>主理人持有日本「化妝品檢定特級」資格，亦曾長期受敏感肌困擾，因此更重視成分導向與低刺激配方，為你帶來真正的 wellness。</p>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -335,12 +340,23 @@ coolhousebeauty@gmail.com
 // ================================================
 const PRODUCTS = [
 {
+id: "anmin-kombucha", brand: "ANMIN", nameEn: "RECOVERY KOMBUCHA", nameZh: "安眠恢復康普茶 15包入", category: "all, summer",
+badge: "無咖啡因｜無藥物依賴｜500mg GABA｜1000億益生菌｜日本製造", price: "HK$ 318",
+images: ["https://i.imgur.com/cOfiLmb.png","https://i.imgur.com/k4GmQlW.png","https://i.imgur.com/kyIwuYX.png","https://i.imgur.com/L7Pejl0.png"],
+shortIntro: "睡前一杯，於夜間黃金期完成「腸道 ✕ 睡眠 ✕ 美肌」三重修復<br><br>來自日本的 ANMIN（意為「安眠」），是專為高壓、忙碌的都市人設計的夜間修復飲品。完美融合「深度睡眠」、「腸道微生態」與「美肌抗氧」，無咖啡因、無藥物依賴，以淡淡天然酸甜風味，為你舒緩一日累積的疲勞。",
+mainEffects: "舒緩大腦神經 ✧ 縮短入睡時間 ✧ 提升深度睡眠 ✧ 腸道微生態修復 ✧ 美肌抗氧",
+features: "✦ GABA (500mg) ‧ 大腦的天然「Pause 鍵」<br>能減慢神經細胞過度活性，舒緩緊張與焦慮情緒，降低日間累積的疲勞感，引導大腦進入平靜狀態。<br><br>✦ L-茶氨酸 (50mg) & 羅布麻精華 (50mg)<br>調節睡眠週期與大腦 α 波，幫助縮短入睡時間，減少夜間中途醒來，提升深睡質素。<br><br>✦ 超高濃縮乳酸菌 EC-12 (1,000億個)<br>微球型益生菌直達腸道，幫助平衡腸道菌群、促進排毒通便，搞定人類「第二個大腦」。<br><br>✦ 106 種植物發酵精華（康普茶）<br>蘊含豐富活性酵素與有機酸，加速夜間新陳代謝，舒緩腸胃積聚負擔。<br><br>✦ 維他命 C (1,000mg)<br>提供強效抗氧化，趁夜間黃金修復期滋養肌膚，提升免疫力與肌膚光澤度。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合對象</strong><br>高壓忙碌都市人 ✧ 入睡困難/淺眠者 ✧ 腸道不順暢者 ✧ 氣色暗沉乏力者<br><br><strong>風味與質地</strong><br>清爽微酸甜柑橘康普茶風味｜易溶解粉末｜無藥物感</div>",
+usage: "<strong>飲用方法</strong><br>每日睡前 1 小時，取 1 包加入約 150mL 溫水或常溫水（建議水溫不超過 40°C 以保護益生菌與活性成分），攪拌均勻後即可享用。",
+ingredients: "GABA (500mg)、乳酸菌 EC-12 (1,000億個)、106種植物發酵精華、維他命 C (1,000mg)、L-茶氨酸 (50mg)、羅布麻萃取物 (50mg) 等",
+specs: "◆ 規格：15包入 / 盒<br>◆ 產地：日本 (Made in Japan)<br>◆ 特性：零咖啡因 (Caffeine-free)、無藥物依賴<br>◆ 注意事項：請存放於陰涼乾燥處，避免陽光直射；孕婦或正服藥人士建議先諮詢醫師。"
+},
+{
 id: "soel-oil", brand: "soel", nameEn: "LIVING-OIL Organic Sesame oil", nameZh: "有機芝麻修護油 60mL", category: "soel",
 badge: "USDA 有機認證｜敏感肌適用｜導入修護｜低刺激護理", price: "HK$ 398",
 images: ["https://i.imgur.com/2yqgpfV.jpeg","https://i.imgur.com/kRowcMq.png","https://i.imgur.com/F1xydoY.png","https://i.imgur.com/Ria4vms.png","https://i.imgur.com/q7xg4jL.png","https://i.imgur.com/9RnYa2n.png","https://i.imgur.com/H7ojgz6.png"],
-shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>soel 的經典護膚油，以珍貴「一番搾」低溫冷壓芝麻油為基底，保留豐富芝麻素與天然維他命 E，為肌膚帶來深層而低負擔的滋養。<br>細緻輕盈的質地，能迅速融入肌膚，特別適合作為洗臉後第一步的導入護理，幫助後續保養更貼合吸收，讓肌膚回復柔軟、穩定與透亮狀態。<br>揉合天然植物精油，散發淡雅柑橘與木質香氣，讓每日護膚成為放鬆而療癒的時刻。",
+shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>soel 的經典護膚油，以珍貴「一番搾」低溫冷壓芝麻油為基底，保留豐富芝麻素與天然維他命 E，為肌膚帶來深層而低負擔的滋養。<br>細緻輕盈的質地，能迅速融入肌膚，特別適合作為洗臉後第一步的導入護理，幫助後續保養更貼合吸收，讓肌膚回復柔軟、穩定與透亮狀態。<br>揉合天然植物精油，散發淡雅柑橘與木質香氣，讓每日護膚成為放鬆而療療的時刻。",
 mainEffects: "深層保濕 ✧ 舒緩修護 ✧ 提升透亮感 ✧ 維持肌膚平衡",
-features: "✦ 珍貴「一番搾」工藝<br>僅取首道壓搾中最珍貴的初榨油脂，保留高濃度芝麻素與天然維他命 E，呈現細緻而純淨的油質。<br><br>✦ 高親膚滲透力<br>芝麻油脂結構與人體皮脂相近，質地輕盈細緻，能快速融入肌膚而不黏膩。<br><br>✦ 導入型護膚油<br>適合作為潔面後第一步使用，幫助肌膚維持柔軟度與穩定狀態，提升後續護膚貼合感。<br><br>✦ 天然植物香氣<br>以佛手柑、綠茶白花與木質調交織出柔和療癒香氣，帶來舒適放鬆的護膚體驗。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈流動感油質｜快速吸收｜自然透亮感<br><br><strong>香氣</strong><br>前調｜佛手柑與綠葉柑橘香氣<br>中調｜綠茶與淡雅白花<br>後調｜柔和木質與麝香調</div>",
+features: "✦ 珍貴「一番搾」工藝<br>僅取首道壓搾中最珍貴的初搾油脂，保留高濃度芝麻素與天然維他命 E，呈現細緻而純淨的油質。<br><br>✦ 高親膚滲透力<br>芝麻油脂結構與人體皮脂相近，質地輕盈細緻，能快速融入肌膚而不黏膩。<br><br>✦ 導入型護膚油<br>適合作為潔面後第一步使用，幫助肌膚維持柔軟度與穩定狀態，提升後續護膚貼合感。<br><br>✦ 天然植物香氣<br>以佛手柑、綠茶白花與木質調交織出柔和療癒香氣，帶來舒適放鬆的護膚體驗。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈流動感油質｜快速吸收｜自然透亮感<br><br><strong>香氣</strong><br>前調｜佛手柑與綠葉柑橘香氣<br>中調｜綠茶與淡雅白花<br>後調｜柔和木質與麝香調</div>",
 usage: "<strong>日常導入護理</strong><br>洗臉後取 1–2 滴於掌心溫熱後，輕按全臉，再進行後續護膚程序。<br><br><strong>加強保濕</strong><br>乾燥季節可於面霜後使用，加強鎖水與潤澤感。<br><br><strong>混合護膚</strong><br>可加入日常面霜或粉底液中使用，提升柔潤貼膚感。<br><br><strong>按摩護理</strong><br>可作面部或身體按摩使用，幫助舒緩乾燥與緊繃感。",
 ingredients: "芝麻種子油、佛手柑果實油、雪松精油、花梨木油、雞蛋花萃取、胡蘿蔔種子油、當歸根油、維他命 E",
 specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 2 年｜開封後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
@@ -645,7 +661,7 @@ keyBenefits: [
 "完美水油平衡：補水同時鎖水，減少肌膚因缺水而異常出油的情況",
 "100% 天然純淨：嚴選全天然成分，無酒精配方，減輕肌膚負擔",
 "零殘忍與純素 (Vegan)：堅持友善環境與動物的純淨保養",
-"敏感肌安心適用：溫和親膚，脆弱肌膚亦能安心進行亮肌護護"
+"敏感肌安心適用：溫和親膚，脆弱肌膚亦能安心進行亮肌護理"
 ],
 howToUse: [
 { step: "1", title: "取量", desc: "潔面及爽膚後，取適量（約 1-2 泵）soel 植萃修復精華液於掌心。" },
@@ -661,6 +677,65 @@ whatsappMsg: "我想訂購夏日限定美白亮澤套裝（HK$799）"
 // ③ JOURNAL — 文章資料庫
 // ================================================
 const JOURNALS = [
+{
+id: "insomnia-guide",
+vol: "Vol. 🌙",
+title: "香港都市人失眠全攻略",
+subtitle: "對號入座 4 大失眠類型 ‧ 夜間重塑「睡眠 ✕ 腸道 ✕ 氣色」",
+date: "2026年秋",
+tag: "Wellness",
+coverBg: "#e3e8ee",
+body: `
+<div class="mb-8">
+<img src="https://i.imgur.com/nTNnrWr.png" class="w-full rounded-lg border border-[#efeae1] mb-6">
+<p class="text-[15px] text-[#4a403a] leading-[1.95] mb-4">在中環、尖沙咀加班到深夜，好不容易回到家，洗完澡躺在床上，大腦卻依然像高速運轉的電腦一樣「關不上機」？或者好不容易睡著了，半夜卻總是莫名醒來，看著手機時間倒數起床時間，心裡無比焦慮？</p>
+<p class="text-[15px] text-[#4a403a] leading-[1.95]">香港生活節奏急促，高壓、長時間面對電子螢幕，加上頻繁外食與不規律的作息，讓「失眠」成為了許多都市人的日常。但你知道嗎？失眠其實不只一種，盲目補充助眠產品往往效果有限。</p>
+</div>
+
+<div class="mb-10">
+<h3 class="text-[18px] font-serif text-[#2c2420] mb-4 flex items-center gap-2"><span>😴</span> 你屬於邊一種？香港都市人 4 大失眠類型</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-white p-4 rounded-lg border border-[#efeae1]">
+<h4 class="font-bold text-[#2c2420] mb-1">1️⃣ 入睡困難型（最常見！）</h4>
+<p class="text-[13px] text-[#666] leading-relaxed">躺在床上超過 1 小時依然翻來覆去，大腦不斷浮現工作與生活雜念，無法按落「關機鍵」。</p>
+</div>
+<div class="bg-white p-4 rounded-lg border border-[#efeae1]">
+<h4 class="font-bold text-[#2c2420] mb-1">2️⃣ 中途易醒型</h4>
+<p class="text-[13px] text-[#666] leading-relaxed">夜間容易醒來 2-3 次，對聲音或光線極度敏感，醒後需要很長時間才能重新入睡。</p>
+</div>
+<div class="bg-white p-4 rounded-lg border border-[#efeae1]">
+<h4 class="font-bold text-[#2c2420] mb-1">3️⃣ 早醒無意型</h4>
+<p class="text-[13px] text-[#666] leading-relaxed">凌晨天未光（例如 4-5 點）就自然醒來，隨後再也無法入睡，看著天花板等天亮。</p>
+</div>
+<div class="bg-white p-4 rounded-lg border border-[#efeae1]">
+<h4 class="font-bold text-[#2c2420] mb-1">4️⃣ 熟睡障礙型（淺眠）</h4>
+<p class="text-[13px] text-[#666] leading-relaxed">就算睡足 8 小時，起床後依然覺得頭重重、極度疲倦，整夜處於淺層睡眠，缺乏深度修複。</p>
+</div>
+</div>
+</div>
+
+<div class="mb-10">
+<h3 class="text-[18px] font-serif text-[#2c2420] mb-4 flex items-center gap-2"><span>🧠</span> 腸道是人類的「第二大腦」：腸道好，自然好瞓！</h3>
+<p class="text-[15px] text-[#4a403a] leading-[1.95] mb-4">許多人不知道，人體超過 90% 的快樂與放鬆神經傳導物質（如血清素）其實是在腸道中合成的！當外食多、壓力大導致腸道微生態失衡時，睡眠質素必然會直線下降，同時還會引起膚色暗沉、便秘與代謝變慢。</p>
+<p class="text-[15px] text-[#4a403a] leading-[1.95]">想真正改善失眠與疲態，必須從**「大腦放鬆 ✕ 腸道修復 ✕ 肌膚抗氧」**三管齊下。</p>
+</div>
+
+<div class="mb-10">
+<h3 class="text-[18px] font-serif text-[#2c2420] mb-4 flex items-center gap-2"><span>🍵</span> 夜間黃金期：日本 ANMIN 安眠恢復康普茶</h3>
+<p class="text-[15px] text-[#4a403a] leading-[1.95] mb-4">專為高壓都市人研發的無咖啡因、無藥物依賴夜間飲品，睡前一杯，為你開啟三大黃金修復機制：</p>
+<ul class="space-y-3 mb-6">
+<li class="flex gap-2 text-[14px] text-[#4a403a]"><span class="text-[#b3c1a1]">✦</span><span><strong>高濃度 500mg GABA + L-茶氨酸：</strong>幫大腦按下 Pause 鍵，舒緩緊張情緒，縮短入睡時間並延長深度睡眠。</span></li>
+<li class="flex gap-2 text-[14px] text-[#4a403a]"><span class="text-[#b3c1a1]">✦</span><span><strong>1,000 億 EC-12 益生菌 + 106 種發酵精華：</strong>於夜間平衡腸道菌群、促進代謝排毒，順暢腸胃負擔。</span></li>
+<li class="flex gap-2 text-[14px] text-[#4a403a]"><span class="text-[#b3c1a1]">✦</span><span><strong>1,000mg 維他命 C：</strong>睡覺的同時強效抗氧化，醒來重現透亮好氣色。</span></li>
+</ul>
+</div>
+
+<div class="bg-[#faf9f7] border border-[#efeae1] rounded-lg p-5 mb-8 text-center">
+<p class="text-[14px] text-[#4a403a] mb-3">今晚開始，找回專屬你的高質量睡眠與好氣色！</p>
+<button onclick="openDetail('anmin-kombucha')" class="bg-[var(--btn)] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#8fa07a] transition">了解 ANMIN 康普茶詳情 →</button>
+</div>
+`
+},
 {
 id: "summer-glow",
 vol: "Vol. ☀️",
@@ -797,7 +872,7 @@ btn.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'r
 // ⑧ Render Ranking
 // ================================================
 function renderRanking() {
-const rankingIds = ["soel-oil","beige-bb-cream","beige-nano-mist","soel-serum","supmile-powder-wash"];
+const rankingIds = ["anmin-kombucha","soel-oil","beige-bb-cream","beige-nano-mist","soel-serum"];
 rankingArea.innerHTML = rankingIds.map((id, index) => {
 const p = PRODUCTS.find(x => x.id === id);
 return `<div class="ranking-card flex-shrink-0 w-[140px] md:w-[180px]" onclick="openDetail('${p.id}')">
