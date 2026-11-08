@@ -6,7 +6,20 @@
 <title>Cool House Beauty | 日本護膚選品</title>
 <link rel="icon" type="image/jpeg" href="https://i.imgur.com/HiGZ7dp.jpeg">
 <link rel="apple-touch-icon" href="https://i.imgur.com/HiGZ7dp.jpeg">
-<meta name="description" content="香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。">
+<meta id="meta-description" name="description" content="香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。">
+
+<!-- Open Graph Meta Tags -->
+<meta id="og-title" property="og:title" content="Cool House Beauty | 日本護膚選品">
+<meta id="og-description" property="og:description" content="香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。">
+<meta id="og-image" property="og:image" content="https://i.imgur.com/HiGZ7dp.jpeg">
+<meta id="og-type" property="og:type" content="website">
+
+<!-- Canonical Link -->
+<link id="canonical-url" rel="canonical" href="https://coolhousebeauty.com/">
+
+<!-- Dynamic Product & Article JSON-LD Schema Placeholder -->
+<script id="product-schema" type="application/ld+json"></script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -31,8 +44,8 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
 .nav-logo { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
 .nav-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.15em; color: var(--headline); line-height: 1; }
 .nav-logo-sub { font-family: 'Playfair Display', serif; font-size: 9px; letter-spacing: 0.4em; color: var(--headline); margin-top: 3px; font-weight: 600; }
-.nav-whatsapp { color: var(--wa-green); transition: 0.3s; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; }
-.nav-whatsapp:hover { transform: scale(1.1); }
+.nav-whatsapp { color: var(--headline); transition: 0.3s; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; }
+.nav-whatsapp:hover { color: var(--btn-hover); transform: scale(1.1); }
 .side-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 70; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .side-menu-overlay.active { opacity: 1; pointer-events: auto; }
 .side-menu { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: #fff; z-index: 71; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: left 0.3s ease; display: flex; flex-direction: column; padding: 30px 20px; overflow-y: auto; }
@@ -64,10 +77,8 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
 .ranking-card { cursor: pointer; display: flex; flex-direction: column; }
 .rank-badge { position: absolute; top: 0; left: 0; background: var(--headline); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 8px; z-index: 10; font-family: -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: 0.05em; }
 
-/* Sub Pages Base Style */
 .sub-page { display: none; background: #fff; min-height: 100vh; padding-bottom: 90px; }
 
-/* Gallery & Detail Page */
 .gallery-main { width: 100%; aspect-ratio: 1/1; position: relative; background: #faf9f7; border-radius: 6px; overflow: hidden; border: 1px solid #f0ebe1; cursor: zoom-in; }
 .gallery-main img { width: 100%; height: 100%; object-fit: contain; }
 .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: rgba(255,255,255,0.85); border: 1px solid #e0d9cf; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--headline); cursor: pointer; z-index: 10; font-size: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.2s; }
@@ -89,13 +100,11 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
 .detail-effects { background: #fdfcfaf0; padding: 16px; border-radius: 6px; margin: 20px 0; font-size: 14px; color: var(--text); border: 1px solid #efeae1; }
 .detail-effects strong { color: var(--headline); font-family: 'Noto Serif TC', serif; display: block; margin-bottom: 8px; font-size: 15px; }
 
-/* Sticky Bottom Bar & WhatsApp Buttons */
 .sticky-bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 1px solid #efeae1; padding: 12px 20px; z-index: 50; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
 .bar-price { font-size: 20px; }
 
-/* Attractive WhatsApp Button */
 .btn-wa-attractive {
-  background: linear-gradient(135deg, #25D366 0%, #1eaa53 100%);
+  background: var(--btn);
   color: #ffffff;
   font-weight: 600;
   display: inline-flex;
@@ -103,18 +112,24 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
   justify-content: center;
   gap: 8px;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 14px rgba(143, 160, 122, 0.40);
+  letter-spacing: 0.06em;
   transition: all 0.3s ease;
   text-decoration: none;
+  animation: waPulse 2.8s ease-in-out infinite;
 }
 .btn-wa-attractive:hover {
-  background: linear-gradient(135deg, #28e16f 0%, #199749 100%);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+  background: var(--btn-hover);
+  box-shadow: 0 6px 18px rgba(143, 160, 122, 0.50);
   transform: translateY(-1px);
+}
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(143, 160, 122, 0.40); }
+  50% { box-shadow: 0 6px 24px rgba(143, 160, 122, 0.65); }
 }
 
 .btn-buy-sm {
-  background: #25D366;
+  background: var(--btn);
   color: #fff;
   font-size: 11px;
   font-weight: 600;
@@ -125,7 +140,7 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
   gap: 4px;
   transition: 0.2s;
 }
-.btn-buy-sm:hover { background: #1eaa53; }
+.btn-buy-sm:hover { background: var(--btn-hover); }
 
 details.prod-details { border-bottom: 1px solid #f0ebe1; }
 details.prod-details summary { list-style: none; padding: 18px 0; font-weight: 600; color: var(--headline); display: flex; justify-content: space-between; align-items: center; font-family: 'Noto Serif TC', serif; font-size: 16px; cursor: pointer; outline: none; }
@@ -141,7 +156,6 @@ details[open] .plus-icon { transform: rotate(45deg); }
 .social-icons a { color: #fff; opacity: 0.7; transition: 0.3s; display: inline-block; }
 .social-icons a:hover { opacity: 1; transform: translateY(-2px); }
 
-/* Journal styles */
 .journal-card { cursor: pointer; background: #fff; border: 1px solid #efeae1; border-radius: 8px; overflow: hidden; transition: box-shadow 0.3s; }
 .journal-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 .journal-tag { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--btn); font-family: 'Playfair Display', serif; }
@@ -167,13 +181,19 @@ details[open] .plus-icon { transform: rotate(45deg); }
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('home-page')">Home</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('our-story-page')">Our Story</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('products-page')">Products</a>
+<div class="text-[11px] text-[#888] uppercase tracking-[0.2em] mt-6 mb-1 font-serif">Brands</div>
+<a href="javascript:void(0)" class="menu-link" onclick="openBrand('soel')">soel</a>
+<a href="javascript:void(0)" class="menu-link" onclick="openBrand('supmile')">Supmile</a>
+<a href="javascript:void(0)" class="menu-link" onclick="openBrand('beige')">beige+</a>
+<a href="javascript:void(0)" class="menu-link" onclick="openBrand('mogans')">MOGANS</a>
+<a href="javascript:void(0)" class="menu-link" onclick="openBrand('anmin')">ANMIN</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('journal-page')">Journal</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('reviews-page')">Customer Reviews</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('faq-page')">FAQ</a>
 <div class="mt-auto pt-8 pb-4">
 <div class="text-[11px] text-[#888] uppercase tracking-[0.2em] mb-4 font-serif">Contact Us</div>
 <a href="https://wa.me/85261960881" target="_blank" class="!py-2 !border-none !font-sans !font-normal text-[14px] text-[#4a403a] flex items-center gap-3">
-<svg width="18" height="18" fill="currentColor" class="text-[var(--wa-green)]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+<svg width="18" height="18" fill="currentColor" class="text-[var(--btn-hover)]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 WhatsApp
 </a>
 <a href="mailto:coolhousebeauty@gmail.com" class="!py-2 !border-none !font-sans !font-normal text-[14px] text-[#4a403a] flex items-center gap-3">
@@ -184,7 +204,6 @@ coolhousebeauty@gmail.com
 </div>
 </div>
 
-<!-- ===================== HOME PAGE ===================== -->
 <div id="home-page" class="page-sec">
 <div class="promo-bar">Enjoy free shipping on your first purchase!</div>
 
@@ -224,7 +243,18 @@ coolhousebeauty@gmail.com
 <div id="product-list" class="product-grid container mx-auto max-w-5xl mb-16"></div>
 </section>
 
-<!-- OUR STORY MOVED ABOVE REVIEWS -->
+<section class="py-12" style="background:#2c2420">
+<div class="container mx-auto px-6 max-w-4xl text-center">
+<p class="text-[11px] tracking-[0.35em] uppercase mb-3" style="color:#b3c1a1">Official Store</p>
+<div style="margin-bottom:16px"><span style="display:inline-block;background:#ffffff;border-radius:999px;padding:9px 20px 7px"><img src="https://i.imgur.com/W5Plkan.png" alt="HKTVmall" style="height:24px;display:block"></span></div>
+<h2 class="text-2xl mb-4" style="color:#fdfcfaf0">COOL HOUSE 已經進駐 HKTVmall</h2>
+<p class="text-[14px] mb-5" style="color:rgba(253,252,250,0.75)">soel、SUPMILE、beige+、MOGANS、ANMIN 全線產品，現可於 HKTVmall 直接落單。</p>
+<p class="text-[12px] mb-7" style="color:rgba(253,252,250,0.55)">✓ 平台訂單記錄&ensp;✓ 送貨追蹤&ensp;✓ 平台退換保障</p>
+<a href="https://hktvmallredirect.com/QYkYm76Y" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">前往 HKTVmall 店舖 →</a>
+<p class="text-[12px] mt-5" style="color:rgba(253,252,250,0.55)">傾偈問膚質，照舊 WhatsApp 搵主理人；落單行 HKTVmall，簡單又安心。</p>
+</div>
+</section>
+
 <section id="our-story" class="container mx-auto px-6 py-8">
 <div class="bg-white border border-[#efeae1] rounded-lg shadow-sm max-w-3xl mx-auto overflow-hidden">
   <div class="w-full max-h-[300px] bg-[#f5f2ec] overflow-hidden flex justify-center items-center">
@@ -250,17 +280,17 @@ coolhousebeauty@gmail.com
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「天然植物香氣很療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 A</p>
+<p class="text-[12px] text-[#666] text-right">— 林小姐</p>
 </div>
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常溫和。質地不厚重，即使夏天使用也沒有負擔，低刺激配方讓人很放鬆。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 B</p>
+<p class="text-[12px] text-[#666] text-right">— M L</p>
 </div>
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「持續使用後，肌膚變得更柔軟滋潤，整體氣色和透亮感都有改善，朋友也開始留意到皮膚狀態變好了。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 C</p>
+<p class="text-[12px] text-[#666] text-right">— CHENG</p>
 </div>
 </div>
 </div>
@@ -290,14 +320,23 @@ coolhousebeauty@gmail.com
 </div>
 </section>
 
+<section class="py-14 bg-[#faf9f7]">
+<div class="container mx-auto px-6 max-w-3xl text-center">
+<p class="text-[11px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-3">Invitation</p>
+<h2 class="text-2xl mb-4 font-serif">Cool House 美妝 Private Group</h2>
+<p class="text-[14px] text-[#666] leading-relaxed mb-7">主理人住在日本，不定期分享美妝好物，日本直送。</p>
+<a href="https://chat.whatsapp.com/JJNmPLkLsBrDrA8zeSBIgI?s=cl&p=i&mlu=4&ilr=4&iam=2" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">加入 Group →</a>
+</div>
+</section>
+
 <footer class="py-16 text-center bg-[#2c2420] text-white">
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 4px;">COOL HOUSE</div>
 <div style="font-family: 'Playfair Display', serif; font-size: 10px; letter-spacing: 6px; margin-top: 6px; opacity: 0.6;">BEAUTY</div>
 <div class="social-icons">
-<a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+<a href="https://www.facebook.com/coolhousebeauty" target="_blank" aria-label="Facebook">
 <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
 </a>
-<a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+<a href="https://www.instagram.com/coolhousebeauty" target="_blank" aria-label="Instagram">
 <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
 </a>
 </div>
@@ -305,9 +344,6 @@ coolhousebeauty@gmail.com
 </footer>
 </div>
 
-<!-- ===================== INDIVIDUAL PAGES ===================== -->
-
-<!-- OUR STORY PAGE -->
 <div id="our-story-page" class="sub-page">
 <div class="container mx-auto max-w-3xl px-5 py-6 pt-10">
 <button onclick="openPage('home-page')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
@@ -331,7 +367,6 @@ coolhousebeauty@gmail.com
 </div>
 </div>
 
-<!-- PRODUCTS PAGE -->
 <div id="products-page" class="sub-page">
 <div class="container mx-auto max-w-5xl px-5 py-6 pt-10">
 <button onclick="openPage('home-page')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
@@ -346,7 +381,6 @@ coolhousebeauty@gmail.com
 </div>
 </div>
 
-<!-- REVIEWS PAGE -->
 <div id="reviews-page" class="sub-page">
 <div class="container mx-auto max-w-4xl px-5 py-6 pt-10">
 <button onclick="openPage('home-page')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
@@ -358,23 +392,22 @@ coolhousebeauty@gmail.com
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「天然植物香氣很療癒，幾滴已足夠全臉使用。質地輕盈、非常好吸收，用後肌膚是透亮感而不是油膩感。持續使用後，感覺肌膚穩定度與光澤感都有提升。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 A</p>
+<p class="text-[12px] text-[#666] text-right">— 林小姐</p>
 </div>
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「轉季時皮膚容易敏感泛紅，但這款護膚油使用感非常溫和。質地不厚重，即使夏天使用也沒有負擔，低刺激配方讓人很放鬆。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 B</p>
+<p class="text-[12px] text-[#666] text-right">— M L</p>
 </div>
 <div class="p-6 rounded bg-[#fdfcfaf0] border border-[#efeae1]">
 <div class="text-[var(--btn)] mb-2">⭐⭐⭐⭐⭐</div>
 <p class="text-[14px] text-[#4a403a] mb-4">「持續使用後，肌膚變得更柔軟滋潤，整體氣色和透亮感都有改善，朋友也開始留意到皮膚狀態變好了。」</p>
-<p class="text-[12px] text-[#666] text-right">— 用家 C</p>
+<p class="text-[12px] text-[#666] text-right">— CHENG</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- FAQ PAGE -->
 <div id="faq-page" class="sub-page">
 <div class="container mx-auto max-w-3xl px-5 py-6 pt-10">
 <button onclick="openPage('home-page')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
@@ -388,28 +421,29 @@ coolhousebeauty@gmail.com
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">夏天可以用護膚油嗎？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">絕對可以。夏天經常出入冷氣地方，肌膚容易缺水。使用質地輕盈的植物護膚油，能幫助肌膚鎖水，維持水油平衡，穩定肌膚狀態。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">天然護膚品容易變質嗎？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">產品均按照品牌原有標準生產及保存。為保持純淨成分的最佳活性，建議避免陽光直射及高溫環境，並於開封後盡早使用。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">產品是否日本直送？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">是的。所有產品均為日本護膚選品，由日本直接採購，並經主理人仔細挑選後引入香港。</p></details>
-<details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">如何確認產品是否有現貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">可透過 WhatsApp 聯絡我們查詢最新即貨狀況，全品現貨。</p></details>
+<details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">如何確認產品是否有現貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">可透過 WhatsApp 聯絡我們查詢最新現貨狀況。大部分產品現貨供應；個別產品如需訂購，會預先話你知大約要等幾耐。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">多久會安排出貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">確認付款後，香港地區一般會於 48 小時內安排出貨。</p></details>
+<details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">退換安排係點？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">如收到寄錯或損壞的產品，請於收貨後 7 日內經 WhatsApp 聯絡我們安排換貨。基於衛生原因，已開封的護膚品恕不退換，敬請原諒。如經 HKTVmall 落單，亦可依照平台的退換安排處理。</p></details>
 </div>
 </div>
 </div>
 
-<!-- JOURNAL PAGE -->
 <div id="journal-page" class="sub-page">
 <div id="journal-content-area"></div>
 </div>
 
-<!-- JOURNAL ARTICLE PAGE -->
 <div id="journal-article-page" class="sub-page">
 <div id="journal-article-area"></div>
 </div>
 
-<!-- PRODUCT DETAIL PAGE -->
+<div id="brand-page" class="sub-page">
+<div id="brand-content-area"></div>
+</div>
+
 <div id="product-page" class="sub-page">
 <div id="detail-content-area"></div>
 </div>
 
-<!-- Lightbox -->
 <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
 <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
 <img id="lightbox-img" src="" alt="Enlarged Image">
@@ -418,9 +452,6 @@ coolhousebeauty@gmail.com
 <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
 <script>
-// ================================================
-// ① PRODUCTS — 產品資料庫
-// ================================================
 const PRODUCTS = [
 {
 id: "anmin-kombucha", brand: "ANMIN", nameEn: "RECOVERY KOMBUCHA", nameZh: "安眠恢復康普茶 15包入", category: "all, summer",
@@ -506,7 +537,7 @@ images: ["https://i.imgur.com/9zIoCxl.png","https://i.imgur.com/GBEajHT.png","ht
 shortIntro: "潤而不膩，獨家層次香調",
 mainEffects: "深層潤澤 ✧ 彈潤修護 ✧ 撫平手部細紋 ✧ 舒緩放鬆",
 features: "✦ 潤而不黏<br>塗抹後迅速吸收，質地清爽。<br><br>✦ 彈潤修護<br>預防手部乾燥龜裂。",
-usage: "取適量護手霜均勻塗抹於雙手。",
+usage: "取適量護手霜均勻塗抹雙手。",
 ingredients: "水、BG、佛手柑果皮油、薰衣草油等",
 specs: "◆ 容量：50g<br>◆ 製造國家：日本"
 },
@@ -528,7 +559,7 @@ images: ["https://i.imgur.com/oiL3c5n.jpeg","https://i.imgur.com/1aeoV59.jpeg","
 shortIntro: "溫柔洗淨，弱酸性專屬護理",
 mainEffects: "弱酸平衡 ✧ 溫和潔淨 ✧ 舒緩悶熱 ✧ 守護水潤屏障",
 features: "✦ 弱酸性溫和平衡<br>維護私密肌天然防禦屏障。",
-usage: "取適量濃密泡沫於手心，溫和洗淨私密肌膚後沖淨。",
+usage: "取適量濃密泡沫於手心，溫柔洗淨私密肌膚後沖淨。",
 ingredients: "水、甘油、芝麻種子油等",
 specs: "◆ 容量：100mL<br>◆ 製造國家：日本"
 },
@@ -699,14 +730,25 @@ specs: "◆ 容量：6g / 色號：Pale Lilac<br>◆ 製造國家：日本"
 },
 {
 id: "mogans-shampoo", brand: "MOGANS", nameEn: "Medicinal Amino Acid Scalp Care Shampoo", nameZh: "草花 藥用氨基酸頭皮護理洗髮水 300mL [醫藥部外品]", category: "other",
-badge: "日本醫藥部外品認證｜99% 天然植萃｜無矽靈蓬鬆｜甘草酸二鉀", price: "HK$ 280",
+badge: "日本醫藥部外品認證｜99% 天然植萃｜無矽靈蓬鬆｜甘草酸二鉀", price: "HK$ 198",
 images: ["https://i.imgur.com/yLSPC0Y.png","https://i.imgur.com/3ZQh86r.png","https://i.imgur.com/fUHffjk.png"],
-shortIntro: "告別頭皮屑、搔癢與油膩感！",
-mainEffects: "預防頭皮屑與搔癢 ✧ 調理頭皮油脂 ✧ 蓬鬆髮根 ✧ 深入修護受損髮",
-features: "✦ 日本醫藥部外品認證<br>甘草酸二鉀抗炎性頭皮。",
-usage: "充分淋濕頭髮後取適量起泡按摩頭皮，洗後沖淨。",
+shortIntro: "藥用級頭皮護理 — 洗頭同時調理頭皮<br><br>專為頭皮屑、搔癢同出油問題而設嘅藥用洗髮水。以日本法規許可最高量嘅甘草酸二鉀調理頭皮，配合全氨基酸潔淨配方同 15 種氨基酸修護，洗後髮根清爽蓬鬆、唔扁塌。99% 以上植萃成分、無矽靈，敏感頭皮都用得。",
+mainEffects: "預防頭皮屑與搔癢 ✧ 調理頭皮油脂 ✧ 清爽蓬鬆不扁塌 ✧ 修護受損髮絲",
+features: "✦ 最高量藥用有效成分<br>甘草酸二鉀（來自甘草）加到法規許可上限，針對頭皮屑、痕癢同油膩黏笠，抗炎抗敏，溫和調理頭皮環境。<br><br>✦ 全氨基酸潔淨 ＋ 15 種氨基酸<br>用天然氨基酸界面活性劑溫和洗淨，邊洗邊修補受損髮絲，維持頭皮同髮絲嘅水分平衡。<br><br>✦ 無矽靈・清爽蓬鬆<br>洗後髮根有空氣感，唔會扁塌 — 啱晒香港潮濕天氣、頭皮易出油嘅人。<br><br>✦ 12 種無添加<br>唔用矽、礦物油、合成香料、合成聚合物、苯氧乙醇、苯甲酸類防腐劑、DEA／MEA／TEA 等成分，追求護髮嘅本質。",
+usage: "將頭髮充分淋濕，取適量於掌心起泡，溫和按摩頭皮（唔好大力揉搓）。<strong>重要一步：</strong>畀泡沫喺頭皮停留約 1 分鐘，先至徹底沖洗，護理成分先發揮到。建議配合同系列護髮乳一齊用，調理效果更完整。",
+ingredients: "甘草酸二鉀、15 種氨基酸成分、甘草・芫荽等植萃精華",
+specs: "◆ 容量：300mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 3 年｜開封後建議 3 個月內使用完畢（以確保最佳護理活性）"
+},
+{
+id: "mogans-conditioner", brand: "MOGANS", nameEn: "Medicinal Amino Acid Scalp Care Treatment", nameZh: "草花 藥用氨基酸頭皮修護護髮乳 300mL [醫藥部外品]", category: "other",
+badge: "日本醫藥部外品認證｜99% 天然植萃｜可按摩頭皮｜甘草酸二鉀", price: "HK$ 298",
+images: ["https://i.imgur.com/U9odz9A.png","https://i.imgur.com/dPipWdp.png","https://i.imgur.com/CcmxxcZ.jpeg"],
+shortIntro: "可以按摩頭皮的護髮乳 — 頭皮與髮絲雙重護理<br><br>一般護髮乳要避開頭皮，呢款藥用護髮乳專為調理頭皮而設：可以直接塗抹並按摩頭皮，舒緩炎症，同時以氨基酸修復受損髮絲毛鱗片，洗後清爽順滑、不黏膩。",
+mainEffects: "預防頭皮屑與搔癢 ✧ 調理頭皮環境 ✧ 氨基酸深度修補 ✧ 清爽順滑",
+features: "✦ 高濃度甘草酸二鉀<br>同系列洗髮水一致嘅藥用有效成分，預防頭皮屑、搔癢同黏膩，適合容易泛紅、不安定嘅頭皮。<br><br>✦ 15 種氨基酸深度修補<br>由髮絲內部滲透修復，乾枯受損髮都回復水潤強健。<br><br>✦ 可直接按摩頭皮<br>塗抹後按摩頭皮，停留 5–10 分鐘再沖洗，好似幫頭皮敷精華面膜。",
+usage: "洗髮後取適量，由髮根至髮梢均勻塗抹，可由頭皮開始輕輕按摩，停留 5–10 分鐘後以清水沖洗（唔使過度沖洗，保留潤澤感）。",
 ingredients: "甘草酸二鉀、15 種氨基酸成分等",
-specs: "◆ 容量：300mL<br>◆ 製造國家：日本"
+specs: "◆ 容量：300mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 3 年｜開封後建議 3 個月內使用完畢（以確保藥用成分活性）"
 },
 {
 id: "soel-uv-base", brand: "soel", nameEn: "Living Oil UV Skin Base", nameZh: "透亮防曬底霜 SPF31 PA+++ 50g", category: "soel, summer",
@@ -721,9 +763,6 @@ specs: "◆ 容量：50g<br>◆ 製造國家：日本"
 }
 ];
 
-// ================================================
-// ② JOURNALS — 文章資料庫
-// ================================================
 const JOURNALS = [
 {
 id: "insomnia-guide",
@@ -786,20 +825,92 @@ body: `
 }
 ];
 
-// ================================================
-// ③ Brand Intros
-// ================================================
+const BRANDS = {
+"soel": { name: "soel", brandName: "soel", hero: "https://i.imgur.com/iFwmbdC.png",
+intro: "來自福岡縣久留米嘅有機護膚品牌。soel 相信肌膚唔需要多餘嘅嘢 — 招牌有機芝麻油以 15–17°C 低溫石臼慢磨、只取首道壓搾最珍貴嘅 20–30%，保留芝麻素同天然維他命 E。成個 LIVING-OIL 系列圍繞一個想法：洗臉後先油後水，用一支好油做導入，之後嘅保養先吸收得好。",
+points: ["一番搾低溫石磨", "有機認證芝麻油", "洗臉後第一步導入"] },
+"supmile": { name: "Supmile", brandName: "Supmile", hero: "https://i.imgur.com/ghZizwU.png",
+intro: "以「肌膚食譜」為理念嘅日本植萃品牌：全系列 100% 天然來源成分，按肌膚需要精準配比，唔加多餘嘢。透過簡單、低負擔嘅日常保養，等肌膚重拾穩定同細緻。",
+points: ["100% 天然來源成分", "不含酒精・無人工香料", "零化學合成（無石油系界面活性劑、Paraben、矽靈）", "包裝標明使用期限，新鮮度透明"] },
+"beige": { name: "beige+", brandName: "beige+", hero: "https://i.imgur.com/LsdBK8E.png",
+intro: "為敏感肌而設嘅保養型底妝品牌。以米色調為本，底妝用 90% 以上天然來源成分，加入煙鹼醯胺等護膚級成分 — 化妝嗰幾個鐘，同步保養，卸妝之後膚況依然穩定。",
+points: ["底妝 8 大無添加", "物理防曬、肥皂可卸", "時短美妝，幾分鐘完成", "FSC 認證紙材＋植物油墨包裝"] },
+"mogans": { name: "MOGANS", brandName: "MOGANS", hero: "https://i.imgur.com/pUR2hz9.png",
+intro: "日本氨基酸洗護品牌，草花系列更加係醫藥部外品：唔係齋洗乾淨，而係調理頭皮環境。以法規許可最高量嘅甘草酸二鉀針對頭皮屑、痕癢同出油，配合氨基酸潔淨同修護，無矽靈、洗後清爽蓬鬆。",
+points: ["醫藥部外品認證", "99% 植萃、12 種無添加", "洗髮水＋可按摩頭皮護髮乳，成套用效果最完整"] },
+"anmin": { name: "ANMIN", brandName: "ANMIN", hero: "https://i.imgur.com/SLpYnRN.png",
+intro: "專為瞓得唔好嘅都市人而設嘅日本夜間修復飲品。ANMIN 相信睡眠、腸道同肌膚係連埋一齊嘅：睡前一杯康普茶，GABA 幫大腦放鬆、益生菌修復腸道、維他命 C 趁夜間黃金期抗氧。",
+points: ["500mg GABA＋L-茶氨酸", "1,000 億 EC-12 益生菌＋106 種植物發酵精華", "無咖啡因、無藥物依賴"] }
+};
+
+function openBrand(key, updateHistory = true) {
+const b = BRANDS[key];
+if (!b) return;
+const items = PRODUCTS.filter(p => p.brand === b.brandName);
+document.getElementById('brand-content-area').innerHTML = `
+<div class="container mx-auto max-w-5xl px-5 py-6 pt-10">
+<button onclick="openPage('home-page')" class="text-[#666] text-[15px] font-medium flex items-center gap-1 hover:text-[#2c2420] transition outline-none mb-8">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+返回首頁
+</button>
+<div class="bg-white border border-[#efeae1] rounded-lg shadow-sm overflow-hidden mb-10">
+<div class="w-full bg-[#f5f2ec] flex justify-center items-center">
+<img src="${b.hero}" alt="${b.name}" class="w-full object-contain" style="max-height:420px">
+</div>
+<div class="p-6 md:p-10 text-center">
+<p class="text-[11px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-2">Brand</p>
+<h2 class="text-3xl mb-4 font-serif">${b.name}</h2>
+<p class="text-[15px] text-[#4a403a] leading-relaxed max-w-2xl mx-auto">${b.intro}</p>
+<div class="detail-badges mt-6" style="justify-content:center">
+${b.points.map(pt => `<span class="badge-tag">${pt}</span>`).join('')}
+</div>
+</div>
+</div>
+<h3 class="text-xl font-serif text-center mb-6">${b.name} 全部產品</h3>
+<div class="product-grid mb-16">${items.map(p => createCardHTML(p)).join('')}</div>
+</div>
+`;
+hideAllPages();
+document.getElementById('brand-page').style.display = 'block';
+window.scrollTo(0, 0);
+updateSEO({
+  title: `${b.name} 品牌介紹`,
+  description: b.intro
+});
+if (updateHistory) window.history.pushState({ type: 'brand', id: key }, '', '?brand=' + key);
+}
+
+// Dynamic SEO & Schema Utility
+function updateSEO({ title, description, image, url, schema }) {
+  document.title = title ? `${title} | Cool House Beauty` : "Cool House Beauty | 日本護膚選品";
+  
+  const defaultDesc = "香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。";
+  const finalDesc = description ? description.replace(/<[^>]*>/g, '').slice(0, 150) : defaultDesc;
+  document.getElementById('meta-description').setAttribute('content', finalDesc);
+  
+  document.getElementById('og-title').setAttribute('content', title ? `${title} | Cool House Beauty` : "Cool House Beauty | 日本護膚選品");
+  document.getElementById('og-description').setAttribute('content', finalDesc);
+  document.getElementById('og-image').setAttribute('content', image || "https://i.imgur.com/HiGZ7dp.jpeg");
+  
+  const currentUrl = url || window.location.href;
+  document.getElementById('canonical-url').setAttribute('href', currentUrl);
+
+  const schemaScript = document.getElementById('product-schema');
+  if (schema) {
+    schemaScript.textContent = JSON.stringify(schema);
+  } else {
+    schemaScript.textContent = '';
+  }
+}
+
 const BRAND_INTROS = {
 "all": "嚴選日本高品質護膚選品，為你帶來純淨、低負擔的保養體驗。",
 "summer": "<strong>Best for Summer ☀️</strong><br>為炎炎夏日嚴選的清爽護膚與防曬底妝，輕盈保濕不黏膩，讓肌膚在悶熱天氣依然保持透亮穩定。",
 "soel": "<strong>soel</strong><br>專注於植物油與天然精華萃取的護膚品牌。以講究的「一番搾」工藝，保留植物最強大的抗氧生命力，喚醒肌膚原有的健康與平衡。",
-"supmile": "<strong>Supmile</strong><br>堅持 100% 天然由來成分與 7 大無添加。專為敏感、乾燥及不穩定肌膚設計，提供極致溫和、絕對安心的純淨修護體驗。",
+"supmile": "<strong>Supmile</strong><br>堅持 100% 天然由來成分與 7 大無添加。專為敏感、乾燥及不穩定肌膚設計，提供極致溫敏、絕對安心的純淨修護體驗。",
 "beige": "<strong>beige+</strong><br>專為敏感肌而設的保養型底妝品牌。完美結合高濃度美容液與物理防禦功能，打造低負擔、會呼吸的透亮自然妝感。"
 };
 
-// ================================================
-// ④ State
-// ================================================
 const listArea = document.getElementById('product-list');
 const subProductList = document.getElementById('sub-product-list');
 const rankingArea = document.getElementById('ranking-list');
@@ -812,9 +923,6 @@ let bannerInterval;
 const slides = document.querySelectorAll('.banner-slide');
 const dots = document.querySelectorAll('.banner-dot');
 
-// ================================================
-// ⑤ Banner
-// ================================================
 function initBanners() {
 updateBannersSrc();
 startBannerAutoPlay();
@@ -843,9 +951,6 @@ if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.s
 }
 window.addEventListener('resize', updateBannersSrc);
 
-// ================================================
-// ⑥ Render Ranking
-// ================================================
 function renderRanking() {
 const rankingIds = ["anmin-kombucha","soel-oil","beige-bb-cream","beige-nano-mist","soel-serum"];
 rankingArea.innerHTML = rankingIds.map((id, index) => {
@@ -853,7 +958,7 @@ const p = PRODUCTS.find(x => x.id === id);
 return `<div class="ranking-card flex-shrink-0 w-[140px] md:w-[180px]" onclick="openDetail('${p.id}')">
 <div class="relative mb-3">
 <div class="rank-badge">NO.${index+1}</div>
-<div class="list-img-box !mb-0 border-[#f0ebe1] border"><img src="${p.images[0]}" loading="lazy"></div>
+<div class="list-img-box !mb-0 border-[#f0ebe1] border"><img src="${p.images[0]}" alt="${p.brand} ${p.nameZh}" loading="lazy"></div>
 </div>
 <div class="list-brand">${p.brand}</div>
 <h3 class="list-title-en text-[10px]">${p.nameEn}</h3>
@@ -862,19 +967,17 @@ return `<div class="ranking-card flex-shrink-0 w-[140px] md:w-[180px]" onclick="
 }).join('');
 }
 
-// ================================================
-// ⑦ Render Product List
-// ================================================
 function createCardHTML(p) {
 return `
 <div class="list-card" onclick="openDetail('${p.id}')">
-<div class="list-img-box"><img src="${p.images[0]}" loading="lazy"></div>
+<div class="list-img-box"><img src="${p.images[0]}" alt="${p.brand} ${p.nameZh}" loading="lazy"></div>
 <div class="list-brand">${p.brand}</div>
 <h3 class="list-title-en">${p.nameEn}</h3>
 <h3 class="list-title">${p.nameZh}</h3>
 <div class="flex items-center justify-between mt-auto pt-2">
 <div class="price-text list-price">${p.price}</div>
 <a href="https://wa.me/85261960881?text=${encodeURIComponent('我想訂購 ' + p.nameZh)}" target="_blank" onclick="event.stopPropagation();" class="btn-buy-sm">
+<svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 購入
 </a>
 </div>
@@ -900,16 +1003,15 @@ setTimeout(() => { introBox.innerHTML = BRAND_INTROS[cat]; introBox.style.opacit
 }
 }
 
-// ================================================
-// ⑧ Open Product Detail
-// ================================================
 function openDetail(id, updateHistory = true) {
 const p = PRODUCTS.find(x => x.id === id);
+if (!p) return;
+
 currentDetailImages = p.images;
 currentImageIndex = 0;
 
 const badgeTags = p.badge ? p.badge.split('｜').map(b => `<span class="badge-tag">${b.trim()}</span>`).join('') : '';
-const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}"></div>`).join('');
+const thumbHTML = p.images.map((src, i) => `<div class="gallery-thumb ${i===0?'active':''}" onclick="switchDetailImg(${i})"><img src="${src}" alt="${p.nameZh}"></div>`).join('');
 const accHTML = (title, content) => content ? `<details class="prod-details" open><summary>${title} <span class="plus-icon">+</span></summary><div class="details-content">${content}</div></details>` : '';
 
 detailArea.innerHTML = `
@@ -923,7 +1025,7 @@ detailArea.innerHTML = `
 <div class="gallery-main" onclick="openLightbox()">
 <div class="gallery-arrow prev" onclick="event.stopPropagation(); changeImg(-1)">&#10094;</div>
 <div class="gallery-arrow next" onclick="event.stopPropagation(); changeImg(1)">&#10095;</div>
-<img src="${p.images[0]}" id="detail-main-img">
+<img src="${p.images[0]}" id="detail-main-img" alt="${p.brand} ${p.nameZh}">
 </div>
 <div class="gallery-nav" id="gallery-thumbs-container">${thumbHTML}</div>
 </div>
@@ -938,6 +1040,7 @@ detailArea.innerHTML = `
 WhatsApp 訂購
 </a>
 </div>
+<p class="hidden md:block text-[12px] text-[#999] mb-4">唔使即刻買，問吓用法同啱唔啱你膚質先都得 — 主理人親自回覆。</p>
 <div class="price-text detail-price md:hidden mb-4">${p.price}</div>
 <div class="text-[15px] mb-2 text-[#4a403a]">${p.shortIntro}</div>
 ${p.mainEffects ? `<div class="detail-effects"><strong>主要功效</strong>${p.mainEffects}</div>` : ''}
@@ -962,6 +1065,34 @@ WhatsApp 訂購
 hideAllPages();
 document.getElementById('product-page').style.display = 'block';
 window.scrollTo(0, 0);
+
+const numericPrice = p.price ? p.price.replace(/[^0-9]/g, '') : "0";
+const productSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": `${p.brand} ${p.nameZh}`,
+  "image": p.images[0],
+  "description": p.shortIntro.replace(/<[^>]*>/g, ''),
+  "brand": {
+    "@type": "Brand",
+    "name": p.brand
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "HKD",
+    "price": numericPrice,
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+updateSEO({
+  title: `${p.brand} ${p.nameZh} (${p.nameEn})`,
+  description: p.shortIntro,
+  image: p.images[0],
+  url: `https://coolhousebeauty.com/?p=${p.id}`,
+  schema: productSchema
+});
+
 if (updateHistory) window.history.pushState({ type: 'product', id }, '', '?p=' + id);
 }
 
@@ -985,9 +1116,6 @@ if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close'))
 document.getElementById('lightbox').classList.remove('active');
 }
 
-// ================================================
-// ⑨ Journal
-// ================================================
 function renderJournalList() {
 document.getElementById('journal-content-area').innerHTML = `
 <div class="container mx-auto max-w-3xl px-5 py-6 pt-10">
@@ -1044,12 +1172,28 @@ document.getElementById('journal-article-area').innerHTML = `
 hideAllPages();
 document.getElementById('journal-article-page').style.display = 'block';
 window.scrollTo(0, 0);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": j.title,
+  "description": j.subtitle,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cool House Beauty"
+  }
+};
+
+updateSEO({
+  title: `${j.title} - ${j.subtitle}`,
+  description: j.subtitle,
+  url: `https://coolhousebeauty.com/?journal=${j.id}`,
+  schema: articleSchema
+});
+
 if (updateHistory) window.history.pushState({ type: 'journal-article', id }, '', '?journal=' + id);
 }
 
-// ================================================
-// ⑩ Page Navigation
-// ================================================
 function openPage(pageId, updateHistory = true) {
 document.getElementById('sideMenu').classList.remove('active');
 document.getElementById('menuOverlay').classList.remove('active');
@@ -1060,6 +1204,20 @@ hideAllPages();
 const targetPage = document.getElementById(pageId);
 if (targetPage) targetPage.style.display = 'block';
 window.scrollTo(0, 0);
+
+const pageTitles = {
+  'home-page': "Cool House Beauty | 日本護膚選品",
+  'our-story-page': "Our Story 品牌故事 | Cool House Beauty",
+  'products-page': "All Products 全部日本純淨護膚選品 | Cool House Beauty",
+  'reviews-page': "Customer Reviews 用家真實評價 | Cool House Beauty",
+  'faq-page': "FAQ 常見問題及敏感肌保養指南 | Cool House Beauty",
+  'journal-page': "Journal 日本 Clean Beauty 保養誌 | Cool House Beauty"
+};
+
+updateSEO({
+  title: pageTitles[pageId] || "Cool House Beauty | 日本護膚選品",
+  description: "香港日系 clean beauty select shop。嚴選天然植物成分與低刺激配方，專注敏感肌、泛紅與換季肌膚護理。"
+});
 
 if (updateHistory) {
   const shortName = pageId.replace('-page', '');
@@ -1077,9 +1235,6 @@ document.getElementById('sideMenu').classList.toggle('active');
 document.getElementById('menuOverlay').classList.toggle('active');
 }
 
-// ================================================
-// ⑪ Scroll & Back Button
-// ================================================
 window.addEventListener('scroll', () => {
 const btn = document.getElementById('backToTop');
 btn.classList.toggle('show', window.scrollY > 500);
@@ -1090,16 +1245,15 @@ const params = new URLSearchParams(window.location.search);
 const pId = params.get('p');
 const pageId = params.get('page');
 const journalId = params.get('journal');
+const brandId = params.get('brand');
 
 if (pId && PRODUCTS.find(x => x.id === pId)) openDetail(pId, false);
 else if (journalId && JOURNALS.find(x => x.id === journalId)) openJournalArticle(journalId, false);
+else if (brandId && BRANDS[brandId]) openBrand(brandId, false);
 else if (pageId) { openPage(pageId + '-page', false); }
 else { openPage('home-page', false); }
 });
 
-// ================================================
-// ⑫ Init
-// ================================================
 window.addEventListener('DOMContentLoaded', () => {
 initBanners();
 renderRanking();
@@ -1109,10 +1263,13 @@ const params = new URLSearchParams(window.location.search);
 const pId = params.get('p');
 const pageId = params.get('page');
 const journalId = params.get('journal');
+const brandId = params.get('brand');
 
 if (pId && PRODUCTS.find(x => x.id === pId)) openDetail(pId, false);
 else if (journalId && JOURNALS.find(x => x.id === journalId)) openJournalArticle(journalId, false);
+else if (brandId && BRANDS[brandId]) openBrand(brandId, false);
 else if (pageId) { openPage(pageId + '-page', false); }
+else { openPage('home-page', false); }
 });
 </script>
 </body>
