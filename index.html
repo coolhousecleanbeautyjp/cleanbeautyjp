@@ -95,7 +95,7 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
 .lightbox-overlay img { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 4px; }
 .lightbox-close { position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; cursor: pointer; background: transparent; border: none; line-height: 1; outline: none; }
 .detail-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.badge-tag { font-size: 11px; background: var(--btn); color: #fff; padding: 4px 8px; border-radius: 2px; letter-spacing: 0.05em; font-weight: 500; }
+.badge-tag { font-size: 12px; background: var(--btn); color: #fff; padding: 4px 8px; border-radius: 2px; letter-spacing: 0.05em; font-weight: 500; }
 .detail-price { font-size: 24px; margin-bottom: 16px; }
 .detail-effects { background: #fdfcfaf0; padding: 16px; border-radius: 6px; margin: 20px 0; font-size: 14px; color: var(--text); border: 1px solid #efeae1; }
 .detail-effects strong { color: var(--headline); font-family: 'Noto Serif TC', serif; display: block; margin-bottom: 8px; font-size: 15px; }
@@ -118,6 +118,7 @@ h1, h2, h3 { font-family: 'Noto Serif TC', serif; color: var(--headline); font-w
   text-decoration: none;
   animation: waPulse 2.8s ease-in-out infinite;
 }
+.sym3d { font-weight: 900; text-shadow: 2px 2px 0 rgba(30,24,20,0.88); }
 .btn-wa-attractive:hover {
   background: var(--btn-hover);
   box-shadow: 0 6px 18px rgba(143, 160, 122, 0.50);
@@ -181,7 +182,7 @@ details[open] .plus-icon { transform: rotate(45deg); }
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('home-page')">Home</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('our-story-page')">Our Story</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openPage('products-page')">Products</a>
-<div class="text-[11px] text-[#888] uppercase tracking-[0.2em] mt-6 mb-1 font-serif">Brands</div>
+<div class="text-[13px] text-[#888] uppercase tracking-[0.2em] mt-6 mb-1 font-serif">Brands</div>
 <a href="javascript:void(0)" class="menu-link" onclick="openBrand('soel')">soel</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openBrand('supmile')">Supmile</a>
 <a href="javascript:void(0)" class="menu-link" onclick="openBrand('beige')">beige+</a>
@@ -209,7 +210,8 @@ coolhousebeauty@gmail.com
 
 <div class="banner-wrapper">
 <section class="banner-container" id="hero-banner">
-<img class="banner-slide active" src="https://i.imgur.com/OXr5M1n.png" data-pc="https://i.imgur.com/OXr5M1n.png" data-mb="https://i.imgur.com/OXr5M1n.png" alt="日本護膚選品" onclick="bannerClick('all')">
+<img class="banner-slide active" src="https://i.imgur.com/MSC7wBw.png" data-pc="https://i.imgur.com/MSC7wBw.png" data-mb="https://i.imgur.com/MSC7wBw.png" alt="COOL HOUSE 正式進駐 HKTVmall" onclick="window.open('https://hktvmallredirect.com/QYkYm76Y','_blank')">
+<img class="banner-slide" src="https://i.imgur.com/OXr5M1n.png" data-pc="https://i.imgur.com/OXr5M1n.png" data-mb="https://i.imgur.com/OXr5M1n.png" alt="日本護膚選品" onclick="bannerClick('all')">
 <img class="banner-slide" src="https://i.imgur.com/F8TaYhS.png" data-pc="https://i.imgur.com/F8TaYhS.png" data-mb="https://i.imgur.com/F8TaYhS.png" alt="日系 clean beauty" onclick="bannerClick('soel')">
 <img class="banner-slide" src="https://i.imgur.com/orSPqHg.png" data-pc="https://i.imgur.com/orSPqHg.png" data-mb="https://i.imgur.com/orSPqHg.png" alt="純淨護膚" onclick="bannerClick('supmile')">
 <img class="banner-slide" src="https://i.imgur.com/9pHHOoh.jpeg" data-pc="https://i.imgur.com/9pHHOoh.jpeg" data-mb="https://i.imgur.com/9pHHOoh.jpeg" alt="天然植物香氣" onclick="bannerClick('beige')">
@@ -219,6 +221,7 @@ coolhousebeauty@gmail.com
 <div class="banner-dot" onclick="goToBanner(1)"></div>
 <div class="banner-dot" onclick="goToBanner(2)"></div>
 <div class="banner-dot" onclick="goToBanner(3)"></div>
+<div class="banner-dot" onclick="goToBanner(4)"></div>
 </div>
 </div>
 
@@ -245,13 +248,12 @@ coolhousebeauty@gmail.com
 
 <section class="py-12" style="background:#2c2420">
 <div class="container mx-auto px-6 max-w-4xl text-center">
-<p class="text-[11px] tracking-[0.35em] uppercase mb-3" style="color:#b3c1a1">Official Store</p>
+<p class="text-[14px] tracking-[0.35em] uppercase mb-3" style="color:#b3c1a1">Official Store</p>
 <div style="margin-bottom:16px"><span style="display:inline-block;background:#ffffff;border-radius:999px;padding:9px 20px 7px"><img src="https://i.imgur.com/W5Plkan.png" alt="HKTVmall" style="height:24px;display:block"></span></div>
 <h2 class="text-2xl mb-4" style="color:#fdfcfaf0">COOL HOUSE 已經進駐 HKTVmall</h2>
-<p class="text-[14px] mb-5" style="color:rgba(253,252,250,0.75)">soel、SUPMILE、beige+、MOGANS、ANMIN 全線產品，現可於 HKTVmall 直接落單。</p>
-<p class="text-[12px] mb-7" style="color:rgba(253,252,250,0.55)">✓ 平台訂單記錄&ensp;✓ 送貨追蹤&ensp;✓ 平台退換保障</p>
-<a href="https://hktvmallredirect.com/QYkYm76Y" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">前往 HKTVmall 店舖 →</a>
-<p class="text-[12px] mt-5" style="color:rgba(253,252,250,0.55)">傾偈問膚質，照舊 WhatsApp 搵主理人；落單行 HKTVmall，簡單又安心。</p>
+<p class="text-[14px] mb-5" style="color:rgba(253,252,250,0.75)">大部分產品可於 HKTVmall 直接落單。</p>
+<p class="text-[12px] mb-7" style="color:rgba(253,252,250,0.55)"><span class="sym3d" style="color:#fff">✓</span> 平台訂單記錄&ensp;<span class="sym3d" style="color:#fff">✓</span> 送貨追蹤&ensp;<span class="sym3d" style="color:#fff">✓</span> 平台退換保障&ensp;<span class="sym3d" style="color:#fff">✓</span> 信用卡付款</p>
+<a href="https://hktvmallredirect.com/QYkYm76Y" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">前往 HKTVmall 店舖 <span class="sym3d">→</span></a>
 </div>
 </section>
 
@@ -321,11 +323,13 @@ coolhousebeauty@gmail.com
 </section>
 
 <section class="py-14 bg-[#faf9f7]">
-<div class="container mx-auto px-6 max-w-3xl text-center">
-<p class="text-[11px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-3">Invitation</p>
-<h2 class="text-2xl mb-4 font-serif">Cool House 美妝 Private Group</h2>
-<p class="text-[14px] text-[#666] leading-relaxed mb-7">主理人住在日本，不定期分享美妝好物，日本直送。</p>
-<a href="https://chat.whatsapp.com/JJNmPLkLsBrDrA8zeSBIgI?s=cl&p=i&mlu=4&ilr=4&iam=2" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">加入 Group →</a>
+<div class="container mx-auto px-6 max-w-3xl">
+<div class="relative bg-white border border-[#efeae1] rounded-lg p-8 md:p-10 shadow-sm text-center">
+<p class="text-[14px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-3">Invitation</p>
+<h2 class="text-2xl mb-4 font-serif flex items-center justify-center gap-2.5"><svg width="24" height="24" viewBox="0 0 24 24" fill="#8fa07a" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Cool House 美妝 WhatsApp Group</h2>
+<p class="text-[14px] text-[#666] leading-relaxed mb-7">主理人住在日本，不定期分享美妝好物，提供日本直送代購服務。</p>
+<a href="https://chat.whatsapp.com/JJNmPLkLsBrDrA8zeSBIgI?s=cl&p=i&mlu=4&ilr=4&iam=2" target="_blank" class="btn-wa-attractive px-8 py-3 text-[15px]">加入 Group <span class="sym3d">→</span></a>
+</div>
 </div>
 </section>
 
@@ -421,7 +425,7 @@ coolhousebeauty@gmail.com
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">夏天可以用護膚油嗎？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">絕對可以。夏天經常出入冷氣地方，肌膚容易缺水。使用質地輕盈的植物護膚油，能幫助肌膚鎖水，維持水油平衡，穩定肌膚狀態。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">天然護膚品容易變質嗎？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">產品均按照品牌原有標準生產及保存。為保持純淨成分的最佳活性，建議避免陽光直射及高溫環境，並於開封後盡早使用。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">產品是否日本直送？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">是的。所有產品均為日本護膚選品，由日本直接採購，並經主理人仔細挑選後引入香港。</p></details>
-<details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">如何確認產品是否有現貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">可透過 WhatsApp 聯絡我們查詢最新現貨狀況。大部分產品現貨供應；個別產品如需訂購，會預先話你知大約要等幾耐。</p></details>
+<details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">如何確認產品是否有現貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">可透過 WhatsApp 聯絡我們查詢最新現貨狀況。大部分產品現貨供應；個別產品如需訂購，會預先告知大約所需等候時間。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">多久會安排出貨？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">確認付款後，香港地區一般會於 48 小時內安排出貨。</p></details>
 <details class="bg-[#faf9f7] p-5 rounded border border-[#efeae1] outline-none"><summary class="font-semibold outline-none cursor-pointer text-[15px]">退換安排係點？</summary><p class="mt-3 text-[14px] text-gray-600 leading-relaxed border-t border-[#e0d9cf] pt-3">如收到寄錯或損壞的產品，請於收貨後 7 日內經 WhatsApp 聯絡我們安排換貨。基於衛生原因，已開封的護膚品恕不退換，敬請原諒。如經 HKTVmall 落單，亦可依照平台的退換安排處理。</p></details>
 </div>
@@ -472,7 +476,7 @@ shortIntro: "以油養膚，回歸肌膚原有平衡<br><br>soel 的經典護膚
 mainEffects: "深層保濕 ✧ 舒緩修護 ✧ 提升透亮感 ✧ 維持肌膚平衡",
 features: "✦ 珍貴「一番搾」工藝<br>僅取首道壓搾中最珍貴的初搾油脂，保留高濃度芝麻素與天然維他命 E，呈現細緻而純淨的油質。<br><br>✦ 高親膚滲透力<br>芝麻油脂結構與人體皮脂相近，質地輕盈細緻，能快速融入肌膚而不黏膩。<br><br>✦ 導入型護膚油<br>適合作為潔面後第一步使用，幫助肌膚維持柔軟度與穩定狀態，提升後續護膚貼合感。<br><br>✦ 天然植物香氣<br>以佛手柑、綠茶白花與木質調交織出柔和療癒香氣，帶來舒適放鬆的護膚體驗。<br><br><div class='mt-6 pt-5 border-t border-[#f0ebe1]'><strong>適合膚質</strong><br>敏感肌 ✧ 乾燥肌 ✧ 缺水肌 ✧ 混合肌<br><br><strong>質地</strong><br>輕盈流動感油質｜快速吸收｜自然透亮感<br><br><strong>香氣</strong><br>前調｜佛手柑與綠葉柑橘香氣<br>中調｜綠茶與淡雅白花<br>後調｜柔和木質與麝香調</div>",
 usage: "<strong>日常導入護理</strong><br>洗臉後取 1–2 滴於掌心溫熱後，輕按全臉，再進行後續護膚程序。<br><br><strong>加強保濕</strong><br>乾燥季節可於面霜後使用，加強鎖水與潤澤感。<br><br><strong>混合護膚</strong><br>可加入日常面霜或粉底液中使用，提升柔潤貼膚感。<br><br><strong>按摩護理</strong><br>可作面部或身體按摩使用，幫助舒緩乾燥與緊繃感。",
-ingredients: "芝麻種子油、佛手柑果實油、雪松精油、花梨木油、雞蛋花萃取、胡蘿蔔種子油、當歸根油、維他命 E",
+ingredients: "Sesamum Indicum (Sesame) Seed Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Cedrus Atlantica Bark Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Tocopherol",
 specs: "◆ 容量：60mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開啟 2 年｜開啟後建議 1 年內使用完畢<br>◆ 注意事項：請避免使用於傷口或紅腫部位"
 },
 {
@@ -481,9 +485,9 @@ badge: "USDA 有機認證｜潔面・面膜兩用｜天然維他命 C｜低刺�
 images: ["https://i.imgur.com/rrtDoU5.png","https://i.imgur.com/9B4U7LL.png","https://i.imgur.com/VlnGArd.png","https://i.imgur.com/MxkuxLn.png","https://i.imgur.com/EakAu5Q.png","https://i.imgur.com/Rrfmncq.png","https://i.imgur.com/j4pvROR.png"],
 shortIntro: "洗淨同時，保留肌膚需要的水分與柔軟度",
 mainEffects: "溫和潔淨 ✧ 毛孔護理 ✧ 保濕柔潤 ✧ 提升肌膚透亮感",
-features: "✦ 日本產熟成金青檸<br>採用極罕見的日本國產金色熟成青檸，富含天然維他命 C 與植物養分。<br><br>✦ 生石鹼熟成工藝<br>以低負擔熟成製法製成，潔淨同時保留肌膚柔軟與水潤感。",
+features: "✦ 罕有國產金青檸<br>產自福岡縣小郡市 RUSH FARM 的完熟金青檸，獲 USDA 有機認證，以無農藥、無化學肥料方式栽培。高濃度維他命 C 有助潔淨毛孔污垢，改善油光與暗沉。<br><br>✦ 傳統熟成・生皂質地<br>由職人以熟成製法慢工造皂，質地如乳霜般細膩融化，泡沫濃密綿柔，包覆全臉潔淨，減少摩擦負擔。<br><br>✦ 超級食物種子油・酒粕<br>猴麵包樹、智利酒果、蔓越莓與覆盆子種子油提供抗氧化修護，配合日本國產酒粕提升透明感；聚麩氨酸於潔面後形成鎖水膜，清爽而不緊繃。<br><br>✦ 三種潔面方式<br>可直接按摩潔面。<br>以起泡網打出濃密泡沫。<br>厚敷 1–2 分鐘作生皂面膜洗顏。清新柑橘香氣。",
 usage: "取適量於掌心輕柔起泡，塗抹於濕潤臉部按摩洗淨。",
-ingredients: "水、鉀石鹼基、蔗糖、甘油、橄欖果油、芝麻種子油等",
+ingredients: "Water, Potassium Soap Base, Sucrose, Glycerin, Alcohol, Olea Europaea (Olive) Fruit Oil, Sesamum Indicum (Sesame) Seed Oil, Adansonia Digitata Seed Oil, Aristotelia Chilensis Seed Oil, Vaccinium Macrocarpon (Cranberry) Seed Oil, Rubus Idaeus (Raspberry) Seed Oil, Sake Lees, Citrus Aurantifolia (Lime) Peel, Citrus Aurantifolia (Lime) Peel Oil, Citrus Limon (Lemon) Seed Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Sodium Chloride, Citrus Aurantium (Bitter Orange) Juice, Porphyra Yezoensis Extract, Polyglutamic Acid",
 specs: "◆ 容量：100mL<br>◆ 製造國家：日本"
 },
 {
@@ -492,9 +496,9 @@ badge: "卸妝同時保濕｜溫和潔淨毛孔｜植睫毛適用｜低刺激護
 images: ["https://i.imgur.com/jjuWdj1.png","https://i.imgur.com/WFH5iyV.png"],
 shortIntro: "卸淨彩妝，同時維持肌膚柔軟與水潤感",
 mainEffects: "深層卸妝 ✧ 毛孔潔淨 ✧ 保濕柔潤 ✧ 維持肌膚平衡",
-features: "✦ 12 種植物油配方<br>溫和卸淨彩妝同時維持肌膚柔軟度。<br><br>✦ 洗後不緊繃<br>卸妝後肌膚依然保有潤澤感。",
+features: "✦ 12 種植物油深層潔淨<br>以芝麻油、荷荷巴油為首的 12 種植物油充分溶解彩妝，連防水彩妝、角栓與毛孔污垢亦能徹底卸除。<br><br>✦ 卸妝同時養膚<br>摩洛哥堅果油、角鯊烷、玫瑰果油等美容油分於潔淨同時補充油脂，卸妝後形成潤澤保護膜，不乾燥、不緊繃。<br><br>✦ 植睫毛適用<br>配方對植睫毛及角蛋白美睫友善，卸妝時不溶解嫁接膠水。<br><br>✦ 凝膠質地清爽不油膩<br>顛覆「凝膠卸不乾淨」的印象：潔淨徹底，卻沒有卸妝油的油膩感，混合肌與偏好清爽質地者皆適合。",
 usage: "取約按壓 3–4 下於乾爽掌心，輕柔按摩全臉後洗淨。",
-ingredients: "水、芝麻種子油、摩洛哥堅果油、角鯊烷、荷荷巴種子油等",
+ingredients: "Water, Propanediol, PEG-20 Glyceryl Triisostearate, PEG-7 Glyceryl Cocoate, PEG-20 Glyceryl Isostearate, Methyl Gluceth-10, Butylene Glycol, Myristylene Glycol, Sesamum Indicum (Sesame) Seed Oil, Argania Spinosa Kernel Oil, Squalane, Macadamia Ternifolia Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Rosa Canina Fruit Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Cedrus Atlantica Bark Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Tocopherol, TEA-Cocoyl Glutamate, Pentylene Glycol, 1,2-Hexanediol, Caprylyl Glycol",
 specs: "◆ 容量：150mL<br>◆ 製造國家：日本"
 },
 {
@@ -503,9 +507,9 @@ badge: "多效修護｜高保濕精華｜植物成分｜敏感肌適用", price:
 images: ["https://i.imgur.com/k52u08j.png","https://i.imgur.com/nVv83Zh.png","https://i.imgur.com/tlhRsLv.png","https://i.imgur.com/Mh4vIvi.png","https://i.imgur.com/TesHWqh.png"],
 shortIntro: "為肌膚注入水分與柔軟彈性",
 mainEffects: "高效保濕 ✧ 柔潤修護 ✧ 提升肌膚透亮感 ✧ 維持肌膚平衡",
-features: "✦ 30 種以上植物精華<br>為肌膚補充水分與柔軟度。<br><br>✦ 水潤輕盈質地<br>快速融入肌膚，帶來細緻保濕感。",
+features: "✦ 30 種以上植萃精華<br>品牌最奢華的全效精華，一瓶注入 30 多種植物油與萃取精華，保濕、彈力、亮澤與穩定膚況一併照顧，簡化護膚步驟。<br><br>✦ 雙重維他命 C 亮白抗氧<br>兩種維他命 C 衍生物有助改善暗沉、均勻膚色，同時抵禦環境自由基，令膚色回復明亮光澤。<br><br>✦ 修復屏障・舒緩穩定<br>摩洛哥堅果油、角鯊烷與玫瑰果油修補皮脂膜、鎖住水分；芍藥根、白柳樹皮與艾草萃取舒緩泛紅與不穩定狀態。",
 usage: "取約 2–3 滴於掌心，以手溫輕柔按壓全臉至吸收。",
-ingredients: "水、芝麻種子油、摩洛哥堅果油、澳洲堅果種子油等",
+ingredients: "Water, Propanediol, Glycerin, Argania Spinosa Kernel Oil, Sesamum Indicum (Sesame) Seed Oil, Macadamia Ternifolia Seed Oil, Squalane, Rosa Canina Fruit Oil, Olea Europaea (Olive) Fruit Oil, Geranium Robertianum Extract, Aesculus Hippocastanum (Horse Chestnut) Seed Extract, Paeonia Albiflora Root Extract, Cynara Scolymus (Artichoke) Leaf Extract, Salix Alba (Willow) Bark Extract, Thymus Serpyllum Extract, Vaccinium Vitis-Idaea Leaf Extract, Passiflora Edulis Fruit Extract, Plantago Major Seed Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Cymbopogon Citratus Leaf Extract, Lavandula Angustifolia (Lavender) Flower Extract, Artemisia Princeps Extract, Mentha Piperita (Peppermint) Leaf Extract, Canavalia Gladiata Seed Extract, Ipomoea Batatas Leaf Extract, Aniba Rosaeodora (Rosewood) Wood Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Daucus Carota Sativa (Carrot) Seed Oil, Plumeria Alba Flower Extract, Cedrus Atlantica Bark Oil, Angelica Acutiloba Root Oil, Pentylene Glycol, Hydroxyethylcellulose, PEG-60 Hydrogenated Castor Oil, Citric Acid, Sodium Citrate, Ethylhexyl Palmitate, Glyceryl Ascorbate, Tocopherol, Butylene Glycol, Caprylyl Glycol, Ethylhexylglycerin, 1,2-Hexanediol, Ascorbyl Dipalmitate, Sodium Nitrate, Disodium Phosphate, Glyoxal",
 specs: "◆ 容量：60mL<br>◆ 製造國家：日本"
 },
 {
@@ -514,9 +518,9 @@ badge: "真空保鮮｜天然來源 99%｜深層鎖水｜敏感肌適用", price
 images: ["https://i.imgur.com/7rVhKU0.png","https://i.imgur.com/SUs6HbZ.png","https://i.imgur.com/A5GvMxE.png"],
 shortIntro: "柔軟包覆肌膚，維持長時間水潤與穩定感",
 mainEffects: "深層保濕 ✧ 修護乾燥 ✧ 強化肌膚屏障 ✧ 提升柔軟光澤感",
-features: "✦ 真空保鮮設計<br>有效減少空氣接觸。<br><br>✦ 20 種植物油脂滋養<br>為肌膚補充水分與柔軟度。",
+features: "✦ 真空壓瓶保鮮<br>真空設計隔絕空氣與細菌接觸，天然成分不易氧化變質，每一次按壓皆保持新鮮。<br><br>✦ 20 種植物油脂鎖水<br>玫瑰果油、角鯊烷、有機阿甘油與芝麻油等 20 種油脂精華，於肌膚表面形成天然保護膜，長效鎖水，告別乾燥脫屑。<br><br>✦ 軟化角質・提升透亮<br>阿甘油配合時鐘果萃取，軟化因乾燥與紫外線而變硬的角質，膚觸回復柔軟，其後底妝亦更貼服。<br><br>✦ 99% 天然來源成分<br>不含合成香料與化學防腐劑，乾肌、敏感肌、熟齡肌與混合肌皆可使用。",
 usage: "於化妝水、精華液後，取適量均勻塗抹全臉。",
-ingredients: "水、芝麻種子油、阿甘油、角鯊烷等",
+ingredients: "Water, Sesamum Indicum (Sesame) Seed Oil, Glycerin, Propylene Glycol, Argania Spinosa Kernel Oil, Squalane, Macadamia Ternifolia Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Rosa Canina Fruit Oil, Thymus Vulgaris (Thyme) Extract, Salix Alba (Willow) Bark Extract, Cynara Scolymus (Artichoke) Leaf Extract, Geranium Robertianum Extract, Passiflora Incarnata Extract, Vaccinium Vitis-Idaea Leaf Extract, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Juniperus Virginiana Oil, Aniba Rosaeodora (Rosewood) Wood Oil, Plumeria Alba Flower Extract, Daucus Carota Sativa (Carrot) Seed Oil, Angelica Acutiloba Root Oil, Polyglyceryl-10 Myristate, Xanthan Gum, Tocopherol, Butylene Glycol, Carbomer, Potassium Hydroxide, Pentylene Glycol, 1,2-Hexanediol, Caprylyl Glycol, Ethylhexylglycerin",
 specs: "◆ 容量：50g<br>◆ 製造國家：日本"
 },
 {
@@ -525,9 +529,9 @@ badge: "100% 天然植物成分｜深層修護｜日系束感造型｜高級香�
 images: ["https://i.imgur.com/D3UWrPy.png"],
 shortIntro: "為髮絲注入柔軟光澤與細緻香氣",
 mainEffects: "修護乾燥受損 ✧ 撫平毛躁 ✧ 提升髮絲光澤 ✧ 打造自然束感造型",
-features: "✦ 7 種植物油滋養<br>為髮絲補充柔軟與潤澤感。",
+features: "✦ 嚴選天然植物油<br>米糠油、荷荷巴油、植物角鯊烷等 5 種植物油，100% 天然由來，不含合成添加物，敏感肌亦可安心使用。<br><br>✦ 深層修復燙染受損<br>針對漂染後乾燥受損的髮質補充所需油脂，抑制毛躁，回復指尖滑過髮絲的順滑觸感。<br><br>✦ 日系束感造型<br>中等質地，輕盈而具濕潤感，輕鬆塑造自然流暢的束感層次，不油膩、不黏結成塊。<br><br>✦ 百合麝香高級香韻<br>聖母百合與玫瑰天竺葵的花香，基調為黃葵子的木質麝香。除護髮外，乾燥季節亦可作身體保濕之用。",
 usage: "取適量於掌心搓勻，均勻塗抹於髮尾與髮絲。",
-ingredients: "米糠油、荷荷巴種子油、植物性角鯊烷等",
+ingredients: "Aleurites Moluccanus Seed Oil, Oryza Sativa (Rice) Bran Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Squalane, Hydrogenated Farnesene, Lilium Candidum Flower Extract, Pelargonium Graveolens Oil, Citrus Paradisi (Grapefruit) Peel Oil, Abelmoschus Manihot Seed Oil, Tocopherol",
 specs: "◆ 容量：30mL<br>◆ 製造國家：日本"
 },
 {
@@ -536,9 +540,9 @@ badge: "冷壓一番榨基底｜潤而不黏｜添加煙醯胺｜木質花香調
 images: ["https://i.imgur.com/9zIoCxl.png","https://i.imgur.com/GBEajHT.png","https://i.imgur.com/zVKwiRk.png"],
 shortIntro: "潤而不膩，獨家層次香調",
 mainEffects: "深層潤澤 ✧ 彈潤修護 ✧ 撫平手部細紋 ✧ 舒緩放鬆",
-features: "✦ 潤而不黏<br>塗抹後迅速吸收，質地清爽。<br><br>✦ 彈潤修護<br>預防手部乾燥龜裂。",
+features: "✦ 美容液級煙酰胺<br>加入備受矚目的煙酰胺與當歸根萃取，於滋潤同時平整手部紋理，改善暗沉與粗糙，並非一般保濕護手霜可比。<br><br>✦ 內滋潤・外清爽<br>一番搾植物油於內層深層鎖水，表面保持絲滑不黏膩。<br><br>✦ 多重珍稀植物油<br>卡凱油、猴麵包樹油、澳洲堅果油與國王芝麻油全方位守護手部肌膚，預防乾燥龜裂，回復含水彈力。<br><br>✦ 檜木麝香和風香調<br>前調佛手柑，中調檜木與松木如置身森林浴，後調為黃葵子木質麝香，呈現高級溫泉旅館般的療癒香氣。",
 usage: "取適量護手霜均勻塗抹雙手。",
-ingredients: "水、BG、佛手柑果皮油、薰衣草油等",
+ingredients: "Water, Butylene Glycol, Isopropyl Myristate, C9-12 Alkane, Bis-PEG-15 Methyl Ether Dimethicone, Chamaecyparis Obtusa Oil, Abelmoschus Manihot Seed Oil, Pinus Sylvestris Leaf Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Caryodendron Orinocense Seed Oil, Adansonia Digitata Seed Oil, Macadamia Ternifolia Seed Oil, Opuntia Ficus-Indica Seed Oil, Sesamum Indicum (Sesame) Seed Oil, Rosmarinus Officinalis (Rosemary) Leaf Extract, Coix Lacryma-Jobi Ma-yuen Seed Extract, Aloe Barbadensis Leaf Extract, Tussilago Farfara (Coltsfoot) Flower Extract, Angelica Acutiloba Root Extract, Artemisia Capillaris Flower Extract, Eugenia Caryophyllus (Clove) Flower Extract, Dipotassium Glycyrrhizate, Niacinamide, Glyceryl Caprylate, Dimethicone, Sodium Hydroxide, Hydrogenated Lecithin, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Phenoxyethanol",
 specs: "◆ 容量：50g<br>◆ 製造國家：日本"
 },
 {
@@ -547,7 +551,7 @@ badge: "有機保養入門｜奢華旅行組｜附專屬品牌收納包｜禮盒
 images: ["https://i.imgur.com/IbNErbN.jpeg","https://i.imgur.com/fqcWygh.jpeg"],
 shortIntro: "一組體驗「卸妝、洗顏、潤澤」奢華有機保養",
 mainEffects: "溫和潔膚 ✧ 深層洗顏 ✧ 前導滋養 ✧ 完整體驗",
-features: "✦ 組合內容<br>1. 卸妝凝膠 50mL<br>2. 洗顏生皂 30mL<br>3. 有機前導芝麻油 30mL<br>4. 專屬品牌收納包",
+features: "✦ 完整三步體驗<br>卸妝凝膠 50mL、洗顏生皂 30mL、有機前導芝麻油 30mL，一套完成「卸妝 → 潔面 → 先油後水」，正是 soel 的核心護膚順序。<br><br>✦ 由招牌芝麻油開始<br>主角為品牌旗艦的一番搾有機芝麻油。先以小容量確認與膚質的契合度，再選購正裝，避免錯買浪費。<br><br>✦ 附品牌收納包<br>三件產品連收納包一袋收納，旅行、出差及運動後護膚皆方便攜帶。<br><br>✦ 入門首選<br>有意嘗試日本職人 clean beauty 卻不知從何入手，此套裝是門檻最低的起點；自用或送禮皆得體。",
 usage: "卸妝 ➔ 深層潔顏 ➔ 極致潤澤",
 ingredients: "請參考各產品全成份標示。",
 specs: "◆ 套裝內容：3 件保養單品 + 品牌收納包<br>◆ 製造國家：日本"
@@ -558,9 +562,9 @@ badge: "弱酸性護理｜有機原生芝麻油｜物理性濃密彈力慕斯｜
 images: ["https://i.imgur.com/oiL3c5n.jpeg","https://i.imgur.com/1aeoV59.jpeg","https://i.imgur.com/747y9mJ.jpeg"],
 shortIntro: "溫柔洗淨，弱酸性專屬護理",
 mainEffects: "弱酸平衡 ✧ 溫和潔淨 ✧ 舒緩悶熱 ✧ 守護水潤屏障",
-features: "✦ 弱酸性溫和平衡<br>維護私密肌天然防禦屏障。",
+features: "✦ 弱酸性 pH 平衡<br>私密肌膚與面部、身體不同，需要弱酸性環境維持天然防禦屏障；一般沐浴產品的鹼性，反而會破壞此平衡。<br><br>✦ 專利泵頭濃密慕斯<br>不使用合成界面活性劑，一按即壓出富彈性的細緻濃密泡沫，減少摩擦，溫柔帶走汗水、悶熱與污垢。<br><br>✦ 芝麻油保濕基底<br>注入 soel 明星成分有機芝麻油，潔淨同時守護水潤，不帶走私密肌所需的油脂，洗後清爽不黏膩。<br><br>✦ 植萃舒緩・全家適用<br>尤加利等植物舒緩成分配合發酵保濕成分，維持清爽與彈性；配方純粹，成人與活動量大、容易出汗的兒童皆可使用。",
 usage: "取適量濃密泡沫於手心，溫柔洗淨私密肌膚後沖淨。",
-ingredients: "水、甘油、芝麻種子油等",
+ingredients: "Water, Glycerin, Potassium Cocoyl Glutamate, Lauramidopropyl Betaine, Cocamide Methyl MEA, Sodium PCA, Pentylene Glycol, Sesamum Indicum (Sesame) Seed Oil, Adansonia Digitata Seed Oil, Caryodendron Orinocense Seed Oil, Opuntia Ficus-Indica Seed Oil, Eucalyptus Globulus Leaf Extract, Macadamia Ternifolia Seed Oil, Coix Lacryma-Jobi Ma-yuen Seed Oil, Aloe Barbadensis Leaf Extract, Citrus Nobilis (Mandarin Orange) Peel Oil, Citrus Aurantium Amara (Bitter Orange) Flower Oil, Magnolia Officinalis Flower Oil, Abelmoschus Manihot Seed Oil, Lavandula Angustifolia (Lavender) Oil, Dipotassium Glycyrrhizate, Arginine, Lactobacillus/Soy Milk Ferment, PEG-40 Hydrogenated Castor Oil PCA Isostearate, Glycereth-25 PCA Isostearate, Sodium Chloride, Phytic Acid, Silver Oxide, 1,2-Hexanediol, Caprylyl Glycol, Polyquaternium-7, Disodium Phosphate, Potassium Phosphate, Butylene Glycol, Disodium EDTA",
 specs: "◆ 容量：100mL<br>◆ 製造國家：日本"
 },
 {
@@ -569,9 +573,9 @@ badge: "醫師監修｜ACO 有機認證｜改善暗沉與乾燥｜VIO 脫毛後�
 images: ["https://i.imgur.com/IywaW0Y.jpeg","https://i.imgur.com/DRzBVzD.jpeg","https://i.imgur.com/Ov1MZLj.jpeg","https://i.imgur.com/cgfxSgr.jpeg","https://i.imgur.com/dyGcqa7.jpeg"],
 shortIntro: "醫學專家監修 ✕ 全球頂級 ACO 有機認證",
 mainEffects: "深層滋潤 ✧ 擊退暗沉 ✧ 舒緩脫毛後不適 ✧ 強化屏障",
-features: "✦ 專業醫師監修<br>調配最貼近私密肌膚需求的黃金保濕比例。",
+features: "✦ 醫師監修<br>由醫療美容醫師田代尊子監修開發，針對私密肌的乾燥、痕癢、悶熱與暗沉等困擾，調配出貼近需求的保濕比例。<br><br>✦ ACO 有機認證<br>通過澳洲 ACO 嚴格認證，95% 以上為有機原料。私密肌的經皮吸收率約為手臂肌膚的 42 倍，成分純淨在此尤為重要。<br><br>✦ 三大核心植物油<br>原生芝麻油、猴麵包樹油與 Cacay 油，100% 天然植物油集中保濕修護，改善摩擦與乾燥引致的色素沉澱，特別適合 VIO 脫毛後使用。<br><br>✦ 甜橙療癒香氣<br>以甜橙為基調的高雅香氛，質地輕盈易吸收，讓每晚的護理成為放鬆儀式；溫和配方，男女皆可使用。",
 usage: "洗澡後取 2–3 滴塗抹於私密部位肌膚。",
-ingredients: "芝麻種子油、猴麵包樹種子油等",
+ingredients: "Sesamum Indicum (Sesame) Seed Oil, Adansonia Digitata Seed Oil, Caryodendron Orinocense Seed Oil, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Citrus Aurantium Amara (Bitter Orange) Leaf/Twig Oil, Pelargonium Graveolens Flower Oil, Jasminum Officinale (Jasmine) Oil, Tocopherol",
 specs: "◆ 容量：30mL<br>◆ 製造國家：日本"
 },
 {
@@ -580,9 +584,9 @@ badge: "100% 天然成分｜卸妝同時保濕｜敏感肌適用｜7 大無添�
 images: ["https://i.imgur.com/MtKl10O.png","https://i.imgur.com/hkvAibi.png"],
 shortIntro: "溫和卸淨彩妝，同時守護肌膚水分平衡",
 mainEffects: "溫和卸妝 ✧ 深層保濕 ✧ 維持肌膚柔軟度 ✧ 舒緩乾燥不適",
-features: "✦ 米糠油保濕配方<br>潔淨同時維持肌膚潤澤感。",
+features: "✦ 米糠油核心修護<br>萃取自米糠，富含天然維他命 E。卸妝同時預防肌膚乾燥，維持長效水潤感。<br><br>✦ 五針松籽油・摩洛哥堅果油<br>五針松籽油含獨特的松子油酸，賦予肌膚彈性與柔軟度；摩洛哥堅果油具卓越的保護與修護肌膚屏障。<br><br>✦ 柔滑乳液質地<br>質地柔滑，迅速與彩妝融合，包覆肌膚紋理及毛孔深處的污垢，洗後留下如絲綢般的滑順觸感。<br><br>✦ 100% 天然・7 大無添加<br>不含矽靈、防腐劑、乙醇、合成香料、合成著色劑、礦物油及石油系界面活性劑。成分純淨，亦可作為身體乳使用。",
 usage: "取適量於乾爽掌心，按摩全臉後洗淨。",
-ingredients: "水、米糠油、向日葵種子油等",
+ingredients: "Water, Oryza Sativa (Rice) Bran Oil, Helianthus Annuus (Sunflower) Seed Oil, Glycerin, Polyglyceryl-10 Isostearate, Polyglyceryl-10 Diisostearate, Pentylene Glycol, Pinus Parviflora Seed Oil, Argania Spinosa Kernel Oil, Sodium Caproyl Prolinate, Tocopherol, Xanthan Gum",
 specs: "◆ 容量：120mL<br>◆ 製造國家：日本"
 },
 {
@@ -591,9 +595,9 @@ badge: "100% 天然成分｜溫和酵素潔面｜毛孔角質護理｜7 大無�
 images: ["https://i.imgur.com/Rd0xoYR.png","https://i.imgur.com/l2NpulU.png","https://i.imgur.com/ULXYxwr.png"],
 shortIntro: "溫和帶走老廢角質，回復細緻透亮肌膚",
 mainEffects: "溫和潔淨 ✧ 毛孔護理 ✧ 改善粗糙暗沉 ✧ 維持肌膚水潤平衡",
-features: "✦ 木瓜蛋白酶潔淨<br>以天然酵素溫和分解老廢角質。",
+features: "✦ 無患子天然潔淨<br>無患子果皮萃取為植物性洗淨成分，不依賴化學起泡，溫和而不傷肌膚。<br><br>✦ 木瓜蛋白酶分解角質<br>萃取自木瓜果實的蛋白質分解酵素，專門分解毛孔中的蛋白質污垢與老廢角質，改善粗糙、黑頭與粉刺。<br><br>✦ 三種褐藻精華<br>墨角藻、昆布與泡葉藻富含氨基酸、維他命及礦物質，調理肌膚並提供長效保濕。<br><br>✦ 洗後不緊繃<br>積雪草與石榴果萃取呵護脆弱肌膚，潔面後肌膚回復平滑細緻，維持健康穩定狀態。",
 usage: "取 1 茶匙分量加水起泡洗面。",
-ingredients: "無患子萃取、木瓜蛋白酶等",
+ingredients: "Zea Mays (Corn) Starch, Solanum Tuberosum (Potato) Starch, Potassium Soap Base, Sodium Lauroyl Glutamate, Glucose, Microcrystalline Cellulose, Sapindus Mukorossi Fruit Extract, Papain, Algae Extract, Punica Granatum Fruit Extract, Centella Asiatica Leaf Extract, Dipotassium Glycyrrhizate, Betaine, Xanthan Gum, Pullulan, Glycerin, Maltodextrin",
 specs: "◆ 容量：60g<br>◆ 製造國家：日本"
 },
 {
@@ -602,9 +606,9 @@ badge: "100% 天然成分｜天然神經醯胺｜CICA 積雪草｜7 大無添加
 images: ["https://i.imgur.com/Xvt1Z6g.png","https://i.imgur.com/jXWcZyp.png"],
 shortIntro: "為肌膚補充水分，回復穩定柔軟狀態",
 mainEffects: "深層補水 ✧ 舒緩修護 ✧ 維持肌膚屏障 ✧ 提升透亮感",
-features: "✦ 天然神經醯胺配方<br>補充水分，維持肌膚屏障。",
+features: "✦ 天然神經醯胺<br>植物來源的神經醯胺深入角質層補充水分，調理肌膚屏障，為乾燥與不穩定肌膚作第一步修護。<br><br>✦ 雙重玻尿酸立體補水<br>透明質酸與水解透明質酸同時作用，由肌膚表面至角質層深處，層層補水。<br><br>✦ CICA 積雪草修復<br>積雪草萃取配合黃芩、甘草、茶葉等 7 種漢草植物精華，鎮靜修復，保濕舒敏。<br><br>✦ 石榴・晚櫻花提亮<br>石榴果萃取維持肌膚健康穩定，晚櫻花萃取賦予透明感，引導出水潤光澤的素顏肌。",
 usage: "洗臉後取適量輕柔按壓全臉。",
-ingredients: "水、甘油、石榴果實萃取等",
+ingredients: "Water, Glycerin, Propanediol, Pentylene Glycol, Punica Granatum Fruit Extract, Centella Asiatica Extract, Centella Asiatica Leaf Extract, Glycyrrhiza Glabra (Licorice) Root Extract, Chamomilla Recutita (Matricaria) Flower Extract, Scutellaria Baicalensis Root Extract, Polygonum Cuspidatum Root Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Camellia Sinensis Leaf Extract, Prunus Lannesiana Flower Extract, Hyaluronic Acid, Hydrolyzed Hyaluronic Acid, Ceramide NP, Glyceryl Glucoside, Raffinose, Citrulline, Sorbitol, Hydrogenated Lecithin, Squalane, Dipotassium Glycyrrhizate, Sodium Anisate, Citric Acid, Butylene Glycol",
 specs: "◆ 容量：120mL<br>◆ 製造國家：日本"
 },
 {
@@ -613,9 +617,9 @@ badge: "100% 天然成分｜乳液狀面霜｜長效鎖水｜7 大無添加", pr
 images: ["https://i.imgur.com/D05FCqL.png","https://i.imgur.com/XkK6MtJ.png"],
 shortIntro: "輕盈包覆肌膚，維持長時間水潤與柔軟感",
 mainEffects: "長效保濕 ✧ 鎖水修護 ✧ 維持水油平衡 ✧ 柔軟肌膚",
-features: "✦ 乳液狀面霜技術<br>具備面霜級別鎖水保護力。",
+features: "✦ 乳液狀面霜技術<br>以特殊技術將面霜成分轉化為乳液質地：延展如乳液般輕盈，鎖水如面霜般深層，少量即可為肌膚蓋上保濕薄紗。<br><br>✦ 三重植物油脂保護<br>角鯊烷、荷荷巴種子油及五針松子油柔軟角質層，預防水分流失。<br><br>✦ 深層鎖水系統<br>透明質酸鈉、甘油葡糖苷與瓜氨酸長效維持肌膚含水量；石榴果萃取進一步提升肌膚自身的持水力。<br><br>✦ 低摩擦・水油平衡<br>質地滑順而不黏膩，保養時減少肌膚摩擦，適合配合面部按摩，幫助平衡水分與油分。",
 usage: "取適量均勻塗抹全臉。",
-ingredients: "水、荷荷巴種子油、角鯊烷等",
+ingredients: "Water, Glycerin, Simmondsia Chinensis (Jojoba) Seed Oil, Squalane, Helianthus Annuus (Sunflower) Seed Oil, Propanediol, Pentylene Glycol, Sorbitol, Pinus Parviflora Seed Oil, Punica Granatum Fruit Extract, Hyaluronic Acid, Padina Pavonica Thallus Extract, Centella Asiatica Leaf Extract, Phytosteryl Macadamiate, Citrulline, Glyceryl Glucoside, Sodium Dilauroyl Glutamate Lysine, Dipotassium Glycyrrhizate, Tocopherol, Xanthan Gum, Sucrose Palmitate, Sodium Caproyl Prolinate, Citric Acid",
 specs: "◆ 容量：50mL<br>◆ 製造國家：日本"
 },
 {
@@ -624,9 +628,9 @@ badge: "100% 天然成分｜全身保濕修護｜敏感肌適用｜7 大無添�
 images: ["https://i.imgur.com/MMtA9zy.png"],
 shortIntro: "為肌膚帶來柔軟而低負擔的每日保濕",
 mainEffects: "長效保濕 ✧ 舒緩乾燥 ✧ 維持肌膚柔軟度 ✧ 強化肌膚屏障",
-features: "✦ 多重植物修護<br>幫助舒緩乾燥與粗糙問題。",
+features: "✦ 明日葉精華<br>日本原產植物，富含礦物質與維他命，能柔軟膚質，引導肌膚回復健康狀態。<br><br>✦ 三重有機認證萃取<br>薏仁種子修護並預防粗糙、綠茶抗氧化、甘草根舒緩並支撐屏障功能，三者皆獲 Eco-cert 有機認證，改善乾燥與泛紅。<br><br>✦ 絲滑速滲不黏膩<br>質地絲滑細緻，迅速滲透而不覺黏膩，沐浴後為全身提供舒適呵護。<br><br>✦ 全家適用・自然香氣<br>以澳洲茶樹葉油天然賦香，香氣清爽，猶如置身自然；100% 天然由來成分，全家人皆可使用。",
 usage: "潔膚後取適量均勻塗抹全身。",
-ingredients: "水、橄欖果油、向日葵種子油等",
+ingredients: "Water, Propanediol, Olea Europaea (Olive) Fruit Oil, Helianthus Annuus (Sunflower) Seed Oil, Squalane, Pentylene Glycol, C14-22 Alcohols, C12-20 Alkyl Glucoside, Punica Granatum Fruit Extract, Angelica Keiskei Leaf/Stem Extract, Coix Lacryma-Jobi Ma-yuen Seed Extract, Camellia Sinensis Leaf Extract, Centella Asiatica Extract, Polygonum Cuspidatum Root Extract, Scutellaria Baicalensis Root Extract, Glycyrrhiza Glabra (Licorice) Root Extract, Chamomilla Recutita (Matricaria) Flower Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Stearyl Glycyrrhetinate, Sodium Dilauroyl Glutamate Lysine, Melaleuca Alternifolia (Tea Tree) Leaf Oil, Lavandula Angustifolia (Lavender) Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Isostearic Acid, Glycerin, Xanthan Gum, Caprylyl Glycol, Glyceryl Caprylate, Tocopherol, Butylene Glycol",
 specs: "◆ 容量：200mL<br>◆ 製造國家：日本"
 },
 {
@@ -635,9 +639,9 @@ badge: "天然由來100%｜維他命C誘導體｜抗氧保濕｜夏日適用", p
 images: ["https://i.imgur.com/axj3yqt.png","https://i.imgur.com/SdBOKjS.png","https://i.imgur.com/IzSgnwJ.png","https://i.imgur.com/RCE3adj.png","https://i.imgur.com/0fJUpM5.png"],
 shortIntro: "植物修護．天然養膚",
 mainEffects: "改善暗沉 ✧ 高效抗氧 ✧ 舒緩乾燥 ✧ 提升透亮光澤",
-features: "✦ 植物由來維他命C誘導體<br>幫助提亮膚色、改善暗沉。",
+features: "✦ 維他命 C 誘導體・亮白修護<br>系列中的亮白修護型美容油，針對暗沉與膚色不均，提升肌膚透亮光澤。<br><br>✦ 高效抗氧<br>植物油脂有助抵禦環境氧化壓力，維持肌膚明亮狀態，舒緩乾燥。<br><br>✦ 角鯊烷・荷荷巴籽油基底<br>親膚油脂補充水分，質地清爽，夏日使用亦無負擔。<br><br>✦ 100% 天然由來<br>依品牌承諾：不含酒精、無人工香料、零化學合成成分，包裝標明使用期限，新鮮度一目了然。",
 usage: "洗面後取適量均勻塗抹全臉。",
-ingredients: "角鯊烷、荷荷巴籽油等",
+ingredients: "Squalane, Simmondsia Chinensis (Jojoba) Seed Oil, Helianthus Annuus (Sunflower) Seed Oil, Ascorbyl Tetraisopalmitate, Bisabolol, Haematococcus Pluvialis Extract, Fullerenes, Menthyl Safflower Seedate, Punica Granatum Seed Oil, Oryza Sativa (Rice) Germ Oil, Lavandula Angustifolia (Lavender) Oil, Rosa Canina Fruit Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Rosmarinus Officinalis (Rosemary) Leaf Oil, Caprylic/Capric Triglyceride, Tocopherol, Rosmarinus Officinalis (Rosemary) Leaf Extract",
 specs: "◆ 容量：30mL<br>◆ 製造國家：日本"
 },
 {
@@ -646,9 +650,9 @@ badge: "100% 天然由來｜藍甘菊精華｜抗炎鎮靜｜敏弱暗瘡肌適�
 images: ["https://i.imgur.com/fE3LwHY.png"],
 shortIntro: "天然藍甘菊精華，舒緩泛紅與痘痘肌",
 mainEffects: "舒緩泛紅 ✧ 抗痘修護 ✧ 水油平衡 ✧ 提升肌膚透亮感",
-features: "✦ 抗炎鎮靜 & 抗痘修護<br>預防暗瘡、舒緩皮膚泛紅。",
+features: "✦ 藍甘菊精華<br>天然藍甘菊精華抗炎鎮靜，舒緩泛紅與不穩定狀態，為敏弱肌而設。<br><br>✦ 抗痘修護・水油平衡<br>針對暗瘡肌調理油脂分泌，於穩定膚況的同時進行修護，減少反覆困擾。<br><br>✦ 角鯊烷・橄欖果油基底<br>質地輕盈親膚，每次只需 1–2 滴輕壓全臉，用量節省。<br><br>✦ 穩定同時提亮<br>在鎮靜修護的基礎上改善暗沉，令肌膚回復清透光澤。",
 usage: "洗臉後取 1–2 滴輕壓全臉。",
-ingredients: "角鯊烷、橄欖果實油等",
+ingredients: "Squalane, Olea Europaea (Olive) Fruit Oil, Helianthus Annuus (Sunflower) Seed Oil, Helianthus Annuus (Sunflower) Seed Oil Unsaponifiables, Guaiazulene, Chamomilla Recutita (Matricaria) Flower Extract, Punica Granatum Seed Oil, Daucus Carota Sativa (Carrot) Root Extract, Pinus Parviflora Seed Oil, Stearyl Glycyrrhetinate, Bisabolol, Lavandula Angustifolia (Lavender) Oil, Citrus Paradisi (Grapefruit) Peel Oil, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, Eucalyptus Globulus Leaf Oil, Glycine Soja (Soybean) Oil, Tocopherol",
 specs: "◆ 容量：30mL<br>◆ 製造國家：日本"
 },
 {
@@ -657,9 +661,9 @@ badge: "天然來源成分98%｜潔面泥膜二合一｜毛孔護理｜7 大無�
 images: ["https://i.imgur.com/qNN11Ff.png","https://i.imgur.com/RIwEoz0.png"],
 shortIntro: "富含礦物質的細緻白泥，有效吸附老廢角質",
 mainEffects: "吸附毛孔污垢 ✧ 深層潔淨 ✧ 調理角質 ✧ 維持肌膚透亮",
-features: "✦ 礦物白泥吸附力<br>溫和吸附多餘油脂與角質。",
+features: "✦ 高嶺土礦物白泥<br>細緻白泥富含礦物質，有效吸附毛孔污垢與老廢角質，深層潔淨。<br><br>✦ 潔面・泥膜二合一<br>加水起泡作日常潔面；厚敷 1 分鐘作泥膜深層護理，一件產品兩種用法。<br><br>✦ 調理角質・維持透亮<br>潔淨同時調理角質層，洗後肌膚清爽，維持透亮膚色。<br><br>✦ 98% 天然來源・7 大無添加<br>不含矽靈、防腐劑、酒精、合成香料、合成著色劑、礦物油及石油系界面活性劑，潔淨溫和。",
 usage: "潔面加水起泡；泥膜厚敷 1 分鐘洗淨。",
-ingredients: "高嶺土、水、甘油等",
+ingredients: "Kaolin, Water, Myristic Acid, Glycerin, Palmitic Acid, Potassium Hydroxide, Titanium Dioxide, Butylene Glycol, Stearic Acid, Palm Kernelamide DEA, Sucrose, Sodium Lauroyl Methyl Alaninate, Olea Europaea (Olive) Fruit Oil, Punica Granatum Fruit Extract, Citrus Nobilis (Mandarin Orange) Peel Extract, Cynara Scolymus (Artichoke) Leaf Extract, Dipotassium Glycyrrhizate, Potassium Cocoyl Glycinate, Glyceryl Caprylate, Ethylhexylglycerin, Tocopherol, Hydroxypropyl Methylcellulose, Aluminum Hydroxide, Betaine",
 specs: "◆ 容量：120g<br>◆ 製造國家：日本"
 },
 {
@@ -668,9 +672,9 @@ badge: "物理防曬｜敏感肌底妝｜自然透亮妝感｜肥皂可卸", pri
 images: ["https://i.imgur.com/P7ivpkx.png","https://i.imgur.com/xnhJVtV.png","https://i.imgur.com/NQ3bhmE.png"],
 shortIntro: "如美容液般輕盈的保養型底妝",
 mainEffects: "修飾膚色 ✧ 保濕持妝 ✧ 物理防曬 ✧ 提升肌膚透亮感",
-features: "✦ 1 瓶 5 效<br>結合隔離、防曬、美容液、粉底與調色。",
+features: "✦ 1 瓶 5 效<br>隔離霜、美容液、粉底、防曬、調色五效合一，大幅縮短化妝時間。薄薄一層即可自然遮蓋色斑與暗沉，修飾膚色不均。<br><br>✦ 物理防曬 SPF40 PA+++<br>物理防曬隔離紫外線，並經測試證實能阻隔藍光，適合長時間面對螢幕的人士。<br><br>✦ 5 重神經醯胺・玻尿酸<br>配搭煙酰胺與植物性角鯊烷，如美容液般保濕，妝容長效服貼，不因乾燥而浮粉，維持肌膚細緻度與亮白感。<br><br>✦ 9 大無添加・肥皂可卸<br>94% 天然來源，不含矽靈、防腐劑、酒精、紫外線吸收劑等 9 類成分；一般潔面即可卸除，敏感肌使用無負擔。",
 usage: "取適量由臉部中央向外均勻推開。",
-ingredients: "水、二氧化鈦、煙醯胺等",
+ingredients: "Water, Isopropyl Palmitate, Titanium Dioxide, Niacinamide, Propanediol, Isocetyl Myristate, Polyglyceryl-10 Pentahydroxystearate, Isostearic Acid, Squalane, Zinc Stearate, Sorbitan Sesquiisostearate, Stearic Acid, Aluminum Hydroxide, Sodium Citrate, Cellulose, Polyglyceryl-10 Pentahydroxystearate, Calcium Carbonate, Hydroxyethylcellulose, Phenoxyethanol, Glycyrrhizic Acid Stearyl retinate, Pelargonium graveolens oil, Tocopherol, Glycerin, Hydrolyzed hyaluronic acid, BG, Olive fruit oil, Ascorbyl tetrahexyldecanoate, Jojoba seed oil, Hydrolyzed collagen, Hydrogenated lecithin, Phytosterols, Ceramide NG, Ceramide AP, Ceramide AG, Ceramide NP, Prunus yedoensis leaf extract, Kiwi fruit extract, Geranium robertianum extract, Houttuynia cordata extract, Vaccinium myrtillus leaf extract, Ceramide EOP, Mica, Iron oxide, Alumina, Silica",
 specs: "◆ 容量：30g / 色號：Ochre<br>◆ 製造國家：日本"
 },
 {
@@ -679,9 +683,9 @@ badge: "物理防曬｜修飾黃氣提亮｜敏感肌底妝｜肥皂可卸", pri
 images: ["https://i.imgur.com/P7ivpkx.png","https://i.imgur.com/xnhJVtV.png"],
 shortIntro: "提亮氣色，打造紅潤透亮原生肌",
 mainEffects: "提亮氣色 ✧ 修飾暗沉 ✧ 物理防曬 ✧ 保濕持妝",
-features: "✦ 粉嫩氣色調色<br>修飾暗沉黃氣，打造紅潤透亮感。",
+features: "✦ 粉米色調・修飾黃氣<br>專為修飾暗沉黃氣而設的粉米色，提亮氣色，打造紅潤透亮的原生肌感。<br><br>✦ 1 瓶 5 效<br>隔離霜、美容液、粉底、防曬、調色五效合一，薄薄一層修飾膚色不均，縮短化妝時間。<br><br>✦ 物理防曬 SPF40 PA+++<br>物理防曬隔離紫外線，並經測試證實能阻隔藍光，敏感肌亦可安心使用。<br><br>✦ 美容液般保濕・肥皂可卸<br>煙酰胺、5 重神經醯胺與玻尿酸保濕持妝；94% 天然來源、9 大無添加，一般潔面即可卸除。",
 usage: "取適量由臉部中央向外均勻推開。",
-ingredients: "水、二氧化鈦、煙醯胺等",
+ingredients: "Water, Isopropyl Palmitate, Titanium Dioxide, Niacinamide, Propanediol, Isocetyl Myristate, Polyglyceryl-10 Pentahydroxystearate, Isostearic Acid, Squalane, Zinc Stearate, Sorbitan Sesquiisostearate, Stearic Acid, Aluminum Hydroxide, Sodium Citrate, Cellulose, Polyglyceryl-10 Pentahydroxystearate, Calcium Carbonate, Hydroxyethylcellulose, Phenoxyethanol, Glycyrrhizic Acid Stearyl retinate, Pelargonium graveolens oil, Tocopherol, Glycerin, Hydrolyzed hyaluronic acid, BG, Olive fruit oil, Ascorbyl tetrahexyldecanoate, Jojoba seed oil, Hydrolyzed collagen, Hydrogenated lecithin, Phytosterols, Ceramide NG, Ceramide AP, Ceramide AG, Ceramide NP, Prunus yedoensis leaf extract, Kiwi fruit extract, Geranium robertianum extract, Houttuynia cordata extract, Vaccinium myrtillus leaf extract, Ceramide EOP, Mica, Iron oxide, Alumina, Silica",
 specs: "◆ 容量：30g / 色號：Pink Ochre<br>◆ 製造國家：日本"
 },
 {
@@ -690,9 +694,9 @@ badge: "微細霧化｜妝後補水｜持妝抗汗｜油水平衡", price: "HK$ 
 images: ["https://i.imgur.com/i1GEoeN.png","https://i.imgur.com/LETcHx7.png","https://i.imgur.com/I5R5TvC.png","https://i.imgur.com/o2NCwY4.png"],
 shortIntro: "為妝容與肌膚同時補水的定妝噴霧",
 mainEffects: "定妝持妝 ✧ 即時補水 ✧ 平衡油脂 ✧ 提升妝容貼服度",
-features: "✦ 奈米氣泡技術<br>噴霧更均勻細緻，不易破壞妝容。",
+features: "✦ 奈米氣泡技術<br>搖晃後產生微細奈米氣泡，噴霧細緻親膚，能穿透妝容直達角質層補水，補水而不破壞妝容。<br><br>✦ 1 瓶 3 效<br>定妝、化妝水、美容液三效合一，保養同時鞏固妝容，專為油性肌與普通肌設計。<br><br>✦ 抗汗抗皮脂<br>抵禦汗水與油脂分泌，同時防止因乾燥引致的脫妝，維持水潤光澤肌。<br><br>✦ 煙酰胺・4 重神經醯胺<br>調理肌膚紋理、修復屏障；荷荷巴油與橄欖果油提供清爽不負擔的滋潤。7 大無添加。",
 usage: "充分搖勻後，距離臉部 10–15cm 均勻噴灑。",
-ingredients: "水、煙醯胺、荷荷巴種子油等",
+ingredients: "Water, Dimethicone, Propanediol, BG, Diphenylsiloxy Phenylen Trimethicone, Trimethylsiloxysilicate, Niacinamide, Jojoba Seed Oil, Olive Fruit Oil, Sodium Chloride, Betaine, Phenoxyethanol, Sodium Citrate, Ethylhexylglycerin, Soybean Oil, Citric Acid, Carrot Root Extract, Hydrogenated Lecithin, Phytosterols, Hydrolyzed Elastin, Kiwi Extract, Sodium Hyaluronate, Houttuynia Cordata Extract, Ceramide AP, Ceramide NG, Soluble Collagen, Ceramide NP, Ceramide EOP",
 specs: "◆ 容量：45mL<br>◆ 製造國家：日本"
 },
 {
@@ -701,9 +705,9 @@ badge: "雙層植萃油水｜高保濕定妝｜極細奈米氣泡｜乾燥及外
 images: ["https://i.imgur.com/wygcFHw.jpeg","https://i.imgur.com/pMEsa8E.jpeg","https://i.imgur.com/Lsu3Yx5.jpeg"],
 shortIntro: "噴霧狀美容液，為乾燥肌與外油內乾肌鎖水",
 mainEffects: "長效鎖水 ✧ 穩定妝容 ✧ 舒緩乾燥 ✧ 煥發柔亮光澤",
-features: "✦ 雙層植萃油水配方<br>為肌膚建立細緻鎖水屏障。",
+features: "✦ 為乾燥肌而設<br>油水雙層精華噴霧，保濕成分比例更高，專為乾燥肌、外油內乾肌與容易脫妝的膚質設計。<br><br>✦ 紫根萃取修護<br>日本傳統修護成分紫根萃取，深度安撫乾燥與不穩定的肌膚，防止因缺水導致的卡粉。<br><br>✦ 奈米氣泡高滲透<br>搖晃後產生微米級氣泡，極細霧氣快速被肌膚吸收，不留黏膩，整日維持飽滿光澤。<br><br>✦ 4 重神經醯胺・玻尿酸<br>配搭煙酰胺鎖水修護；天然來源成分達 85%，7 大無添加，一般潔面即可洗淨。",
 usage: "充分搖勻後均勻噴灑全臉 3–5 下。",
-ingredients: "水、BG、煙醯胺、荷荷巴種子油等",
+ingredients: "Water, Dimethicone, Butylene Glycol, Propanediol, Diphenylsiloxy Phenyl Trimethicone, Trimethylsiloxysilicate, Niacinamide, Simmondsia Chinensis (Jojoba) Seed Oil, Olea Europaea (Olive) Fruit Oil, Betaine, Sodium Chloride, Polyglycerin-3, Phenoxyethanol, Sodium PCA, Octyldodecyl Myristate, Sodium Citrate, Ethylhexylglycerin, Citric Acid, Lithospermum Erythrorhizon Root Extract, Hydrogenated Lecithin, Phytosterols, Hydrolyzed Elastin, Actinidia Chinensis (Kiwi) Fruit Extract, Sodium Hyaluronate, Houttuynia Cordata Extract, Ceramide AP, Ceramide NG, Soluble Collagen, Ceramide NP, Ceramide EOP",
 specs: "◆ 容量：45mL<br>◆ 製造國家：日本"
 },
 {
@@ -712,9 +716,9 @@ badge: "天然由來 99%｜煙醯胺 B3｜養膚柔焦｜肥皂可卸｜8 大無
 images: ["https://i.imgur.com/eBX4t3f.jpeg","https://i.imgur.com/9szap0o.jpeg","https://i.imgur.com/X3c3eSS.jpeg"],
 shortIntro: "99% 天然由來成分，打造無瑕透明感的養膚蜜粉",
 mainEffects: "柔焦毛孔 ✧ 控油持妝 ✧ 滋養保濕 ✧ 煥發自然裸透光",
-features: "✦ Niacinamide B3 養膚<br>邊定妝邊調理肌膚。",
+features: "✦ 99% 天然由來<br>以天然來源成分打造的養膚蜜粉，化妝同時護膚，敏感肌日常使用無負擔。<br><br>✦ 煙酰胺 B3 養膚柔焦<br>加入煙酰胺，柔焦毛孔、修飾瑕疵，同時滋養保濕，妝感細緻。<br><br>✦ 控油持妝・裸透光澤<br>輕柔按壓即可控油持妝，煥發自然裸透光感，不厚重、不假面。<br><br>✦ 8 大無添加・肥皂可卸<br>一般潔面即可卸除，毋須另行卸妝。",
 usage: "取適量蜜粉輕柔按壓全臉。",
-ingredients: "滑石粉、雲母、煙醯胺等",
+ingredients: "Talc, Mica, Titanium Dioxide, Silica, Alumina, Barium Sulfate, Magnesium Myristate, Squalane, Niacinamide, Olea Europaea (Olive) Fruit Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Actinidia Chinensis (Kiwi) Fruit Extract, Houttuynia Cordata Extract, Ceramide NG, Ceramide AP, Ceramide AG, Ceramide NP, Ceramide EOP, Magnesium Stearate, Cellulose, Bisabolol, Aloe Barbadensis Leaf Extract, Cocos Nucifera (Coconut) Oil, Aluminum Hydroxide, Tocopherol, Calcium Carbonate, Tin Oxide, Water, Butylene Glycol, Ascorbyl Tetraisopalmitate, Hydrogenated Lecithin, Phytosterols, Prunus Yedoensis Leaf Extract, Geranium Robertianum Extract, Vaccinium Myrtillus Leaf Extract, Sodium Hyaluronate, Iron Oxides",
 specs: "◆ 容量：6g / 色號：Lucent Beige<br>◆ 製造國家：日本"
 },
 {
@@ -723,31 +727,31 @@ badge: "天然由來 99%｜擊退黃氣暗沉｜極致透明感｜肥皂可卸�
 images: ["https://i.imgur.com/tZJFy8J.jpeg","https://i.imgur.com/GX0geDA.jpeg","https://i.imgur.com/X3c3eSS.jpeg"],
 shortIntro: "修飾黃氣，煥發透亮清透氣色",
 mainEffects: "中和黃氣 ✧ 提亮暗沉 ✧ 養膚控油 ✧ 打造透明感氣色",
-features: "✦ 獨家色調修飾<br>藍粉調交織，修飾亞洲肌膚泛黃。",
+features: "✦ 丁香淡紫・中和黃氣<br>淡紫色粉體中和黃氣與暗沉，提亮膚色，打造極致透明感的氣色。<br><br>✦ 99% 天然由來<br>以天然來源成分打造的養膚蜜粉，化妝同時護膚。<br><br>✦ 養膚控油<br>修飾毛孔、控油持妝，維持清透妝感。<br><br>✦ 8 大無添加・肥皂可卸<br>一般潔面即可卸除，敏感肌日常使用無負擔。",
 usage: "取適量蜜粉輕柔按壓全臉。",
-ingredients: "滑石粉、雲母、群青等",
+ingredients: "Talc, Mica, Titanium Dioxide, Silica, Alumina, Barium Sulfate, Magnesium Myristate, Squalane, Niacinamide, Olea Europaea (Olive) Fruit Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Actinidia Chinensis (Kiwi) Fruit Extract, Houttuynia Cordata Extract, Ceramide NG, Ceramide AP, Ceramide AG, Ceramide NP, Ceramide EOP, Magnesium Stearate, Cellulose, Bisabolol, Aloe Barbadensis Leaf Extract, Cocos Nucifera (Coconut) Oil, Aluminum Hydroxide, Tocopherol, Calcium Carbonate, Tin Oxide, Water, Butylene Glycol, Ascorbyl Tetraisopalmitate, Hydrogenated Lecithin, Phytosterols, Prunus Yedoensis Leaf Extract, Geranium Robertianum Extract, Vaccinium Myrtillus Leaf Extract, Sodium Hyaluronate, Ultramarines, Carmine, Iron Oxides",
 specs: "◆ 容量：6g / 色號：Pale Lilac<br>◆ 製造國家：日本"
 },
 {
 id: "mogans-shampoo", brand: "MOGANS", nameEn: "Medicinal Amino Acid Scalp Care Shampoo", nameZh: "草花 藥用氨基酸頭皮護理洗髮水 300mL [醫藥部外品]", category: "other",
 badge: "日本醫藥部外品認證｜99% 天然植萃｜無矽靈蓬鬆｜甘草酸二鉀", price: "HK$ 198",
 images: ["https://i.imgur.com/yLSPC0Y.png","https://i.imgur.com/3ZQh86r.png","https://i.imgur.com/fUHffjk.png"],
-shortIntro: "藥用級頭皮護理 — 洗頭同時調理頭皮<br><br>專為頭皮屑、搔癢同出油問題而設嘅藥用洗髮水。以日本法規許可最高量嘅甘草酸二鉀調理頭皮，配合全氨基酸潔淨配方同 15 種氨基酸修護，洗後髮根清爽蓬鬆、唔扁塌。99% 以上植萃成分、無矽靈，敏感頭皮都用得。",
+shortIntro: "藥用級頭皮護理 — 洗頭同時調理頭皮<br><br>專為頭皮屑、痕癢與出油問題而設的藥用洗髮水。以日本法規許可最高含量的甘草酸二鉀調理頭皮，配合全氨基酸潔淨配方與 15 種氨基酸修護，洗後髮根清爽蓬鬆、不扁塌。99% 以上植萃成分，無矽靈，敏感頭皮亦可使用。",
 mainEffects: "預防頭皮屑與搔癢 ✧ 調理頭皮油脂 ✧ 清爽蓬鬆不扁塌 ✧ 修護受損髮絲",
-features: "✦ 最高量藥用有效成分<br>甘草酸二鉀（來自甘草）加到法規許可上限，針對頭皮屑、痕癢同油膩黏笠，抗炎抗敏，溫和調理頭皮環境。<br><br>✦ 全氨基酸潔淨 ＋ 15 種氨基酸<br>用天然氨基酸界面活性劑溫和洗淨，邊洗邊修補受損髮絲，維持頭皮同髮絲嘅水分平衡。<br><br>✦ 無矽靈・清爽蓬鬆<br>洗後髮根有空氣感，唔會扁塌 — 啱晒香港潮濕天氣、頭皮易出油嘅人。<br><br>✦ 12 種無添加<br>唔用矽、礦物油、合成香料、合成聚合物、苯氧乙醇、苯甲酸類防腐劑、DEA／MEA／TEA 等成分，追求護髮嘅本質。",
-usage: "將頭髮充分淋濕，取適量於掌心起泡，溫和按摩頭皮（唔好大力揉搓）。<strong>重要一步：</strong>畀泡沫喺頭皮停留約 1 分鐘，先至徹底沖洗，護理成分先發揮到。建議配合同系列護髮乳一齊用，調理效果更完整。",
-ingredients: "甘草酸二鉀、15 種氨基酸成分、甘草・芫荽等植萃精華",
+features: "✦ 最高量藥用有效成分<br>甘草酸二鉀（來自甘草）加到法規許可上限，針對頭皮屑、痕癢與油膩黏膩，抗炎抗敏，溫和調理頭皮環境。<br><br>✦ 全氨基酸潔淨 ＋ 15 種氨基酸<br>以天然氨基酸界面活性劑溫和潔淨，潔淨同時修補受損髮絲，維持頭皮同髮絲嘅水分平衡。<br><br>✦ 無矽靈・清爽蓬鬆<br>洗後髮根具空氣感，不易扁塌，適合香港潮濕天氣與容易出油的頭皮。<br><br>✦ 12 種無添加<br>不使用矽、礦物油、合成香料、合成聚合物、苯氧乙醇、苯甲酸類防腐劑、DEA／MEA／TEA 等成分，追求護髮的本質。",
+usage: "將頭髮充分淋濕，取適量於掌心起泡，溫和按摩頭皮（切勿大力揉搓）。<strong>重要一步：</strong>讓泡沫於頭皮停留約 1 分鐘，再徹底沖洗，護理成分方能充分發揮。建議配合同系列護髮乳使用，調理效果更完整。",
+ingredients: "Dipotassium Glycyrrhizate, Sodium Lauroyl Methyl Beta-Alaninate, Cocamidopropyl Betaine, Decyl Glucoside, Polyoxyethylene Cetostearyl Hydroxymyristylene Ether, Betaine, Citric Acid, Disodium EDTA, Glutamic Acid, Water, Polyquaternium-10, Caramel, Sodium PCA, PCA, Sodium Hydroxide, Sodium Lactate, PCA, Serine, Alanine, Glycine, Lysine HCl, Threonine, Arginine, Proline, Sodium Benzoate, Aspartic Acid, Valine, Isoleucine, Histidine, Phenylalanine, Alcohol, Swertia Japonica Extract, Capsicum Frutescens Fruit Extract, Alcohol, Sodium Glutamate, Cysteine, Methylchloroisothiazolinone/Methylisothiazolinone, Ethylhexylglycerin, Olea Europaea (Olive) Fruit Oil, Camellia Japonica Seed Oil, Helianthus Annuus (Sunflower) Seed Oil, Vitis Vinifera (Grape) Seed Oil, Oenothera Biennis (Evening Primrose) Oil, Fragrance, Citrus Aurantium Dulcis (Orange) Peel Oil",
 specs: "◆ 容量：300mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 3 年｜開封後建議 3 個月內使用完畢（以確保最佳護理活性）"
 },
 {
 id: "mogans-conditioner", brand: "MOGANS", nameEn: "Medicinal Amino Acid Scalp Care Treatment", nameZh: "草花 藥用氨基酸頭皮修護護髮乳 300mL [醫藥部外品]", category: "other",
 badge: "日本醫藥部外品認證｜99% 天然植萃｜可按摩頭皮｜甘草酸二鉀", price: "HK$ 298",
 images: ["https://i.imgur.com/U9odz9A.png","https://i.imgur.com/dPipWdp.png","https://i.imgur.com/CcmxxcZ.jpeg"],
-shortIntro: "可以按摩頭皮的護髮乳 — 頭皮與髮絲雙重護理<br><br>一般護髮乳要避開頭皮，呢款藥用護髮乳專為調理頭皮而設：可以直接塗抹並按摩頭皮，舒緩炎症，同時以氨基酸修復受損髮絲毛鱗片，洗後清爽順滑、不黏膩。",
+shortIntro: "可以按摩頭皮的護髮乳 — 頭皮與髮絲雙重護理<br><br>一般護髮乳需避開頭皮，此款藥用護髮乳專為調理頭皮而設：可直接塗抹並按摩頭皮，舒緩不適，同時以氨基酸修復受損髮絲的毛鱗片，洗後清爽順滑、不黏膩。",
 mainEffects: "預防頭皮屑與搔癢 ✧ 調理頭皮環境 ✧ 氨基酸深度修補 ✧ 清爽順滑",
-features: "✦ 高濃度甘草酸二鉀<br>同系列洗髮水一致嘅藥用有效成分，預防頭皮屑、搔癢同黏膩，適合容易泛紅、不安定嘅頭皮。<br><br>✦ 15 種氨基酸深度修補<br>由髮絲內部滲透修復，乾枯受損髮都回復水潤強健。<br><br>✦ 可直接按摩頭皮<br>塗抹後按摩頭皮，停留 5–10 分鐘再沖洗，好似幫頭皮敷精華面膜。",
-usage: "洗髮後取適量，由髮根至髮梢均勻塗抹，可由頭皮開始輕輕按摩，停留 5–10 分鐘後以清水沖洗（唔使過度沖洗，保留潤澤感）。",
-ingredients: "甘草酸二鉀、15 種氨基酸成分等",
+features: "✦ 高濃度甘草酸二鉀<br>同系列洗髮水一致嘅藥用有效成分，預防頭皮屑、搔癢同黏膩，適合容易泛紅、不穩定的頭皮。<br><br>✦ 15 種氨基酸深度修補<br>由髮絲內部滲透修復，乾枯受損髮都回復水潤強健。<br><br>✦ 可直接按摩頭皮<br>塗抹後按摩頭皮，停留 5–10 分鐘再沖洗，宛如為頭皮敷上精華面膜。",
+usage: "洗髮後取適量，由髮根至髮梢均勻塗抹，可由頭皮開始輕輕按摩，停留 5–10 分鐘後以清水沖洗（無需過度沖洗，保留潤澤感）。",
+ingredients: "Dipotassium Glycyrrhizate, Hydrogenated Rapeseed Alcohol, Behenyl Alcohol, Dimethyl Stearamine, Phytosteryl/Isostearyl/Cetyl/Stearyl/Behenyl Dimer Dilinoleate, Ethyl Isostearate, Octyldodecanol, Ethylhexylglycerin, Olea Europaea (Olive) Fruit Oil, Camellia Japonica Seed Oil, Helianthus Annuus (Sunflower) Seed Oil, Vitis Vinifera (Grape) Seed Oil, Oenothera Biennis (Evening Primrose) Oil, Water, Sodium Benzoate, Glutamic Acid, Lactic Acid, Sodium Dilauroyl Glutamate Lysine, Butylene Glycol, Methylchloroisothiazolinone/Methylisothiazolinone, Sodium Lactate, PCA, Sodium PCA, Arginine, Aspartic Acid, Sodium Hydroxide, Glycine, Alanine, Serine, Valine, Proline, Threonine, Isoleucine, Histidine, Phenylalanine, Alcohol, Swertia Japonica Extract, Capsicum Frutescens Fruit Extract, Alcohol, Betaine, PCA, Lysine HCl, Cysteine, Sodium Glutamate, Fragrance, Citrus Aurantium Dulcis (Orange) Peel Oil",
 specs: "◆ 容量：300mL<br>◆ 製造國家：日本<br>◆ 保存期限：未開封 3 年｜開封後建議 3 個月內使用完畢（以確保藥用成分活性）"
 },
 {
@@ -756,9 +760,9 @@ badge: "SPF31 PA+++｜物理防曬｜抗藍光微塵｜肥皂可卸", price: "HK
 images: ["https://i.imgur.com/DxpekK7.png","https://i.imgur.com/L7Sk1qA.png","https://i.imgur.com/wIJzUrR.png"],
 shortIntro: "以「肌膚保養延伸」為概念的修護防曬",
 mainEffects: "防曬隔離 ✧ 保濕滋潤 ✧ 自然提亮 ✧ 抵禦環境壓力",
-features: "✦ 6 種精選植物油<br>輕盈貼膚不厚重。",
+features: "✦ 物理防曬 SPF31 PA+++<br>適合日常通勤的防曬度數，物理防曬配方，對敏感肌友善。<br><br>✦ 6 種植物油・保養型底霜<br>以「肌膚保養的延伸」為概念，芝麻油、荷荷巴油等 6 種精選植物油於防曬同時保濕滋潤，不易乾燥卡粉。<br><br>✦ 抗藍光・抗微塵<br>針對都市生活每日面對的環境壓力 — 螢幕藍光與空氣微塵，為肌膚多添一層抵禦。<br><br>✦ 肥皂可卸・自然提亮<br>一般潔面即可卸除，無需另行卸妝；質地輕盈貼膚，自然提亮膚色，不厚重、不泛白。",
 usage: "完成護膚後取適量塗抹全臉。",
-ingredients: "芝麻籽油、荷荷巴籽油等",
+ingredients: "Water, Butylene Glycol, Glycerin, Squalane, Titanium Dioxide, Pentylene Glycol, Polyglyceryl-10 Diisostearate, Hydrated Silica, Hydrogenated Lecithin, Sesamum Indicum (Sesame) Seed Oil, Opuntia Ficus-Indica Seed Oil, Caryodendron Orinocense Seed Oil, Adansonia Digitata Seed Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Macadamia Ternifolia Seed Oil, Scutellaria Baicalensis Root Extract, Vaccinium Myrtillus Leaf Extract, Xanthan Gum, Silica, Potassium Hydroxide, Carbomer, Polyacrylate Crosspolymer-11, Phenoxyethanol, Alumina",
 specs: "◆ 容量：50g<br>◆ 製造國家：日本"
 }
 ];
@@ -819,7 +823,7 @@ body: `
 
 <div class="bg-[#faf9f7] border border-[#efeae1] rounded-lg p-5 mb-8 text-center">
 <p class="text-[14px] text-[#4a403a] mb-3">今晚開始，找回專屬你的高質量睡眠與好氣色！</p>
-<button onclick="openDetail('anmin-kombucha')" class="btn-wa-attractive px-6 py-2.5 text-[14px] font-medium">了解 ANMIN 康普茶詳情 →</button>
+<button onclick="openDetail('anmin-kombucha')" class="btn-wa-attractive px-6 py-2.5 text-[14px] font-medium">了解 ANMIN 康普茶詳情 <span class="sym3d">→</span></button>
 </div>
 `
 }
@@ -827,19 +831,19 @@ body: `
 
 const BRANDS = {
 "soel": { name: "soel", brandName: "soel", hero: "https://i.imgur.com/iFwmbdC.png",
-intro: "來自福岡縣久留米嘅有機護膚品牌。soel 相信肌膚唔需要多餘嘅嘢 — 招牌有機芝麻油以 15–17°C 低溫石臼慢磨、只取首道壓搾最珍貴嘅 20–30%，保留芝麻素同天然維他命 E。成個 LIVING-OIL 系列圍繞一個想法：洗臉後先油後水，用一支好油做導入，之後嘅保養先吸收得好。",
+intro: "來自福岡縣久留米的有機護膚品牌。soel 深信肌膚不需要多餘的成分 — 招牌有機芝麻油以 15–17°C 低溫石臼慢磨，只取首道壓搾最珍貴的 20–30%，完整保留芝麻素與天然維他命 E。整個 LIVING-OIL 系列圍繞一個理念：洗臉後先油後水，以一瓶好油作導入，其後的保養才更易吸收。",
 points: ["一番搾低溫石磨", "有機認證芝麻油", "洗臉後第一步導入"] },
 "supmile": { name: "Supmile", brandName: "Supmile", hero: "https://i.imgur.com/ghZizwU.png",
-intro: "以「肌膚食譜」為理念嘅日本植萃品牌：全系列 100% 天然來源成分，按肌膚需要精準配比，唔加多餘嘢。透過簡單、低負擔嘅日常保養，等肌膚重拾穩定同細緻。",
+intro: "以「肌膚食譜」為理念嘅日本植萃品牌：全系列 100% 天然來源成分，按肌膚需要精準配比，不添加多餘成分。透過簡單、低負擔的日常保養，令肌膚重拾穩定與細緻。",
 points: ["100% 天然來源成分", "不含酒精・無人工香料", "零化學合成（無石油系界面活性劑、Paraben、矽靈）", "包裝標明使用期限，新鮮度透明"] },
 "beige": { name: "beige+", brandName: "beige+", hero: "https://i.imgur.com/LsdBK8E.png",
-intro: "為敏感肌而設嘅保養型底妝品牌。以米色調為本，底妝用 90% 以上天然來源成分，加入煙鹼醯胺等護膚級成分 — 化妝嗰幾個鐘，同步保養，卸妝之後膚況依然穩定。",
+intro: "為敏感肌而設嘅保養型底妝品牌。以米色調為本，底妝用 90% 以上天然來源成分，加入煙鹼醯胺等護膚級成分 — 化妝的數小時同步保養，卸妝後膚況依然穩定。",
 points: ["底妝 8 大無添加", "物理防曬、肥皂可卸", "時短美妝，幾分鐘完成", "FSC 認證紙材＋植物油墨包裝"] },
 "mogans": { name: "MOGANS", brandName: "MOGANS", hero: "https://i.imgur.com/pUR2hz9.png",
-intro: "日本氨基酸洗護品牌，草花系列更加係醫藥部外品：唔係齋洗乾淨，而係調理頭皮環境。以法規許可最高量嘅甘草酸二鉀針對頭皮屑、痕癢同出油，配合氨基酸潔淨同修護，無矽靈、洗後清爽蓬鬆。",
-points: ["醫藥部外品認證", "99% 植萃、12 種無添加", "洗髮水＋可按摩頭皮護髮乳，成套用效果最完整"] },
+intro: "日本氨基酸洗護品牌，草花系列更是醫藥部外品：不止於潔淨，而是調理頭皮環境。以法規許可最高量嘅甘草酸二鉀針對頭皮屑、痕癢同出油，配合氨基酸潔淨與修護，無矽靈，洗後清爽蓬鬆。",
+points: ["醫藥部外品認證", "99% 植萃、12 種無添加", "洗髮水＋可按摩頭皮護髮乳，整套使用效果更完整"] },
 "anmin": { name: "ANMIN", brandName: "ANMIN", hero: "https://i.imgur.com/SLpYnRN.png",
-intro: "專為瞓得唔好嘅都市人而設嘅日本夜間修復飲品。ANMIN 相信睡眠、腸道同肌膚係連埋一齊嘅：睡前一杯康普茶，GABA 幫大腦放鬆、益生菌修復腸道、維他命 C 趁夜間黃金期抗氧。",
+intro: "專為睡眠質素欠佳的都市人而設的日本夜間修復飲品。ANMIN 相信睡眠、腸道與肌膚相互連繫：睡前一杯康普茶，GABA 幫助大腦放鬆、益生菌修復腸道、維他命 C 把握夜間黃金期抗氧。",
 points: ["500mg GABA＋L-茶氨酸", "1,000 億 EC-12 益生菌＋106 種植物發酵精華", "無咖啡因、無藥物依賴"] }
 };
 
@@ -858,7 +862,7 @@ document.getElementById('brand-content-area').innerHTML = `
 <img src="${b.hero}" alt="${b.name}" class="w-full object-contain" style="max-height:420px">
 </div>
 <div class="p-6 md:p-10 text-center">
-<p class="text-[11px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-2">Brand</p>
+<p class="text-[14px] tracking-[0.35em] uppercase text-[#b3c1a1] font-serif mb-2">Brand</p>
 <h2 class="text-3xl mb-4 font-serif">${b.name}</h2>
 <p class="text-[15px] text-[#4a403a] leading-relaxed max-w-2xl mx-auto">${b.intro}</p>
 <div class="detail-badges mt-6" style="justify-content:center">
@@ -1040,7 +1044,6 @@ detailArea.innerHTML = `
 WhatsApp 訂購
 </a>
 </div>
-<p class="hidden md:block text-[12px] text-[#999] mb-4">唔使即刻買，問吓用法同啱唔啱你膚質先都得 — 主理人親自回覆。</p>
 <div class="price-text detail-price md:hidden mb-4">${p.price}</div>
 <div class="text-[15px] mb-2 text-[#4a403a]">${p.shortIntro}</div>
 ${p.mainEffects ? `<div class="detail-effects"><strong>主要功效</strong>${p.mainEffects}</div>` : ''}
@@ -1140,7 +1143,7 @@ ${JOURNALS.map(j => `
 </div>
 <div class="p-5 flex justify-between items-center">
 <span class="text-[12px] text-[#aaa]">${j.date}</span>
-<span class="text-[13px] text-[#b3c1a1] font-medium">閱讀文章 →</span>
+<span class="text-[13px] text-[#b3c1a1] font-medium">閱讀文章 <span class="sym3d" style="text-shadow:1.5px 1.5px 0 rgba(44,36,32,0.4)">→</span></span>
 </div>
 </div>
 `).join('')}
